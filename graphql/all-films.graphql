@@ -1,0 +1,20 @@
+query allFilms {
+  films(orderBy: { releaseYear: desc }) {
+    directors {
+      alias
+      firstName
+      lastName
+    }
+    id
+    title
+    titleEN
+    releaseYear
+    image {
+      name
+      url
+    }
+    studio {
+      name
+    }
+  }
+}
