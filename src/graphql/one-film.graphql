@@ -1,0 +1,39 @@
+query oneFilm($id: String) {
+  film(where: { id: $id }) {
+    title
+    titleEN
+    image {
+      url
+    }
+    releaseYear
+    animators {
+      id
+      alias
+      firstName
+      lastName
+    }
+    composers {
+      id
+      alias
+      firstName
+      lastName
+    }
+    directors {
+      id
+      alias
+      firstName
+      lastName
+    }
+    releases {
+      country
+      images {
+        url
+      }
+      notes
+      region
+      releaseDay
+      releaseMonth
+      releaseYear
+    }
+  }
+}

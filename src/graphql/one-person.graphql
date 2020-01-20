@@ -1,0 +1,50 @@
+query onePerson($id: String) {
+  person(where: { id: $id }) {
+    alias
+    birthDay
+    birthMonth
+    birthYear
+    deathDay
+    deathMonth
+    deathYear
+    description
+    firstName
+    image {
+      copyright
+      name
+      url
+    }
+    kanji
+    lastName
+    animated(orderBy: { releaseYear: asc }) {
+      id
+      image {
+        name
+        url
+      }
+      releaseYear
+      title
+      titleEN
+    }
+    directed(orderBy: { releaseYear: asc }) {
+      id
+      image {
+        name
+        url
+      }
+      releaseYear
+      title
+      titleEN
+    }
+    composed(orderBy: { releaseYear: asc }) {
+      id
+      image {
+        name
+        url
+      }
+      releaseYear
+      title
+      titleEN
+    }
+  }
+}
