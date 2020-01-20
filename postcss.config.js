@@ -1,15 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const cssnano = require('cssnano');
+const postcssEasyImport = require('postcss-easy-import');
 const postcssPresetEnv = require('postcss-preset-env');
 
 module.exports = {
   plugins: [
+    postcssEasyImport(), // import must be first!
     postcssPresetEnv({
-      /*
-        https://preset-env.cssdb.org/features
-        Feel free to opt into css features as you want them, by restricting
-        it to features we are not importing unless we need the polyfil.
-      */
+      // https://preset-env.cssdb.org/features
       autoprefixer: {
         cascade: false,
       },

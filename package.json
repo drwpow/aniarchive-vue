@@ -5,39 +5,54 @@
     "name": "Drew Powers"
   },
   "scripts": {
-    "build": "next build",
-    "dev": "next",
+    "build": "npm run build:copy && NODE_ENV=production npm run build:css && npm run build:gql && tsc",
+    "build:copy": "cpx 'src/*.html' public",
+    "build:css": "postcss src/styles.css -o public/app.min.css",
+    "build:css:watch": "postcss -w src/styles.css -o public/app.min.css",
+    "build:gql": "node scripts/graphql",
+    "build:watch": "concurrently 'tsc -w' 'npm run build:copy --watch' 'npm run build:css:watch'",
+    "dev": "concurrently 'npm run build:watch' 'npm start'",
     "generate:gql": "graphql-codegen --config codegen.yml",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "start": "next start"
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
+    "postinstall": "NODE_ENV=production snowpack --dest public/web_modules --optimize --clean --nomodule src/index.tsx --nomodule-output public/app.nomodule.js",
+    "start": "serve -s public"
+  },
+  "snowpack": {
+    "webDependencies": [
+      "preact",
+      "preact/hooks",
+      "preact-router"
+    ]
   },
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
     "cssnano": "^4.1.10",
-    "isomorphic-fetch": "^2.2.1",
-    "next": "^9.2.0",
-    "raw-loader": "^4.0.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "postcss-cli": "^7.1.0",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "preact": "^10.2.1",
+    "preact-router": "^3.1.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.11.2",
     "@graphql-codegen/typescript": "^1.8.2",
     "@graphql-codegen/typescript-operations": "^1.8.2",
-    "@types/isomorphic-fetch": "0.0.35",
     "@types/node": "^13.1.8",
-    "@types/react": "^16.9.17",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
+    "concurrently": "^5.0.2",
+    "cpx": "^1.5.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^2.3.0",
+    "gqlmin": "0.0.1",
     "prettier": "^1.19.1",
+    "serve": "^11.3.0",
+    "snowpack": "^1.0.5",
     "typescript": "^3.7.5"
   }
 }

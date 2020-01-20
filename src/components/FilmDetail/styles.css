@@ -1,0 +1,19 @@
+.filmDetail {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: 12rem auto;
+}
+
+.filmDetail-img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.filmDetail-subtitle {
+  font-size: var(--u1);
+}
+
+.filmDetail-title {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}

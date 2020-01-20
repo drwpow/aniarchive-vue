@@ -1,0 +1,40 @@
+.personDetail {
+  display: grid;
+  grid-template-columns: 20rem auto;
+  grid-gap: 1.5rem;
+}
+
+.personDetail-img {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.personDetail-film {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: 4rem auto;
+  margin-block-end: 1rem;
+  margin-block-start: 1rem;
+}
+
+.personDetail-film-img {
+  border-radius: 0.25rem;
+  height: auto;
+  overflow: hidden;
+  width: 4rem;
+}
+
+.personDetail-stats {
+  display: grid;
+  grid-template-columns: 8rem auto;
+  grid-gap: 1.5rem;
+
+  & dt {
+    font-weight: 700;
+  }
+
+  & dd {
+    margin: 0;
+  }
+}
