@@ -52,7 +52,7 @@
     "gqlmin": "0.0.1",
     "prettier": "^1.19.1",
     "serve": "^11.3.0",
-    "snowpack": "^1.0.5",
+    "snowpack": "^1.1.0",
     "typescript": "^3.7.5"
   }
 }
