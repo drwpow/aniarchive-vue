@@ -38,7 +38,7 @@
     "@graphql-codegen/typescript-operations": "^1.8.2",
     "@types/node": "^13.1.8",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
-    "@typescript-eslint/parser": "^2.16.0",
+    "@typescript-eslint/parser": "^2.18.0",
     "concurrently": "^5.0.2",
     "cpx": "^1.5.0",
     "eslint": "^6.8.0",
