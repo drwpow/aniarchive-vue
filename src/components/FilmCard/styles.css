@@ -20,11 +20,17 @@
 .filmCard-img {
   border-radius: 0.25rem;
   display: block;
-  height: auto;
   margin-bottom: 0.5rem;
   max-width: 100%;
+  height: calc(300px / var(--oneSheet));
   overflow: hidden;
   width: 300px;
+
+  & img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
 }
 
 .filmCard-year {

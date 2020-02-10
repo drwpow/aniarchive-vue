@@ -1,5 +1,5 @@
 .filmGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
   grid-gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
 }

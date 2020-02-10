@@ -4,16 +4,24 @@
   grid-template-columns: 12rem auto;
 }
 
+.filmDetail-animations {
+  margin-block-start: 3rem;
+}
+
 .filmDetail-img {
   max-width: 100%;
   width: 100%;
 }
 
-.filmDetail-subtitle {
-  font-size: var(--u1);
-}
-
 .filmDetail-title {
+  font-size: var(--u4);
+  font-weight: 300;
   margin-block-end: 0;
   margin-block-start: 0;
+}
+
+.filmDetail-subtitle {
+  font-size: var(--u3);
+  margin-block-end: 1rem;
+  margin-block-start: 1rem;
 }

@@ -1,0 +1,19 @@
+.personLink {
+  display: inline-block;
+}
+
+.personLink-avatar {
+  border-radius: 50%;
+  display: inline-block;
+  height: 2rem;
+  margin-inline-end: 0.75em;
+  overflow: hidden;
+  vertical-align: middle;
+  width: 2rem;
+
+  & img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
