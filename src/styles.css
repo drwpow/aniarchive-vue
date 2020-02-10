@@ -1,11 +1,16 @@
 @import './components/**/*.css';
 
 :root {
+  --black: 0, 0%, 0%;
+  --black-offset: 0, 0%, 6%;
+  --white: 0, 0%, 100%;
+  --white-offset: 0, 0%, 94%;
+
   /* color */
-  --fg: 0, 0%, 0%;
-  --fg-offset: 0, 0%, 6%;
-  --bg: 0, 0%, 100%;
-  --bg-offset: 0, 0%, 94%;
+  --fg: var(--black);
+  --fg-offset: var(--black-offset);
+  --bg: var(--white);
+  --bg-offset: var(--white-offset);
 
   /* font */
   --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
@@ -68,9 +73,9 @@ a {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --fg: 0, 0%, 100%;
-    --fg-offset: 0, 0%, 94%;
-    --bg: 0, 0%, 0%;
-    --bg-offset: 0, 0%, 6%;
+    --fg: var(--white);
+    --fg-offset: var(--white-offset);
+    --bg: var(--black);
+    --bg-offset: var(--black-offset);
   }
 }

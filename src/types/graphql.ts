@@ -8,6 +8,257 @@ export type Scalars = {
   Float: number,
 };
 
+export type AnimationSequence = {
+   __typename?: 'AnimationSequence',
+  id: Scalars['String'],
+  film: Film,
+  image: Image,
+  artists: Array<Person>,
+  url: Scalars['String'],
+  timestampStart?: Maybe<Scalars['Int']>,
+  timestampEnd?: Maybe<Scalars['Int']>,
+  notes?: Maybe<Scalars['String']>,
+};
+
+
+export type AnimationSequenceArtistsArgs = {
+  where?: Maybe<AnimationSequenceArtistsWhereInput>,
+  orderBy?: Maybe<AnimationSequenceArtistsOrderByInput>,
+  skip?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>
+};
+
+export type AnimationSequenceArtistsOrderByInput = {
+  lastName?: Maybe<OrderByArg>,
+  firstName?: Maybe<OrderByArg>,
+  alias?: Maybe<OrderByArg>,
+  country?: Maybe<OrderByArg>,
+  birthYear?: Maybe<OrderByArg>,
+};
+
+export type AnimationSequenceArtistsWhereInput = {
+  country?: Maybe<Country>,
+  birthYear?: Maybe<NullableIntFilter>,
+};
+
+export type AnimationSequenceCreateInput = {
+  id?: Maybe<Scalars['String']>,
+  notes?: Maybe<Scalars['String']>,
+  timestampStart?: Maybe<Scalars['Int']>,
+  timestampEnd?: Maybe<Scalars['Int']>,
+  url: Scalars['String'],
+  artists?: Maybe<PersonCreateManyWithoutAnimationSequencesInput>,
+  film: FilmCreateOneWithoutAnimationSequencesInput,
+  image: ImageCreateOneWithoutAnimationSequencesInput,
+};
+
+export type AnimationSequenceCreateManyWithoutArtistsInput = {
+  create?: Maybe<Array<AnimationSequenceCreateWithoutArtistsInput>>,
+  connect?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+};
+
+export type AnimationSequenceCreateManyWithoutFilmInput = {
+  create?: Maybe<Array<AnimationSequenceCreateWithoutFilmInput>>,
+  connect?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+};
+
+export type AnimationSequenceCreateManyWithoutImageInput = {
+  create?: Maybe<Array<AnimationSequenceCreateWithoutImageInput>>,
+  connect?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+};
+
+export type AnimationSequenceCreateWithoutArtistsInput = {
+  id?: Maybe<Scalars['String']>,
+  notes?: Maybe<Scalars['String']>,
+  timestampStart?: Maybe<Scalars['Int']>,
+  timestampEnd?: Maybe<Scalars['Int']>,
+  url: Scalars['String'],
+  film: FilmCreateOneWithoutAnimationSequencesInput,
+  image: ImageCreateOneWithoutAnimationSequencesInput,
+};
+
+export type AnimationSequenceCreateWithoutFilmInput = {
+  id?: Maybe<Scalars['String']>,
+  notes?: Maybe<Scalars['String']>,
+  timestampStart?: Maybe<Scalars['Int']>,
+  timestampEnd?: Maybe<Scalars['Int']>,
+  url: Scalars['String'],
+  artists?: Maybe<PersonCreateManyWithoutAnimationSequencesInput>,
+  image: ImageCreateOneWithoutAnimationSequencesInput,
+};
+
+export type AnimationSequenceCreateWithoutImageInput = {
+  id?: Maybe<Scalars['String']>,
+  notes?: Maybe<Scalars['String']>,
+  timestampStart?: Maybe<Scalars['Int']>,
+  timestampEnd?: Maybe<Scalars['Int']>,
+  url: Scalars['String'],
+  artists?: Maybe<PersonCreateManyWithoutAnimationSequencesInput>,
+  film: FilmCreateOneWithoutAnimationSequencesInput,
+};
+
+export type AnimationSequenceFilter = {
+  every?: Maybe<AnimationSequenceWhereInput>,
+  some?: Maybe<AnimationSequenceWhereInput>,
+  none?: Maybe<AnimationSequenceWhereInput>,
+};
+
+export type AnimationSequenceScalarWhereInput = {
+  id?: Maybe<StringFilter>,
+  artists?: Maybe<PersonFilter>,
+  notes?: Maybe<NullableStringFilter>,
+  timestampStart?: Maybe<NullableIntFilter>,
+  timestampEnd?: Maybe<NullableIntFilter>,
+  url?: Maybe<StringFilter>,
+  AND?: Maybe<Array<AnimationSequenceScalarWhereInput>>,
+  OR?: Maybe<Array<AnimationSequenceScalarWhereInput>>,
+  NOT?: Maybe<Array<AnimationSequenceScalarWhereInput>>,
+};
+
+export type AnimationSequenceUpdateInput = {
+  id?: Maybe<Scalars['String']>,
+  notes?: Maybe<Scalars['String']>,
+  timestampStart?: Maybe<Scalars['Int']>,
+  timestampEnd?: Maybe<Scalars['Int']>,
+  url?: Maybe<Scalars['String']>,
+  artists?: Maybe<PersonUpdateManyWithoutAnimationSequencesInput>,
+  film?: Maybe<FilmUpdateOneRequiredWithoutAnimationSequencesInput>,
+  image?: Maybe<ImageUpdateOneRequiredWithoutAnimationSequencesInput>,
+};
+
+export type AnimationSequenceUpdateManyDataInput = {
+  id?: Maybe<Scalars['String']>,
+  notes?: Maybe<Scalars['String']>,
+  timestampStart?: Maybe<Scalars['Int']>,
+  timestampEnd?: Maybe<Scalars['Int']>,
+  url?: Maybe<Scalars['String']>,
+};
+
+export type AnimationSequenceUpdateManyWithoutArtistsInput = {
+  create?: Maybe<Array<AnimationSequenceCreateWithoutArtistsInput>>,
+  connect?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+  set?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+  disconnect?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+  delete?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+  update?: Maybe<Array<AnimationSequenceUpdateWithWhereUniqueWithoutArtistsInput>>,
+  updateMany?: Maybe<Array<AnimationSequenceUpdateManyWithWhereNestedInput>>,
+  deleteMany?: Maybe<Array<AnimationSequenceScalarWhereInput>>,
+  upsert?: Maybe<Array<AnimationSequenceUpsertWithWhereUniqueWithoutArtistsInput>>,
+};
+
+export type AnimationSequenceUpdateManyWithoutFilmInput = {
+  create?: Maybe<Array<AnimationSequenceCreateWithoutFilmInput>>,
+  connect?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+  set?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+  disconnect?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+  delete?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+  update?: Maybe<Array<AnimationSequenceUpdateWithWhereUniqueWithoutFilmInput>>,
+  updateMany?: Maybe<Array<AnimationSequenceUpdateManyWithWhereNestedInput>>,
+  deleteMany?: Maybe<Array<AnimationSequenceScalarWhereInput>>,
+  upsert?: Maybe<Array<AnimationSequenceUpsertWithWhereUniqueWithoutFilmInput>>,
+};
+
+export type AnimationSequenceUpdateManyWithoutImageInput = {
+  create?: Maybe<Array<AnimationSequenceCreateWithoutImageInput>>,
+  connect?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+  set?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+  disconnect?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+  delete?: Maybe<Array<AnimationSequenceWhereUniqueInput>>,
+  update?: Maybe<Array<AnimationSequenceUpdateWithWhereUniqueWithoutImageInput>>,
+  updateMany?: Maybe<Array<AnimationSequenceUpdateManyWithWhereNestedInput>>,
+  deleteMany?: Maybe<Array<AnimationSequenceScalarWhereInput>>,
+  upsert?: Maybe<Array<AnimationSequenceUpsertWithWhereUniqueWithoutImageInput>>,
+};
+
+export type AnimationSequenceUpdateManyWithWhereNestedInput = {
+  where: AnimationSequenceScalarWhereInput,
+  data: AnimationSequenceUpdateManyDataInput,
+};
+
+export type AnimationSequenceUpdateWithoutArtistsDataInput = {
+  id?: Maybe<Scalars['String']>,
+  notes?: Maybe<Scalars['String']>,
+  timestampStart?: Maybe<Scalars['Int']>,
+  timestampEnd?: Maybe<Scalars['Int']>,
+  url?: Maybe<Scalars['String']>,
+  film?: Maybe<FilmUpdateOneRequiredWithoutAnimationSequencesInput>,
+  image?: Maybe<ImageUpdateOneRequiredWithoutAnimationSequencesInput>,
+};
+
+export type AnimationSequenceUpdateWithoutFilmDataInput = {
+  id?: Maybe<Scalars['String']>,
+  notes?: Maybe<Scalars['String']>,
+  timestampStart?: Maybe<Scalars['Int']>,
+  timestampEnd?: Maybe<Scalars['Int']>,
+  url?: Maybe<Scalars['String']>,
+  artists?: Maybe<PersonUpdateManyWithoutAnimationSequencesInput>,
+  image?: Maybe<ImageUpdateOneRequiredWithoutAnimationSequencesInput>,
+};
+
+export type AnimationSequenceUpdateWithoutImageDataInput = {
+  id?: Maybe<Scalars['String']>,
+  notes?: Maybe<Scalars['String']>,
+  timestampStart?: Maybe<Scalars['Int']>,
+  timestampEnd?: Maybe<Scalars['Int']>,
+  url?: Maybe<Scalars['String']>,
+  artists?: Maybe<PersonUpdateManyWithoutAnimationSequencesInput>,
+  film?: Maybe<FilmUpdateOneRequiredWithoutAnimationSequencesInput>,
+};
+
+export type AnimationSequenceUpdateWithWhereUniqueWithoutArtistsInput = {
+  where: AnimationSequenceWhereUniqueInput,
+  data: AnimationSequenceUpdateWithoutArtistsDataInput,
+};
+
+export type AnimationSequenceUpdateWithWhereUniqueWithoutFilmInput = {
+  where: AnimationSequenceWhereUniqueInput,
+  data: AnimationSequenceUpdateWithoutFilmDataInput,
+};
+
+export type AnimationSequenceUpdateWithWhereUniqueWithoutImageInput = {
+  where: AnimationSequenceWhereUniqueInput,
+  data: AnimationSequenceUpdateWithoutImageDataInput,
+};
+
+export type AnimationSequenceUpsertWithWhereUniqueWithoutArtistsInput = {
+  where: AnimationSequenceWhereUniqueInput,
+  update: AnimationSequenceUpdateWithoutArtistsDataInput,
+  create: AnimationSequenceCreateWithoutArtistsInput,
+};
+
+export type AnimationSequenceUpsertWithWhereUniqueWithoutFilmInput = {
+  where: AnimationSequenceWhereUniqueInput,
+  update: AnimationSequenceUpdateWithoutFilmDataInput,
+  create: AnimationSequenceCreateWithoutFilmInput,
+};
+
+export type AnimationSequenceUpsertWithWhereUniqueWithoutImageInput = {
+  where: AnimationSequenceWhereUniqueInput,
+  update: AnimationSequenceUpdateWithoutImageDataInput,
+  create: AnimationSequenceCreateWithoutImageInput,
+};
+
+export type AnimationSequenceWhereInput = {
+  id?: Maybe<StringFilter>,
+  artists?: Maybe<PersonFilter>,
+  notes?: Maybe<NullableStringFilter>,
+  timestampStart?: Maybe<NullableIntFilter>,
+  timestampEnd?: Maybe<NullableIntFilter>,
+  url?: Maybe<StringFilter>,
+  AND?: Maybe<Array<AnimationSequenceWhereInput>>,
+  OR?: Maybe<Array<AnimationSequenceWhereInput>>,
+  NOT?: Maybe<Array<AnimationSequenceWhereInput>>,
+  film?: Maybe<FilmWhereInput>,
+  image?: Maybe<ImageWhereInput>,
+};
+
+export type AnimationSequenceWhereUniqueInput = {
+  id?: Maybe<Scalars['String']>,
+};
+
 export enum Country {
   Au = 'AU',
   Br = 'BR',
@@ -28,23 +279,22 @@ export enum Country {
 export type Film = {
    __typename?: 'Film',
   id: Scalars['String'],
-  animators: Array<Person>,
-  composers: Array<Person>,
-  directors: Array<Person>,
-  image: Image,
-  releases: Array<Release>,
-  releaseYear: Scalars['Int'],
-  studio?: Maybe<Studio>,
-  trailer?: Maybe<Scalars['String']>,
   title: Scalars['String'],
   titleEN: Scalars['String'],
   titleJP: Scalars['String'],
+  releaseYear: Scalars['Int'],
+  image: Image,
+  studio?: Maybe<Studio>,
+  trailer?: Maybe<Scalars['String']>,
+  animationSequences: Array<AnimationSequence>,
+  composers: Array<Person>,
+  directors: Array<Person>,
+  writers: Array<Person>,
+  releases: Array<Release>,
 };
 
 
-export type FilmAnimatorsArgs = {
-  where?: Maybe<FilmAnimatorsWhereInput>,
-  orderBy?: Maybe<FilmAnimatorsOrderByInput>,
+export type FilmAnimationSequencesArgs = {
   skip?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>,
@@ -75,222 +325,206 @@ export type FilmDirectorsArgs = {
 };
 
 
-export type FilmReleasesArgs = {
-  orderBy?: Maybe<FilmReleasesOrderByInput>,
+export type FilmWritersArgs = {
+  where?: Maybe<FilmWritersWhereInput>,
+  orderBy?: Maybe<FilmWritersOrderByInput>,
   skip?: Maybe<Scalars['Int']>,
-  after?: Maybe<Scalars['ID']>,
-  before?: Maybe<Scalars['ID']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
   first?: Maybe<Scalars['Int']>,
   last?: Maybe<Scalars['Int']>
 };
 
-export type FilmAnimatorsOrderByInput = {
-  alias?: Maybe<OrderByArg>,
-  birthYear?: Maybe<OrderByArg>,
-  country?: Maybe<OrderByArg>,
-  firstName?: Maybe<OrderByArg>,
-  lastName?: Maybe<OrderByArg>,
-};
 
-export type FilmAnimatorsWhereInput = {
-  birthYear?: Maybe<NullableIntFilter>,
-  country?: Maybe<Country>,
+export type FilmReleasesArgs = {
+  orderBy?: Maybe<FilmReleasesOrderByInput>,
+  skip?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>
 };
 
 export type FilmComposersOrderByInput = {
-  alias?: Maybe<OrderByArg>,
-  birthYear?: Maybe<OrderByArg>,
-  country?: Maybe<OrderByArg>,
-  firstName?: Maybe<OrderByArg>,
   lastName?: Maybe<OrderByArg>,
+  firstName?: Maybe<OrderByArg>,
+  alias?: Maybe<OrderByArg>,
+  country?: Maybe<OrderByArg>,
+  birthYear?: Maybe<OrderByArg>,
 };
 
 export type FilmComposersWhereInput = {
-  birthYear?: Maybe<NullableIntFilter>,
   country?: Maybe<Country>,
+  birthYear?: Maybe<NullableIntFilter>,
 };
 
 export type FilmCreateInput = {
   id: Scalars['String'],
-  releaseYear: Scalars['Int'],
   title: Scalars['String'],
   titleJP: Scalars['String'],
   titleEN: Scalars['String'],
+  releaseYear: Scalars['Int'],
   trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonCreateManyWithoutAnimatorsInput>,
-  composers?: Maybe<PersonCreateManyWithoutComposersInput>,
-  directors?: Maybe<PersonCreateManyWithoutDirectorsInput>,
-  frameSequences?: Maybe<FrameSequenceCreateManyWithoutFrameSequencesInput>,
-  image: ImageCreateOneWithoutImageInput,
-  releases?: Maybe<ReleaseCreateManyWithoutReleasesInput>,
-  studio?: Maybe<StudioCreateOneWithoutStudioInput>,
-  person?: Maybe<PersonCreateOneWithoutPersonInput>,
+  image: ImageCreateOneWithoutFilmsInput,
+  releases?: Maybe<ReleaseCreateManyWithoutFilmInput>,
+  studio?: Maybe<StudioCreateOneWithoutFilmsInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutFilmInput>,
+  composers?: Maybe<PersonCreateManyWithoutComposedInput>,
+  directors?: Maybe<PersonCreateManyWithoutDirectedInput>,
+  writers?: Maybe<PersonCreateManyWithoutWroteInput>,
 };
 
-export type FilmCreateManyWithoutAnimatedInput = {
-  create?: Maybe<Array<FilmCreateWithoutPersonInput>>,
-  connect?: Maybe<Array<FilmWhereUniqueInput>>,
-};
-
-export type FilmCreateManyWithoutComposedInput = {
+export type FilmCreateManyWithoutComposersInput = {
   create?: Maybe<Array<FilmCreateWithoutComposersInput>>,
   connect?: Maybe<Array<FilmWhereUniqueInput>>,
 };
 
-export type FilmCreateManyWithoutDirectedInput = {
+export type FilmCreateManyWithoutDirectorsInput = {
   create?: Maybe<Array<FilmCreateWithoutDirectorsInput>>,
   connect?: Maybe<Array<FilmWhereUniqueInput>>,
 };
 
-export type FilmCreateManyWithoutFilmsInput = {
+export type FilmCreateManyWithoutImageInput = {
+  create?: Maybe<Array<FilmCreateWithoutImageInput>>,
+  connect?: Maybe<Array<FilmWhereUniqueInput>>,
+};
+
+export type FilmCreateManyWithoutStudioInput = {
   create?: Maybe<Array<FilmCreateWithoutStudioInput>>,
   connect?: Maybe<Array<FilmWhereUniqueInput>>,
 };
 
-export type FilmCreateOneWithoutFilmInput = {
-  create?: Maybe<FilmCreateWithoutAnimatorsInput>,
+export type FilmCreateManyWithoutWritersInput = {
+  create?: Maybe<Array<FilmCreateWithoutWritersInput>>,
+  connect?: Maybe<Array<FilmWhereUniqueInput>>,
+};
+
+export type FilmCreateOneWithoutAnimationSequencesInput = {
+  create?: Maybe<FilmCreateWithoutAnimationSequencesInput>,
   connect?: Maybe<FilmWhereUniqueInput>,
 };
 
-export type FilmCreateWithoutAnimatorsInput = {
+export type FilmCreateOneWithoutReleasesInput = {
+  create?: Maybe<FilmCreateWithoutReleasesInput>,
+  connect?: Maybe<FilmWhereUniqueInput>,
+};
+
+export type FilmCreateWithoutAnimationSequencesInput = {
   id: Scalars['String'],
-  releaseYear: Scalars['Int'],
   title: Scalars['String'],
   titleJP: Scalars['String'],
   titleEN: Scalars['String'],
+  releaseYear: Scalars['Int'],
   trailer?: Maybe<Scalars['String']>,
-  composers?: Maybe<PersonCreateManyWithoutComposersInput>,
-  directors?: Maybe<PersonCreateManyWithoutDirectorsInput>,
-  frameSequences?: Maybe<FrameSequenceCreateManyWithoutFrameSequencesInput>,
-  image: ImageCreateOneWithoutImageInput,
-  releases?: Maybe<ReleaseCreateManyWithoutReleasesInput>,
-  studio?: Maybe<StudioCreateOneWithoutStudioInput>,
-  person?: Maybe<PersonCreateOneWithoutPersonInput>,
+  image: ImageCreateOneWithoutFilmsInput,
+  releases?: Maybe<ReleaseCreateManyWithoutFilmInput>,
+  studio?: Maybe<StudioCreateOneWithoutFilmsInput>,
+  composers?: Maybe<PersonCreateManyWithoutComposedInput>,
+  directors?: Maybe<PersonCreateManyWithoutDirectedInput>,
+  writers?: Maybe<PersonCreateManyWithoutWroteInput>,
 };
 
 export type FilmCreateWithoutComposersInput = {
   id: Scalars['String'],
-  releaseYear: Scalars['Int'],
   title: Scalars['String'],
   titleJP: Scalars['String'],
   titleEN: Scalars['String'],
+  releaseYear: Scalars['Int'],
   trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonCreateManyWithoutAnimatorsInput>,
-  directors?: Maybe<PersonCreateManyWithoutDirectorsInput>,
-  frameSequences?: Maybe<FrameSequenceCreateManyWithoutFrameSequencesInput>,
-  image: ImageCreateOneWithoutImageInput,
-  releases?: Maybe<ReleaseCreateManyWithoutReleasesInput>,
-  studio?: Maybe<StudioCreateOneWithoutStudioInput>,
-  person?: Maybe<PersonCreateOneWithoutPersonInput>,
+  image: ImageCreateOneWithoutFilmsInput,
+  releases?: Maybe<ReleaseCreateManyWithoutFilmInput>,
+  studio?: Maybe<StudioCreateOneWithoutFilmsInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutFilmInput>,
+  directors?: Maybe<PersonCreateManyWithoutDirectedInput>,
+  writers?: Maybe<PersonCreateManyWithoutWroteInput>,
 };
 
 export type FilmCreateWithoutDirectorsInput = {
   id: Scalars['String'],
-  releaseYear: Scalars['Int'],
   title: Scalars['String'],
   titleJP: Scalars['String'],
   titleEN: Scalars['String'],
-  trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonCreateManyWithoutAnimatorsInput>,
-  composers?: Maybe<PersonCreateManyWithoutComposersInput>,
-  frameSequences?: Maybe<FrameSequenceCreateManyWithoutFrameSequencesInput>,
-  image: ImageCreateOneWithoutImageInput,
-  releases?: Maybe<ReleaseCreateManyWithoutReleasesInput>,
-  studio?: Maybe<StudioCreateOneWithoutStudioInput>,
-  person?: Maybe<PersonCreateOneWithoutPersonInput>,
-};
-
-export type FilmCreateWithoutFrameSequencesInput = {
-  id: Scalars['String'],
   releaseYear: Scalars['Int'],
-  title: Scalars['String'],
-  titleJP: Scalars['String'],
-  titleEN: Scalars['String'],
   trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonCreateManyWithoutAnimatorsInput>,
-  composers?: Maybe<PersonCreateManyWithoutComposersInput>,
-  directors?: Maybe<PersonCreateManyWithoutDirectorsInput>,
-  image: ImageCreateOneWithoutImageInput,
-  releases?: Maybe<ReleaseCreateManyWithoutReleasesInput>,
-  studio?: Maybe<StudioCreateOneWithoutStudioInput>,
-  person?: Maybe<PersonCreateOneWithoutPersonInput>,
+  image: ImageCreateOneWithoutFilmsInput,
+  releases?: Maybe<ReleaseCreateManyWithoutFilmInput>,
+  studio?: Maybe<StudioCreateOneWithoutFilmsInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutFilmInput>,
+  composers?: Maybe<PersonCreateManyWithoutComposedInput>,
+  writers?: Maybe<PersonCreateManyWithoutWroteInput>,
 };
 
 export type FilmCreateWithoutImageInput = {
   id: Scalars['String'],
-  releaseYear: Scalars['Int'],
   title: Scalars['String'],
   titleJP: Scalars['String'],
   titleEN: Scalars['String'],
-  trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonCreateManyWithoutAnimatorsInput>,
-  composers?: Maybe<PersonCreateManyWithoutComposersInput>,
-  directors?: Maybe<PersonCreateManyWithoutDirectorsInput>,
-  frameSequences?: Maybe<FrameSequenceCreateManyWithoutFrameSequencesInput>,
-  releases?: Maybe<ReleaseCreateManyWithoutReleasesInput>,
-  studio?: Maybe<StudioCreateOneWithoutStudioInput>,
-  person?: Maybe<PersonCreateOneWithoutPersonInput>,
-};
-
-export type FilmCreateWithoutPersonInput = {
-  id: Scalars['String'],
   releaseYear: Scalars['Int'],
-  title: Scalars['String'],
-  titleJP: Scalars['String'],
-  titleEN: Scalars['String'],
   trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonCreateManyWithoutAnimatorsInput>,
-  composers?: Maybe<PersonCreateManyWithoutComposersInput>,
-  directors?: Maybe<PersonCreateManyWithoutDirectorsInput>,
-  frameSequences?: Maybe<FrameSequenceCreateManyWithoutFrameSequencesInput>,
-  image: ImageCreateOneWithoutImageInput,
-  releases?: Maybe<ReleaseCreateManyWithoutReleasesInput>,
-  studio?: Maybe<StudioCreateOneWithoutStudioInput>,
+  releases?: Maybe<ReleaseCreateManyWithoutFilmInput>,
+  studio?: Maybe<StudioCreateOneWithoutFilmsInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutFilmInput>,
+  composers?: Maybe<PersonCreateManyWithoutComposedInput>,
+  directors?: Maybe<PersonCreateManyWithoutDirectedInput>,
+  writers?: Maybe<PersonCreateManyWithoutWroteInput>,
 };
 
 export type FilmCreateWithoutReleasesInput = {
   id: Scalars['String'],
-  releaseYear: Scalars['Int'],
   title: Scalars['String'],
   titleJP: Scalars['String'],
   titleEN: Scalars['String'],
+  releaseYear: Scalars['Int'],
   trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonCreateManyWithoutAnimatorsInput>,
-  composers?: Maybe<PersonCreateManyWithoutComposersInput>,
-  directors?: Maybe<PersonCreateManyWithoutDirectorsInput>,
-  frameSequences?: Maybe<FrameSequenceCreateManyWithoutFrameSequencesInput>,
-  image: ImageCreateOneWithoutImageInput,
-  studio?: Maybe<StudioCreateOneWithoutStudioInput>,
-  person?: Maybe<PersonCreateOneWithoutPersonInput>,
+  image: ImageCreateOneWithoutFilmsInput,
+  studio?: Maybe<StudioCreateOneWithoutFilmsInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutFilmInput>,
+  composers?: Maybe<PersonCreateManyWithoutComposedInput>,
+  directors?: Maybe<PersonCreateManyWithoutDirectedInput>,
+  writers?: Maybe<PersonCreateManyWithoutWroteInput>,
 };
 
 export type FilmCreateWithoutStudioInput = {
   id: Scalars['String'],
-  releaseYear: Scalars['Int'],
   title: Scalars['String'],
   titleJP: Scalars['String'],
   titleEN: Scalars['String'],
+  releaseYear: Scalars['Int'],
   trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonCreateManyWithoutAnimatorsInput>,
-  composers?: Maybe<PersonCreateManyWithoutComposersInput>,
-  directors?: Maybe<PersonCreateManyWithoutDirectorsInput>,
-  frameSequences?: Maybe<FrameSequenceCreateManyWithoutFrameSequencesInput>,
-  image: ImageCreateOneWithoutImageInput,
-  releases?: Maybe<ReleaseCreateManyWithoutReleasesInput>,
-  person?: Maybe<PersonCreateOneWithoutPersonInput>,
+  image: ImageCreateOneWithoutFilmsInput,
+  releases?: Maybe<ReleaseCreateManyWithoutFilmInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutFilmInput>,
+  composers?: Maybe<PersonCreateManyWithoutComposedInput>,
+  directors?: Maybe<PersonCreateManyWithoutDirectedInput>,
+  writers?: Maybe<PersonCreateManyWithoutWroteInput>,
+};
+
+export type FilmCreateWithoutWritersInput = {
+  id: Scalars['String'],
+  title: Scalars['String'],
+  titleJP: Scalars['String'],
+  titleEN: Scalars['String'],
+  releaseYear: Scalars['Int'],
+  trailer?: Maybe<Scalars['String']>,
+  image: ImageCreateOneWithoutFilmsInput,
+  releases?: Maybe<ReleaseCreateManyWithoutFilmInput>,
+  studio?: Maybe<StudioCreateOneWithoutFilmsInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutFilmInput>,
+  composers?: Maybe<PersonCreateManyWithoutComposedInput>,
+  directors?: Maybe<PersonCreateManyWithoutDirectedInput>,
 };
 
 export type FilmDirectorsOrderByInput = {
-  alias?: Maybe<OrderByArg>,
-  birthYear?: Maybe<OrderByArg>,
-  country?: Maybe<OrderByArg>,
-  firstName?: Maybe<OrderByArg>,
   lastName?: Maybe<OrderByArg>,
+  firstName?: Maybe<OrderByArg>,
+  alias?: Maybe<OrderByArg>,
+  country?: Maybe<OrderByArg>,
+  birthYear?: Maybe<OrderByArg>,
 };
 
 export type FilmDirectorsWhereInput = {
-  birthYear?: Maybe<NullableIntFilter>,
   country?: Maybe<Country>,
+  birthYear?: Maybe<NullableIntFilter>,
 };
 
 export type FilmFilter = {
@@ -305,16 +539,16 @@ export type FilmReleasesOrderByInput = {
 
 export type FilmScalarWhereInput = {
   id?: Maybe<StringFilter>,
-  animators?: Maybe<PersonFilter>,
-  composers?: Maybe<PersonFilter>,
-  directors?: Maybe<PersonFilter>,
-  frameSequences?: Maybe<FrameSequenceFilter>,
-  releases?: Maybe<ReleaseFilter>,
-  releaseYear?: Maybe<IntFilter>,
   title?: Maybe<StringFilter>,
   titleJP?: Maybe<StringFilter>,
   titleEN?: Maybe<StringFilter>,
+  releaseYear?: Maybe<IntFilter>,
+  releases?: Maybe<ReleaseFilter>,
   trailer?: Maybe<NullableStringFilter>,
+  animationSequences?: Maybe<AnimationSequenceFilter>,
+  composers?: Maybe<PersonFilter>,
+  directors?: Maybe<PersonFilter>,
+  writers?: Maybe<PersonFilter>,
   AND?: Maybe<Array<FilmScalarWhereInput>>,
   OR?: Maybe<Array<FilmScalarWhereInput>>,
   NOT?: Maybe<Array<FilmScalarWhereInput>>,
@@ -322,27 +556,26 @@ export type FilmScalarWhereInput = {
 
 export type FilmUpdateInput = {
   id?: Maybe<Scalars['String']>,
-  releaseYear?: Maybe<Scalars['Int']>,
   title?: Maybe<Scalars['String']>,
   titleJP?: Maybe<Scalars['String']>,
   titleEN?: Maybe<Scalars['String']>,
+  releaseYear?: Maybe<Scalars['Int']>,
   trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonUpdateManyWithoutFilmInput>,
-  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
-  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
-  frameSequences?: Maybe<FrameSequenceUpdateManyWithoutFilmInput>,
   image?: Maybe<ImageUpdateOneRequiredWithoutFilmsInput>,
   releases?: Maybe<ReleaseUpdateManyWithoutFilmInput>,
   studio?: Maybe<StudioUpdateOneWithoutFilmsInput>,
-  person?: Maybe<PersonUpdateOneWithoutAnimatedInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutFilmInput>,
+  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
+  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
+  writers?: Maybe<PersonUpdateManyWithoutWroteInput>,
 };
 
 export type FilmUpdateManyDataInput = {
   id?: Maybe<Scalars['String']>,
-  releaseYear?: Maybe<Scalars['Int']>,
   title?: Maybe<Scalars['String']>,
   titleJP?: Maybe<Scalars['String']>,
   titleEN?: Maybe<Scalars['String']>,
+  releaseYear?: Maybe<Scalars['Int']>,
   trailer?: Maybe<Scalars['String']>,
 };
 
@@ -382,18 +615,6 @@ export type FilmUpdateManyWithoutImageInput = {
   upsert?: Maybe<Array<FilmUpsertWithWhereUniqueWithoutImageInput>>,
 };
 
-export type FilmUpdateManyWithoutPersonInput = {
-  create?: Maybe<Array<FilmCreateWithoutPersonInput>>,
-  connect?: Maybe<Array<FilmWhereUniqueInput>>,
-  set?: Maybe<Array<FilmWhereUniqueInput>>,
-  disconnect?: Maybe<Array<FilmWhereUniqueInput>>,
-  delete?: Maybe<Array<FilmWhereUniqueInput>>,
-  update?: Maybe<Array<FilmUpdateWithWhereUniqueWithoutPersonInput>>,
-  updateMany?: Maybe<Array<FilmUpdateManyWithWhereNestedInput>>,
-  deleteMany?: Maybe<Array<FilmScalarWhereInput>>,
-  upsert?: Maybe<Array<FilmUpsertWithWhereUniqueWithoutPersonInput>>,
-};
-
 export type FilmUpdateManyWithoutStudioInput = {
   create?: Maybe<Array<FilmCreateWithoutStudioInput>>,
   connect?: Maybe<Array<FilmWhereUniqueInput>>,
@@ -406,16 +627,28 @@ export type FilmUpdateManyWithoutStudioInput = {
   upsert?: Maybe<Array<FilmUpsertWithWhereUniqueWithoutStudioInput>>,
 };
 
+export type FilmUpdateManyWithoutWritersInput = {
+  create?: Maybe<Array<FilmCreateWithoutWritersInput>>,
+  connect?: Maybe<Array<FilmWhereUniqueInput>>,
+  set?: Maybe<Array<FilmWhereUniqueInput>>,
+  disconnect?: Maybe<Array<FilmWhereUniqueInput>>,
+  delete?: Maybe<Array<FilmWhereUniqueInput>>,
+  update?: Maybe<Array<FilmUpdateWithWhereUniqueWithoutWritersInput>>,
+  updateMany?: Maybe<Array<FilmUpdateManyWithWhereNestedInput>>,
+  deleteMany?: Maybe<Array<FilmScalarWhereInput>>,
+  upsert?: Maybe<Array<FilmUpsertWithWhereUniqueWithoutWritersInput>>,
+};
+
 export type FilmUpdateManyWithWhereNestedInput = {
   where: FilmScalarWhereInput,
   data: FilmUpdateManyDataInput,
 };
 
-export type FilmUpdateOneRequiredWithoutFrameSequencesInput = {
-  create?: Maybe<FilmCreateWithoutFrameSequencesInput>,
+export type FilmUpdateOneRequiredWithoutAnimationSequencesInput = {
+  create?: Maybe<FilmCreateWithoutAnimationSequencesInput>,
   connect?: Maybe<FilmWhereUniqueInput>,
-  update?: Maybe<FilmUpdateWithoutFrameSequencesDataInput>,
-  upsert?: Maybe<FilmUpsertWithoutFrameSequencesInput>,
+  update?: Maybe<FilmUpdateWithoutAnimationSequencesDataInput>,
+  upsert?: Maybe<FilmUpsertWithoutAnimationSequencesInput>,
 };
 
 export type FilmUpdateOneRequiredWithoutReleasesInput = {
@@ -425,141 +658,109 @@ export type FilmUpdateOneRequiredWithoutReleasesInput = {
   upsert?: Maybe<FilmUpsertWithoutReleasesInput>,
 };
 
-export type FilmUpdateOneWithoutAnimatorsInput = {
-  create?: Maybe<FilmCreateWithoutAnimatorsInput>,
-  connect?: Maybe<FilmWhereUniqueInput>,
-  disconnect?: Maybe<Scalars['Boolean']>,
-  delete?: Maybe<Scalars['Boolean']>,
-  update?: Maybe<FilmUpdateWithoutAnimatorsDataInput>,
-  upsert?: Maybe<FilmUpsertWithoutAnimatorsInput>,
-};
-
-export type FilmUpdateWithoutAnimatorsDataInput = {
+export type FilmUpdateWithoutAnimationSequencesDataInput = {
   id?: Maybe<Scalars['String']>,
-  releaseYear?: Maybe<Scalars['Int']>,
   title?: Maybe<Scalars['String']>,
   titleJP?: Maybe<Scalars['String']>,
   titleEN?: Maybe<Scalars['String']>,
+  releaseYear?: Maybe<Scalars['Int']>,
   trailer?: Maybe<Scalars['String']>,
-  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
-  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
-  frameSequences?: Maybe<FrameSequenceUpdateManyWithoutFilmInput>,
   image?: Maybe<ImageUpdateOneRequiredWithoutFilmsInput>,
   releases?: Maybe<ReleaseUpdateManyWithoutFilmInput>,
   studio?: Maybe<StudioUpdateOneWithoutFilmsInput>,
-  person?: Maybe<PersonUpdateOneWithoutAnimatedInput>,
+  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
+  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
+  writers?: Maybe<PersonUpdateManyWithoutWroteInput>,
 };
 
 export type FilmUpdateWithoutComposersDataInput = {
   id?: Maybe<Scalars['String']>,
-  releaseYear?: Maybe<Scalars['Int']>,
   title?: Maybe<Scalars['String']>,
   titleJP?: Maybe<Scalars['String']>,
   titleEN?: Maybe<Scalars['String']>,
+  releaseYear?: Maybe<Scalars['Int']>,
   trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonUpdateManyWithoutFilmInput>,
-  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
-  frameSequences?: Maybe<FrameSequenceUpdateManyWithoutFilmInput>,
   image?: Maybe<ImageUpdateOneRequiredWithoutFilmsInput>,
   releases?: Maybe<ReleaseUpdateManyWithoutFilmInput>,
   studio?: Maybe<StudioUpdateOneWithoutFilmsInput>,
-  person?: Maybe<PersonUpdateOneWithoutAnimatedInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutFilmInput>,
+  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
+  writers?: Maybe<PersonUpdateManyWithoutWroteInput>,
 };
 
 export type FilmUpdateWithoutDirectorsDataInput = {
   id?: Maybe<Scalars['String']>,
-  releaseYear?: Maybe<Scalars['Int']>,
   title?: Maybe<Scalars['String']>,
   titleJP?: Maybe<Scalars['String']>,
   titleEN?: Maybe<Scalars['String']>,
-  trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonUpdateManyWithoutFilmInput>,
-  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
-  frameSequences?: Maybe<FrameSequenceUpdateManyWithoutFilmInput>,
-  image?: Maybe<ImageUpdateOneRequiredWithoutFilmsInput>,
-  releases?: Maybe<ReleaseUpdateManyWithoutFilmInput>,
-  studio?: Maybe<StudioUpdateOneWithoutFilmsInput>,
-  person?: Maybe<PersonUpdateOneWithoutAnimatedInput>,
-};
-
-export type FilmUpdateWithoutFrameSequencesDataInput = {
-  id?: Maybe<Scalars['String']>,
   releaseYear?: Maybe<Scalars['Int']>,
-  title?: Maybe<Scalars['String']>,
-  titleJP?: Maybe<Scalars['String']>,
-  titleEN?: Maybe<Scalars['String']>,
   trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonUpdateManyWithoutFilmInput>,
-  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
-  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
   image?: Maybe<ImageUpdateOneRequiredWithoutFilmsInput>,
   releases?: Maybe<ReleaseUpdateManyWithoutFilmInput>,
   studio?: Maybe<StudioUpdateOneWithoutFilmsInput>,
-  person?: Maybe<PersonUpdateOneWithoutAnimatedInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutFilmInput>,
+  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
+  writers?: Maybe<PersonUpdateManyWithoutWroteInput>,
 };
 
 export type FilmUpdateWithoutImageDataInput = {
   id?: Maybe<Scalars['String']>,
-  releaseYear?: Maybe<Scalars['Int']>,
   title?: Maybe<Scalars['String']>,
   titleJP?: Maybe<Scalars['String']>,
   titleEN?: Maybe<Scalars['String']>,
-  trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonUpdateManyWithoutFilmInput>,
-  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
-  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
-  frameSequences?: Maybe<FrameSequenceUpdateManyWithoutFilmInput>,
-  releases?: Maybe<ReleaseUpdateManyWithoutFilmInput>,
-  studio?: Maybe<StudioUpdateOneWithoutFilmsInput>,
-  person?: Maybe<PersonUpdateOneWithoutAnimatedInput>,
-};
-
-export type FilmUpdateWithoutPersonDataInput = {
-  id?: Maybe<Scalars['String']>,
   releaseYear?: Maybe<Scalars['Int']>,
-  title?: Maybe<Scalars['String']>,
-  titleJP?: Maybe<Scalars['String']>,
-  titleEN?: Maybe<Scalars['String']>,
   trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonUpdateManyWithoutFilmInput>,
-  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
-  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
-  frameSequences?: Maybe<FrameSequenceUpdateManyWithoutFilmInput>,
-  image?: Maybe<ImageUpdateOneRequiredWithoutFilmsInput>,
   releases?: Maybe<ReleaseUpdateManyWithoutFilmInput>,
   studio?: Maybe<StudioUpdateOneWithoutFilmsInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutFilmInput>,
+  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
+  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
+  writers?: Maybe<PersonUpdateManyWithoutWroteInput>,
 };
 
 export type FilmUpdateWithoutReleasesDataInput = {
   id?: Maybe<Scalars['String']>,
-  releaseYear?: Maybe<Scalars['Int']>,
   title?: Maybe<Scalars['String']>,
   titleJP?: Maybe<Scalars['String']>,
   titleEN?: Maybe<Scalars['String']>,
+  releaseYear?: Maybe<Scalars['Int']>,
   trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonUpdateManyWithoutFilmInput>,
-  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
-  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
-  frameSequences?: Maybe<FrameSequenceUpdateManyWithoutFilmInput>,
   image?: Maybe<ImageUpdateOneRequiredWithoutFilmsInput>,
   studio?: Maybe<StudioUpdateOneWithoutFilmsInput>,
-  person?: Maybe<PersonUpdateOneWithoutAnimatedInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutFilmInput>,
+  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
+  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
+  writers?: Maybe<PersonUpdateManyWithoutWroteInput>,
 };
 
 export type FilmUpdateWithoutStudioDataInput = {
   id?: Maybe<Scalars['String']>,
-  releaseYear?: Maybe<Scalars['Int']>,
   title?: Maybe<Scalars['String']>,
   titleJP?: Maybe<Scalars['String']>,
   titleEN?: Maybe<Scalars['String']>,
+  releaseYear?: Maybe<Scalars['Int']>,
   trailer?: Maybe<Scalars['String']>,
-  animators?: Maybe<PersonUpdateManyWithoutFilmInput>,
-  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
-  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
-  frameSequences?: Maybe<FrameSequenceUpdateManyWithoutFilmInput>,
   image?: Maybe<ImageUpdateOneRequiredWithoutFilmsInput>,
   releases?: Maybe<ReleaseUpdateManyWithoutFilmInput>,
-  person?: Maybe<PersonUpdateOneWithoutAnimatedInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutFilmInput>,
+  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
+  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
+  writers?: Maybe<PersonUpdateManyWithoutWroteInput>,
+};
+
+export type FilmUpdateWithoutWritersDataInput = {
+  id?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+  titleJP?: Maybe<Scalars['String']>,
+  titleEN?: Maybe<Scalars['String']>,
+  releaseYear?: Maybe<Scalars['Int']>,
+  trailer?: Maybe<Scalars['String']>,
+  image?: Maybe<ImageUpdateOneRequiredWithoutFilmsInput>,
+  releases?: Maybe<ReleaseUpdateManyWithoutFilmInput>,
+  studio?: Maybe<StudioUpdateOneWithoutFilmsInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutFilmInput>,
+  composers?: Maybe<PersonUpdateManyWithoutComposedInput>,
+  directors?: Maybe<PersonUpdateManyWithoutDirectedInput>,
 };
 
 export type FilmUpdateWithWhereUniqueWithoutComposersInput = {
@@ -577,24 +778,19 @@ export type FilmUpdateWithWhereUniqueWithoutImageInput = {
   data: FilmUpdateWithoutImageDataInput,
 };
 
-export type FilmUpdateWithWhereUniqueWithoutPersonInput = {
-  where: FilmWhereUniqueInput,
-  data: FilmUpdateWithoutPersonDataInput,
-};
-
 export type FilmUpdateWithWhereUniqueWithoutStudioInput = {
   where: FilmWhereUniqueInput,
   data: FilmUpdateWithoutStudioDataInput,
 };
 
-export type FilmUpsertWithoutAnimatorsInput = {
-  update: FilmUpdateWithoutAnimatorsDataInput,
-  create: FilmCreateWithoutAnimatorsInput,
+export type FilmUpdateWithWhereUniqueWithoutWritersInput = {
+  where: FilmWhereUniqueInput,
+  data: FilmUpdateWithoutWritersDataInput,
 };
 
-export type FilmUpsertWithoutFrameSequencesInput = {
-  update: FilmUpdateWithoutFrameSequencesDataInput,
-  create: FilmCreateWithoutFrameSequencesInput,
+export type FilmUpsertWithoutAnimationSequencesInput = {
+  update: FilmUpdateWithoutAnimationSequencesDataInput,
+  create: FilmCreateWithoutAnimationSequencesInput,
 };
 
 export type FilmUpsertWithoutReleasesInput = {
@@ -620,36 +816,35 @@ export type FilmUpsertWithWhereUniqueWithoutImageInput = {
   create: FilmCreateWithoutImageInput,
 };
 
-export type FilmUpsertWithWhereUniqueWithoutPersonInput = {
-  where: FilmWhereUniqueInput,
-  update: FilmUpdateWithoutPersonDataInput,
-  create: FilmCreateWithoutPersonInput,
-};
-
 export type FilmUpsertWithWhereUniqueWithoutStudioInput = {
   where: FilmWhereUniqueInput,
   update: FilmUpdateWithoutStudioDataInput,
   create: FilmCreateWithoutStudioInput,
 };
 
+export type FilmUpsertWithWhereUniqueWithoutWritersInput = {
+  where: FilmWhereUniqueInput,
+  update: FilmUpdateWithoutWritersDataInput,
+  create: FilmCreateWithoutWritersInput,
+};
+
 export type FilmWhereInput = {
   id?: Maybe<StringFilter>,
-  animators?: Maybe<PersonFilter>,
-  composers?: Maybe<PersonFilter>,
-  directors?: Maybe<PersonFilter>,
-  frameSequences?: Maybe<FrameSequenceFilter>,
-  releases?: Maybe<ReleaseFilter>,
-  releaseYear?: Maybe<IntFilter>,
   title?: Maybe<StringFilter>,
   titleJP?: Maybe<StringFilter>,
   titleEN?: Maybe<StringFilter>,
+  releaseYear?: Maybe<IntFilter>,
+  releases?: Maybe<ReleaseFilter>,
   trailer?: Maybe<NullableStringFilter>,
+  animationSequences?: Maybe<AnimationSequenceFilter>,
+  composers?: Maybe<PersonFilter>,
+  directors?: Maybe<PersonFilter>,
+  writers?: Maybe<PersonFilter>,
   AND?: Maybe<Array<FilmWhereInput>>,
   OR?: Maybe<Array<FilmWhereInput>>,
   NOT?: Maybe<Array<FilmWhereInput>>,
   image?: Maybe<ImageWhereInput>,
   studio?: Maybe<StudioWhereInput>,
-  person?: Maybe<PersonWhereInput>,
 };
 
 export type FilmWhereUniqueInput = {
@@ -659,256 +854,117 @@ export type FilmWhereUniqueInput = {
   titleEN?: Maybe<Scalars['String']>,
 };
 
-export type FrameSequenceCreateManyWithoutFrameSequencesInput = {
-  create?: Maybe<Array<FrameSequenceCreateWithoutFilmInput>>,
-  connect?: Maybe<Array<FrameSequenceWhereUniqueInput>>,
+export type FilmWritersOrderByInput = {
+  lastName?: Maybe<OrderByArg>,
+  firstName?: Maybe<OrderByArg>,
+  alias?: Maybe<OrderByArg>,
+  country?: Maybe<OrderByArg>,
+  birthYear?: Maybe<OrderByArg>,
 };
 
-export type FrameSequenceCreateOneWithoutFrameSequenceInput = {
-  create?: Maybe<FrameSequenceCreateWithoutArtistsInput>,
-  connect?: Maybe<FrameSequenceWhereUniqueInput>,
-};
-
-export type FrameSequenceCreateWithoutArtistsInput = {
-  id?: Maybe<Scalars['ID']>,
-  notes: Scalars['String'],
-  timestampStart?: Maybe<Scalars['Int']>,
-  timestampEnd?: Maybe<Scalars['Int']>,
-  video: Scalars['String'],
-  film: FilmCreateOneWithoutFilmInput,
-  image: ImageCreateOneWithoutImageInput,
-};
-
-export type FrameSequenceCreateWithoutFilmInput = {
-  id?: Maybe<Scalars['ID']>,
-  notes: Scalars['String'],
-  timestampStart?: Maybe<Scalars['Int']>,
-  timestampEnd?: Maybe<Scalars['Int']>,
-  video: Scalars['String'],
-  artists?: Maybe<PersonCreateManyWithoutArtistsInput>,
-  image: ImageCreateOneWithoutImageInput,
-};
-
-export type FrameSequenceCreateWithoutImageInput = {
-  id?: Maybe<Scalars['ID']>,
-  notes: Scalars['String'],
-  timestampStart?: Maybe<Scalars['Int']>,
-  timestampEnd?: Maybe<Scalars['Int']>,
-  video: Scalars['String'],
-  artists?: Maybe<PersonCreateManyWithoutArtistsInput>,
-  film: FilmCreateOneWithoutFilmInput,
-};
-
-export type FrameSequenceFilter = {
-  every?: Maybe<FrameSequenceWhereInput>,
-  some?: Maybe<FrameSequenceWhereInput>,
-  none?: Maybe<FrameSequenceWhereInput>,
-};
-
-export type FrameSequenceScalarWhereInput = {
-  id?: Maybe<StringFilter>,
-  artists?: Maybe<PersonFilter>,
-  notes?: Maybe<StringFilter>,
-  timestampStart?: Maybe<NullableIntFilter>,
-  timestampEnd?: Maybe<NullableIntFilter>,
-  video?: Maybe<StringFilter>,
-  AND?: Maybe<Array<FrameSequenceScalarWhereInput>>,
-  OR?: Maybe<Array<FrameSequenceScalarWhereInput>>,
-  NOT?: Maybe<Array<FrameSequenceScalarWhereInput>>,
-};
-
-export type FrameSequenceUpdateManyDataInput = {
-  id?: Maybe<Scalars['ID']>,
-  notes?: Maybe<Scalars['String']>,
-  timestampStart?: Maybe<Scalars['Int']>,
-  timestampEnd?: Maybe<Scalars['Int']>,
-  video?: Maybe<Scalars['String']>,
-};
-
-export type FrameSequenceUpdateManyWithoutFilmInput = {
-  create?: Maybe<Array<FrameSequenceCreateWithoutFilmInput>>,
-  connect?: Maybe<Array<FrameSequenceWhereUniqueInput>>,
-  set?: Maybe<Array<FrameSequenceWhereUniqueInput>>,
-  disconnect?: Maybe<Array<FrameSequenceWhereUniqueInput>>,
-  delete?: Maybe<Array<FrameSequenceWhereUniqueInput>>,
-  update?: Maybe<Array<FrameSequenceUpdateWithWhereUniqueWithoutFilmInput>>,
-  updateMany?: Maybe<Array<FrameSequenceUpdateManyWithWhereNestedInput>>,
-  deleteMany?: Maybe<Array<FrameSequenceScalarWhereInput>>,
-  upsert?: Maybe<Array<FrameSequenceUpsertWithWhereUniqueWithoutFilmInput>>,
-};
-
-export type FrameSequenceUpdateManyWithoutImageInput = {
-  create?: Maybe<Array<FrameSequenceCreateWithoutImageInput>>,
-  connect?: Maybe<Array<FrameSequenceWhereUniqueInput>>,
-  set?: Maybe<Array<FrameSequenceWhereUniqueInput>>,
-  disconnect?: Maybe<Array<FrameSequenceWhereUniqueInput>>,
-  delete?: Maybe<Array<FrameSequenceWhereUniqueInput>>,
-  update?: Maybe<Array<FrameSequenceUpdateWithWhereUniqueWithoutImageInput>>,
-  updateMany?: Maybe<Array<FrameSequenceUpdateManyWithWhereNestedInput>>,
-  deleteMany?: Maybe<Array<FrameSequenceScalarWhereInput>>,
-  upsert?: Maybe<Array<FrameSequenceUpsertWithWhereUniqueWithoutImageInput>>,
-};
-
-export type FrameSequenceUpdateManyWithWhereNestedInput = {
-  where: FrameSequenceScalarWhereInput,
-  data: FrameSequenceUpdateManyDataInput,
-};
-
-export type FrameSequenceUpdateOneWithoutArtistsInput = {
-  create?: Maybe<FrameSequenceCreateWithoutArtistsInput>,
-  connect?: Maybe<FrameSequenceWhereUniqueInput>,
-  disconnect?: Maybe<Scalars['Boolean']>,
-  delete?: Maybe<Scalars['Boolean']>,
-  update?: Maybe<FrameSequenceUpdateWithoutArtistsDataInput>,
-  upsert?: Maybe<FrameSequenceUpsertWithoutArtistsInput>,
-};
-
-export type FrameSequenceUpdateWithoutArtistsDataInput = {
-  id?: Maybe<Scalars['ID']>,
-  notes?: Maybe<Scalars['String']>,
-  timestampStart?: Maybe<Scalars['Int']>,
-  timestampEnd?: Maybe<Scalars['Int']>,
-  video?: Maybe<Scalars['String']>,
-  film?: Maybe<FilmUpdateOneRequiredWithoutFrameSequencesInput>,
-  image?: Maybe<ImageUpdateOneRequiredWithoutFrameSequencesInput>,
-};
-
-export type FrameSequenceUpdateWithoutFilmDataInput = {
-  id?: Maybe<Scalars['ID']>,
-  notes?: Maybe<Scalars['String']>,
-  timestampStart?: Maybe<Scalars['Int']>,
-  timestampEnd?: Maybe<Scalars['Int']>,
-  video?: Maybe<Scalars['String']>,
-  artists?: Maybe<PersonUpdateManyWithoutFrameSequenceInput>,
-  image?: Maybe<ImageUpdateOneRequiredWithoutFrameSequencesInput>,
-};
-
-export type FrameSequenceUpdateWithoutImageDataInput = {
-  id?: Maybe<Scalars['ID']>,
-  notes?: Maybe<Scalars['String']>,
-  timestampStart?: Maybe<Scalars['Int']>,
-  timestampEnd?: Maybe<Scalars['Int']>,
-  video?: Maybe<Scalars['String']>,
-  artists?: Maybe<PersonUpdateManyWithoutFrameSequenceInput>,
-  film?: Maybe<FilmUpdateOneRequiredWithoutFrameSequencesInput>,
-};
-
-export type FrameSequenceUpdateWithWhereUniqueWithoutFilmInput = {
-  where: FrameSequenceWhereUniqueInput,
-  data: FrameSequenceUpdateWithoutFilmDataInput,
-};
-
-export type FrameSequenceUpdateWithWhereUniqueWithoutImageInput = {
-  where: FrameSequenceWhereUniqueInput,
-  data: FrameSequenceUpdateWithoutImageDataInput,
-};
-
-export type FrameSequenceUpsertWithoutArtistsInput = {
-  update: FrameSequenceUpdateWithoutArtistsDataInput,
-  create: FrameSequenceCreateWithoutArtistsInput,
-};
-
-export type FrameSequenceUpsertWithWhereUniqueWithoutFilmInput = {
-  where: FrameSequenceWhereUniqueInput,
-  update: FrameSequenceUpdateWithoutFilmDataInput,
-  create: FrameSequenceCreateWithoutFilmInput,
-};
-
-export type FrameSequenceUpsertWithWhereUniqueWithoutImageInput = {
-  where: FrameSequenceWhereUniqueInput,
-  update: FrameSequenceUpdateWithoutImageDataInput,
-  create: FrameSequenceCreateWithoutImageInput,
-};
-
-export type FrameSequenceWhereInput = {
-  id?: Maybe<StringFilter>,
-  artists?: Maybe<PersonFilter>,
-  notes?: Maybe<StringFilter>,
-  timestampStart?: Maybe<NullableIntFilter>,
-  timestampEnd?: Maybe<NullableIntFilter>,
-  video?: Maybe<StringFilter>,
-  AND?: Maybe<Array<FrameSequenceWhereInput>>,
-  OR?: Maybe<Array<FrameSequenceWhereInput>>,
-  NOT?: Maybe<Array<FrameSequenceWhereInput>>,
-  film?: Maybe<FilmWhereInput>,
-  image?: Maybe<ImageWhereInput>,
-};
-
-export type FrameSequenceWhereUniqueInput = {
-  id?: Maybe<Scalars['ID']>,
+export type FilmWritersWhereInput = {
+  country?: Maybe<Country>,
+  birthYear?: Maybe<NullableIntFilter>,
 };
 
 export type Image = {
    __typename?: 'Image',
-  id: Scalars['ID'],
+  id: Scalars['String'],
   copyright?: Maybe<Scalars['String']>,
-  name: Scalars['String'],
+  title: Scalars['String'],
   url: Scalars['String'],
 };
 
-export type ImageCreateManyWithoutImagesInput = {
+export type ImageCreateInput = {
+  id?: Maybe<Scalars['String']>,
+  copyright?: Maybe<Scalars['String']>,
+  title: Scalars['String'],
+  url: Scalars['String'],
+  films?: Maybe<FilmCreateManyWithoutImageInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutImageInput>,
+  persons?: Maybe<PersonCreateManyWithoutImageInput>,
+  release?: Maybe<ReleaseCreateOneWithoutImagesInput>,
+  studios?: Maybe<StudioCreateManyWithoutImageInput>,
+};
+
+export type ImageCreateManyWithoutReleaseInput = {
   create?: Maybe<Array<ImageCreateWithoutReleaseInput>>,
   connect?: Maybe<Array<ImageWhereUniqueInput>>,
 };
 
-export type ImageCreateOneWithoutImageInput = {
+export type ImageCreateOneWithoutAnimationSequencesInput = {
+  create?: Maybe<ImageCreateWithoutAnimationSequencesInput>,
+  connect?: Maybe<ImageWhereUniqueInput>,
+};
+
+export type ImageCreateOneWithoutFilmsInput = {
   create?: Maybe<ImageCreateWithoutFilmsInput>,
   connect?: Maybe<ImageWhereUniqueInput>,
 };
 
-export type ImageCreateWithoutFilmsInput = {
-  id?: Maybe<Scalars['ID']>,
-  copyright?: Maybe<Scalars['String']>,
-  name: Scalars['String'],
-  url: Scalars['String'],
-  frameSequences?: Maybe<FrameSequenceCreateManyWithoutFrameSequencesInput>,
-  persons?: Maybe<PersonCreateManyWithoutPersonsInput>,
-  release?: Maybe<ReleaseCreateOneWithoutReleaseInput>,
-  studios?: Maybe<StudioCreateManyWithoutStudiosInput>,
+export type ImageCreateOneWithoutPersonsInput = {
+  create?: Maybe<ImageCreateWithoutPersonsInput>,
+  connect?: Maybe<ImageWhereUniqueInput>,
 };
 
-export type ImageCreateWithoutFrameSequencesInput = {
-  id?: Maybe<Scalars['ID']>,
+export type ImageCreateOneWithoutStudiosInput = {
+  create?: Maybe<ImageCreateWithoutStudiosInput>,
+  connect?: Maybe<ImageWhereUniqueInput>,
+};
+
+export type ImageCreateWithoutAnimationSequencesInput = {
+  id?: Maybe<Scalars['String']>,
   copyright?: Maybe<Scalars['String']>,
-  name: Scalars['String'],
+  title: Scalars['String'],
   url: Scalars['String'],
-  films?: Maybe<FilmCreateManyWithoutFilmsInput>,
-  persons?: Maybe<PersonCreateManyWithoutPersonsInput>,
-  release?: Maybe<ReleaseCreateOneWithoutReleaseInput>,
-  studios?: Maybe<StudioCreateManyWithoutStudiosInput>,
+  films?: Maybe<FilmCreateManyWithoutImageInput>,
+  persons?: Maybe<PersonCreateManyWithoutImageInput>,
+  release?: Maybe<ReleaseCreateOneWithoutImagesInput>,
+  studios?: Maybe<StudioCreateManyWithoutImageInput>,
+};
+
+export type ImageCreateWithoutFilmsInput = {
+  id?: Maybe<Scalars['String']>,
+  copyright?: Maybe<Scalars['String']>,
+  title: Scalars['String'],
+  url: Scalars['String'],
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutImageInput>,
+  persons?: Maybe<PersonCreateManyWithoutImageInput>,
+  release?: Maybe<ReleaseCreateOneWithoutImagesInput>,
+  studios?: Maybe<StudioCreateManyWithoutImageInput>,
 };
 
 export type ImageCreateWithoutPersonsInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
   copyright?: Maybe<Scalars['String']>,
-  name: Scalars['String'],
+  title: Scalars['String'],
   url: Scalars['String'],
-  films?: Maybe<FilmCreateManyWithoutFilmsInput>,
-  frameSequences?: Maybe<FrameSequenceCreateManyWithoutFrameSequencesInput>,
-  release?: Maybe<ReleaseCreateOneWithoutReleaseInput>,
-  studios?: Maybe<StudioCreateManyWithoutStudiosInput>,
+  films?: Maybe<FilmCreateManyWithoutImageInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutImageInput>,
+  release?: Maybe<ReleaseCreateOneWithoutImagesInput>,
+  studios?: Maybe<StudioCreateManyWithoutImageInput>,
 };
 
 export type ImageCreateWithoutReleaseInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
   copyright?: Maybe<Scalars['String']>,
-  name: Scalars['String'],
+  title: Scalars['String'],
   url: Scalars['String'],
-  films?: Maybe<FilmCreateManyWithoutFilmsInput>,
-  frameSequences?: Maybe<FrameSequenceCreateManyWithoutFrameSequencesInput>,
-  persons?: Maybe<PersonCreateManyWithoutPersonsInput>,
-  studios?: Maybe<StudioCreateManyWithoutStudiosInput>,
+  films?: Maybe<FilmCreateManyWithoutImageInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutImageInput>,
+  persons?: Maybe<PersonCreateManyWithoutImageInput>,
+  studios?: Maybe<StudioCreateManyWithoutImageInput>,
 };
 
 export type ImageCreateWithoutStudiosInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
   copyright?: Maybe<Scalars['String']>,
-  name: Scalars['String'],
+  title: Scalars['String'],
   url: Scalars['String'],
-  films?: Maybe<FilmCreateManyWithoutFilmsInput>,
-  frameSequences?: Maybe<FrameSequenceCreateManyWithoutFrameSequencesInput>,
-  persons?: Maybe<PersonCreateManyWithoutPersonsInput>,
-  release?: Maybe<ReleaseCreateOneWithoutReleaseInput>,
+  films?: Maybe<FilmCreateManyWithoutImageInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutImageInput>,
+  persons?: Maybe<PersonCreateManyWithoutImageInput>,
+  release?: Maybe<ReleaseCreateOneWithoutImagesInput>,
 };
 
 export type ImageFilter = {
@@ -920,10 +976,10 @@ export type ImageFilter = {
 export type ImageScalarWhereInput = {
   id?: Maybe<StringFilter>,
   copyright?: Maybe<NullableStringFilter>,
-  name?: Maybe<StringFilter>,
+  title?: Maybe<StringFilter>,
   url?: Maybe<StringFilter>,
   films?: Maybe<FilmFilter>,
-  frameSequences?: Maybe<FrameSequenceFilter>,
+  animationSequences?: Maybe<AnimationSequenceFilter>,
   persons?: Maybe<PersonFilter>,
   studios?: Maybe<StudioFilter>,
   AND?: Maybe<Array<ImageScalarWhereInput>>,
@@ -931,10 +987,22 @@ export type ImageScalarWhereInput = {
   NOT?: Maybe<Array<ImageScalarWhereInput>>,
 };
 
-export type ImageUpdateManyDataInput = {
-  id?: Maybe<Scalars['ID']>,
+export type ImageUpdateInput = {
+  id?: Maybe<Scalars['String']>,
   copyright?: Maybe<Scalars['String']>,
-  name?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+  url?: Maybe<Scalars['String']>,
+  films?: Maybe<FilmUpdateManyWithoutImageInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutImageInput>,
+  persons?: Maybe<PersonUpdateManyWithoutImageInput>,
+  release?: Maybe<ReleaseUpdateOneWithoutImagesInput>,
+  studios?: Maybe<StudioUpdateManyWithoutImageInput>,
+};
+
+export type ImageUpdateManyDataInput = {
+  id?: Maybe<Scalars['String']>,
+  copyright?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
   url?: Maybe<Scalars['String']>,
 };
 
@@ -955,18 +1023,18 @@ export type ImageUpdateManyWithWhereNestedInput = {
   data: ImageUpdateManyDataInput,
 };
 
+export type ImageUpdateOneRequiredWithoutAnimationSequencesInput = {
+  create?: Maybe<ImageCreateWithoutAnimationSequencesInput>,
+  connect?: Maybe<ImageWhereUniqueInput>,
+  update?: Maybe<ImageUpdateWithoutAnimationSequencesDataInput>,
+  upsert?: Maybe<ImageUpsertWithoutAnimationSequencesInput>,
+};
+
 export type ImageUpdateOneRequiredWithoutFilmsInput = {
   create?: Maybe<ImageCreateWithoutFilmsInput>,
   connect?: Maybe<ImageWhereUniqueInput>,
   update?: Maybe<ImageUpdateWithoutFilmsDataInput>,
   upsert?: Maybe<ImageUpsertWithoutFilmsInput>,
-};
-
-export type ImageUpdateOneRequiredWithoutFrameSequencesInput = {
-  create?: Maybe<ImageCreateWithoutFrameSequencesInput>,
-  connect?: Maybe<ImageWhereUniqueInput>,
-  update?: Maybe<ImageUpdateWithoutFrameSequencesDataInput>,
-  upsert?: Maybe<ImageUpsertWithoutFrameSequencesInput>,
 };
 
 export type ImageUpdateOneWithoutPersonsInput = {
@@ -987,57 +1055,57 @@ export type ImageUpdateOneWithoutStudiosInput = {
   upsert?: Maybe<ImageUpsertWithoutStudiosInput>,
 };
 
-export type ImageUpdateWithoutFilmsDataInput = {
-  id?: Maybe<Scalars['ID']>,
+export type ImageUpdateWithoutAnimationSequencesDataInput = {
+  id?: Maybe<Scalars['String']>,
   copyright?: Maybe<Scalars['String']>,
-  name?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
   url?: Maybe<Scalars['String']>,
-  frameSequences?: Maybe<FrameSequenceUpdateManyWithoutImageInput>,
+  films?: Maybe<FilmUpdateManyWithoutImageInput>,
   persons?: Maybe<PersonUpdateManyWithoutImageInput>,
   release?: Maybe<ReleaseUpdateOneWithoutImagesInput>,
   studios?: Maybe<StudioUpdateManyWithoutImageInput>,
 };
 
-export type ImageUpdateWithoutFrameSequencesDataInput = {
-  id?: Maybe<Scalars['ID']>,
+export type ImageUpdateWithoutFilmsDataInput = {
+  id?: Maybe<Scalars['String']>,
   copyright?: Maybe<Scalars['String']>,
-  name?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
   url?: Maybe<Scalars['String']>,
-  films?: Maybe<FilmUpdateManyWithoutImageInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutImageInput>,
   persons?: Maybe<PersonUpdateManyWithoutImageInput>,
   release?: Maybe<ReleaseUpdateOneWithoutImagesInput>,
   studios?: Maybe<StudioUpdateManyWithoutImageInput>,
 };
 
 export type ImageUpdateWithoutPersonsDataInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
   copyright?: Maybe<Scalars['String']>,
-  name?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
   url?: Maybe<Scalars['String']>,
   films?: Maybe<FilmUpdateManyWithoutImageInput>,
-  frameSequences?: Maybe<FrameSequenceUpdateManyWithoutImageInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutImageInput>,
   release?: Maybe<ReleaseUpdateOneWithoutImagesInput>,
   studios?: Maybe<StudioUpdateManyWithoutImageInput>,
 };
 
 export type ImageUpdateWithoutReleaseDataInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
   copyright?: Maybe<Scalars['String']>,
-  name?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
   url?: Maybe<Scalars['String']>,
   films?: Maybe<FilmUpdateManyWithoutImageInput>,
-  frameSequences?: Maybe<FrameSequenceUpdateManyWithoutImageInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutImageInput>,
   persons?: Maybe<PersonUpdateManyWithoutImageInput>,
   studios?: Maybe<StudioUpdateManyWithoutImageInput>,
 };
 
 export type ImageUpdateWithoutStudiosDataInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
   copyright?: Maybe<Scalars['String']>,
-  name?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
   url?: Maybe<Scalars['String']>,
   films?: Maybe<FilmUpdateManyWithoutImageInput>,
-  frameSequences?: Maybe<FrameSequenceUpdateManyWithoutImageInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutImageInput>,
   persons?: Maybe<PersonUpdateManyWithoutImageInput>,
   release?: Maybe<ReleaseUpdateOneWithoutImagesInput>,
 };
@@ -1047,14 +1115,14 @@ export type ImageUpdateWithWhereUniqueWithoutReleaseInput = {
   data: ImageUpdateWithoutReleaseDataInput,
 };
 
+export type ImageUpsertWithoutAnimationSequencesInput = {
+  update: ImageUpdateWithoutAnimationSequencesDataInput,
+  create: ImageCreateWithoutAnimationSequencesInput,
+};
+
 export type ImageUpsertWithoutFilmsInput = {
   update: ImageUpdateWithoutFilmsDataInput,
   create: ImageCreateWithoutFilmsInput,
-};
-
-export type ImageUpsertWithoutFrameSequencesInput = {
-  update: ImageUpdateWithoutFrameSequencesDataInput,
-  create: ImageCreateWithoutFrameSequencesInput,
 };
 
 export type ImageUpsertWithoutPersonsInput = {
@@ -1076,10 +1144,10 @@ export type ImageUpsertWithWhereUniqueWithoutReleaseInput = {
 export type ImageWhereInput = {
   id?: Maybe<StringFilter>,
   copyright?: Maybe<NullableStringFilter>,
-  name?: Maybe<StringFilter>,
+  title?: Maybe<StringFilter>,
   url?: Maybe<StringFilter>,
   films?: Maybe<FilmFilter>,
-  frameSequences?: Maybe<FrameSequenceFilter>,
+  animationSequences?: Maybe<AnimationSequenceFilter>,
   persons?: Maybe<PersonFilter>,
   studios?: Maybe<StudioFilter>,
   AND?: Maybe<Array<ImageWhereInput>>,
@@ -1089,7 +1157,7 @@ export type ImageWhereInput = {
 };
 
 export type ImageWhereUniqueInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
   url?: Maybe<Scalars['String']>,
 };
 
@@ -1106,23 +1174,39 @@ export type IntFilter = {
 
 export type Mutation = {
    __typename?: 'Mutation',
+  createOneAnimationSequence: AnimationSequence,
   createOneFilm: Film,
+  createOneImage: Image,
   createOnePerson: Person,
   createOneRelease: Release,
   createOneStudio: Studio,
+  deleteOneAnimationSequence?: Maybe<AnimationSequence>,
   deleteOneFilm?: Maybe<Film>,
+  deleteOneImage?: Maybe<Image>,
   deleteOnePerson?: Maybe<Person>,
   deleteOneRelease?: Maybe<Release>,
   deleteOneStudio?: Maybe<Studio>,
+  updateOneAnimationSequence?: Maybe<AnimationSequence>,
   updateOneFilm?: Maybe<Film>,
+  updateOneImage?: Maybe<Image>,
   updateOnePerson?: Maybe<Person>,
   updateOneRelease?: Maybe<Release>,
   updateOneStudio?: Maybe<Studio>,
 };
 
 
+export type MutationCreateOneAnimationSequenceArgs = {
+  data: AnimationSequenceCreateInput
+};
+
+
 export type MutationCreateOneFilmArgs = {
   data: FilmCreateInput
+};
+
+
+export type MutationCreateOneImageArgs = {
+  data: ImageCreateInput
 };
 
 
@@ -1141,8 +1225,18 @@ export type MutationCreateOneStudioArgs = {
 };
 
 
+export type MutationDeleteOneAnimationSequenceArgs = {
+  where: AnimationSequenceWhereUniqueInput
+};
+
+
 export type MutationDeleteOneFilmArgs = {
   where: FilmWhereUniqueInput
+};
+
+
+export type MutationDeleteOneImageArgs = {
+  where: ImageWhereUniqueInput
 };
 
 
@@ -1161,9 +1255,21 @@ export type MutationDeleteOneStudioArgs = {
 };
 
 
+export type MutationUpdateOneAnimationSequenceArgs = {
+  data: AnimationSequenceUpdateInput,
+  where: AnimationSequenceWhereUniqueInput
+};
+
+
 export type MutationUpdateOneFilmArgs = {
   data: FilmUpdateInput,
   where: FilmWhereUniqueInput
+};
+
+
+export type MutationUpdateOneImageArgs = {
+  data: ImageUpdateInput,
+  where: ImageWhereUniqueInput
 };
 
 
@@ -1217,29 +1323,31 @@ export enum OrderByArg {
 export type Person = {
    __typename?: 'Person',
   id: Scalars['String'],
-  alias?: Maybe<Scalars['String']>,
-  animated: Array<Film>,
-  birthDay?: Maybe<Scalars['Int']>,
-  birthMonth?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  composed: Array<Film>,
-  country: Country,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
-  deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
-  directed: Array<Film>,
-  firstName: Scalars['String'],
-  founded: Array<Studio>,
-  image?: Maybe<Image>,
-  kanji?: Maybe<Scalars['String']>,
   lastName: Scalars['String'],
+  firstName: Scalars['String'],
+  kanji?: Maybe<Scalars['String']>,
+  alias?: Maybe<Scalars['String']>,
+  image?: Maybe<Image>,
+  description?: Maybe<Scalars['String']>,
+  country: Country,
+  birthYear?: Maybe<Scalars['Int']>,
+  birthMonth?: Maybe<Scalars['Int']>,
+  birthDay?: Maybe<Scalars['Int']>,
+  deathYear?: Maybe<Scalars['Int']>,
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
+  website?: Maybe<Scalars['String']>,
+  directed: Array<Film>,
+  composed: Array<Film>,
+  wrote: Array<Film>,
+  founded: Array<Studio>,
+  animationSequences: Array<AnimationSequence>,
 };
 
 
-export type PersonAnimatedArgs = {
-  where?: Maybe<PersonAnimatedWhereInput>,
-  orderBy?: Maybe<PersonAnimatedOrderByInput>,
+export type PersonDirectedArgs = {
+  where?: Maybe<PersonDirectedWhereInput>,
+  orderBy?: Maybe<PersonDirectedOrderByInput>,
   skip?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>,
@@ -1259,9 +1367,9 @@ export type PersonComposedArgs = {
 };
 
 
-export type PersonDirectedArgs = {
-  where?: Maybe<PersonDirectedWhereInput>,
-  orderBy?: Maybe<PersonDirectedOrderByInput>,
+export type PersonWroteArgs = {
+  where?: Maybe<PersonWroteWhereInput>,
+  orderBy?: Maybe<PersonWroteOrderByInput>,
   skip?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>,
@@ -1280,22 +1388,20 @@ export type PersonFoundedArgs = {
   last?: Maybe<Scalars['Int']>
 };
 
-export type PersonAnimatedOrderByInput = {
-  releaseYear?: Maybe<OrderByArg>,
-  title?: Maybe<OrderByArg>,
-  titleJP?: Maybe<OrderByArg>,
-  titleEN?: Maybe<OrderByArg>,
-};
 
-export type PersonAnimatedWhereInput = {
-  releaseYear?: Maybe<IntFilter>,
+export type PersonAnimationSequencesArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>
 };
 
 export type PersonComposedOrderByInput = {
-  releaseYear?: Maybe<OrderByArg>,
   title?: Maybe<OrderByArg>,
   titleJP?: Maybe<OrderByArg>,
   titleEN?: Maybe<OrderByArg>,
+  releaseYear?: Maybe<OrderByArg>,
 };
 
 export type PersonComposedWhereInput = {
@@ -1304,229 +1410,194 @@ export type PersonComposedWhereInput = {
 
 export type PersonCreateInput = {
   id: Scalars['String'],
-  alias?: Maybe<Scalars['String']>,
-  birthMonth?: Maybe<Scalars['Int']>,
-  birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country: Country,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
-  deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
+  lastName: Scalars['String'],
   firstName: Scalars['String'],
   kanji?: Maybe<Scalars['String']>,
-  lastName: Scalars['String'],
+  alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country: Country,
+  birthYear?: Maybe<Scalars['Int']>,
+  birthMonth?: Maybe<Scalars['Int']>,
+  birthDay?: Maybe<Scalars['Int']>,
+  deathYear?: Maybe<Scalars['Int']>,
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
   website?: Maybe<Scalars['String']>,
-  animated?: Maybe<FilmCreateManyWithoutAnimatedInput>,
-  composed?: Maybe<FilmCreateManyWithoutComposedInput>,
-  directed?: Maybe<FilmCreateManyWithoutDirectedInput>,
-  founded?: Maybe<StudioCreateManyWithoutFoundedInput>,
-  image?: Maybe<ImageCreateOneWithoutImageInput>,
-  film?: Maybe<FilmCreateOneWithoutFilmInput>,
-  frameSequence?: Maybe<FrameSequenceCreateOneWithoutFrameSequenceInput>,
+  image?: Maybe<ImageCreateOneWithoutPersonsInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutArtistsInput>,
+  directed?: Maybe<FilmCreateManyWithoutDirectorsInput>,
+  wrote?: Maybe<FilmCreateManyWithoutWritersInput>,
+  composed?: Maybe<FilmCreateManyWithoutComposersInput>,
+  founded?: Maybe<StudioCreateManyWithoutFoundersInput>,
 };
 
-export type PersonCreateManyWithoutAnimatorsInput = {
-  create?: Maybe<Array<PersonCreateWithoutFilmInput>>,
+export type PersonCreateManyWithoutAnimationSequencesInput = {
+  create?: Maybe<Array<PersonCreateWithoutAnimationSequencesInput>>,
   connect?: Maybe<Array<PersonWhereUniqueInput>>,
 };
 
-export type PersonCreateManyWithoutArtistsInput = {
-  create?: Maybe<Array<PersonCreateWithoutFrameSequenceInput>>,
-  connect?: Maybe<Array<PersonWhereUniqueInput>>,
-};
-
-export type PersonCreateManyWithoutComposersInput = {
+export type PersonCreateManyWithoutComposedInput = {
   create?: Maybe<Array<PersonCreateWithoutComposedInput>>,
   connect?: Maybe<Array<PersonWhereUniqueInput>>,
 };
 
-export type PersonCreateManyWithoutDirectorsInput = {
+export type PersonCreateManyWithoutDirectedInput = {
   create?: Maybe<Array<PersonCreateWithoutDirectedInput>>,
   connect?: Maybe<Array<PersonWhereUniqueInput>>,
 };
 
-export type PersonCreateManyWithoutFoundersInput = {
+export type PersonCreateManyWithoutFoundedInput = {
   create?: Maybe<Array<PersonCreateWithoutFoundedInput>>,
   connect?: Maybe<Array<PersonWhereUniqueInput>>,
 };
 
-export type PersonCreateManyWithoutPersonsInput = {
+export type PersonCreateManyWithoutImageInput = {
   create?: Maybe<Array<PersonCreateWithoutImageInput>>,
   connect?: Maybe<Array<PersonWhereUniqueInput>>,
 };
 
-export type PersonCreateOneWithoutPersonInput = {
-  create?: Maybe<PersonCreateWithoutAnimatedInput>,
-  connect?: Maybe<PersonWhereUniqueInput>,
+export type PersonCreateManyWithoutWroteInput = {
+  create?: Maybe<Array<PersonCreateWithoutWroteInput>>,
+  connect?: Maybe<Array<PersonWhereUniqueInput>>,
 };
 
-export type PersonCreateWithoutAnimatedInput = {
+export type PersonCreateWithoutAnimationSequencesInput = {
   id: Scalars['String'],
-  alias?: Maybe<Scalars['String']>,
-  birthMonth?: Maybe<Scalars['Int']>,
-  birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country: Country,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
-  deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
+  lastName: Scalars['String'],
   firstName: Scalars['String'],
   kanji?: Maybe<Scalars['String']>,
-  lastName: Scalars['String'],
+  alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country: Country,
+  birthYear?: Maybe<Scalars['Int']>,
+  birthMonth?: Maybe<Scalars['Int']>,
+  birthDay?: Maybe<Scalars['Int']>,
+  deathYear?: Maybe<Scalars['Int']>,
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
   website?: Maybe<Scalars['String']>,
-  composed?: Maybe<FilmCreateManyWithoutComposedInput>,
-  directed?: Maybe<FilmCreateManyWithoutDirectedInput>,
-  founded?: Maybe<StudioCreateManyWithoutFoundedInput>,
-  image?: Maybe<ImageCreateOneWithoutImageInput>,
-  film?: Maybe<FilmCreateOneWithoutFilmInput>,
-  frameSequence?: Maybe<FrameSequenceCreateOneWithoutFrameSequenceInput>,
+  image?: Maybe<ImageCreateOneWithoutPersonsInput>,
+  directed?: Maybe<FilmCreateManyWithoutDirectorsInput>,
+  wrote?: Maybe<FilmCreateManyWithoutWritersInput>,
+  composed?: Maybe<FilmCreateManyWithoutComposersInput>,
+  founded?: Maybe<StudioCreateManyWithoutFoundersInput>,
 };
 
 export type PersonCreateWithoutComposedInput = {
   id: Scalars['String'],
-  alias?: Maybe<Scalars['String']>,
-  birthMonth?: Maybe<Scalars['Int']>,
-  birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country: Country,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
-  deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
+  lastName: Scalars['String'],
   firstName: Scalars['String'],
   kanji?: Maybe<Scalars['String']>,
-  lastName: Scalars['String'],
+  alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country: Country,
+  birthYear?: Maybe<Scalars['Int']>,
+  birthMonth?: Maybe<Scalars['Int']>,
+  birthDay?: Maybe<Scalars['Int']>,
+  deathYear?: Maybe<Scalars['Int']>,
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
   website?: Maybe<Scalars['String']>,
-  animated?: Maybe<FilmCreateManyWithoutAnimatedInput>,
-  directed?: Maybe<FilmCreateManyWithoutDirectedInput>,
-  founded?: Maybe<StudioCreateManyWithoutFoundedInput>,
-  image?: Maybe<ImageCreateOneWithoutImageInput>,
-  film?: Maybe<FilmCreateOneWithoutFilmInput>,
-  frameSequence?: Maybe<FrameSequenceCreateOneWithoutFrameSequenceInput>,
+  image?: Maybe<ImageCreateOneWithoutPersonsInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutArtistsInput>,
+  directed?: Maybe<FilmCreateManyWithoutDirectorsInput>,
+  wrote?: Maybe<FilmCreateManyWithoutWritersInput>,
+  founded?: Maybe<StudioCreateManyWithoutFoundersInput>,
 };
 
 export type PersonCreateWithoutDirectedInput = {
   id: Scalars['String'],
-  alias?: Maybe<Scalars['String']>,
-  birthMonth?: Maybe<Scalars['Int']>,
-  birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country: Country,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
-  deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
+  lastName: Scalars['String'],
   firstName: Scalars['String'],
   kanji?: Maybe<Scalars['String']>,
-  lastName: Scalars['String'],
-  website?: Maybe<Scalars['String']>,
-  animated?: Maybe<FilmCreateManyWithoutAnimatedInput>,
-  composed?: Maybe<FilmCreateManyWithoutComposedInput>,
-  founded?: Maybe<StudioCreateManyWithoutFoundedInput>,
-  image?: Maybe<ImageCreateOneWithoutImageInput>,
-  film?: Maybe<FilmCreateOneWithoutFilmInput>,
-  frameSequence?: Maybe<FrameSequenceCreateOneWithoutFrameSequenceInput>,
-};
-
-export type PersonCreateWithoutFilmInput = {
-  id: Scalars['String'],
   alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country: Country,
+  birthYear?: Maybe<Scalars['Int']>,
   birthMonth?: Maybe<Scalars['Int']>,
   birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country: Country,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
   deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
-  firstName: Scalars['String'],
-  kanji?: Maybe<Scalars['String']>,
-  lastName: Scalars['String'],
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
   website?: Maybe<Scalars['String']>,
-  animated?: Maybe<FilmCreateManyWithoutAnimatedInput>,
-  composed?: Maybe<FilmCreateManyWithoutComposedInput>,
-  directed?: Maybe<FilmCreateManyWithoutDirectedInput>,
-  founded?: Maybe<StudioCreateManyWithoutFoundedInput>,
-  image?: Maybe<ImageCreateOneWithoutImageInput>,
-  frameSequence?: Maybe<FrameSequenceCreateOneWithoutFrameSequenceInput>,
+  image?: Maybe<ImageCreateOneWithoutPersonsInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutArtistsInput>,
+  wrote?: Maybe<FilmCreateManyWithoutWritersInput>,
+  composed?: Maybe<FilmCreateManyWithoutComposersInput>,
+  founded?: Maybe<StudioCreateManyWithoutFoundersInput>,
 };
 
 export type PersonCreateWithoutFoundedInput = {
   id: Scalars['String'],
-  alias?: Maybe<Scalars['String']>,
-  birthMonth?: Maybe<Scalars['Int']>,
-  birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country: Country,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
-  deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
+  lastName: Scalars['String'],
   firstName: Scalars['String'],
   kanji?: Maybe<Scalars['String']>,
-  lastName: Scalars['String'],
-  website?: Maybe<Scalars['String']>,
-  animated?: Maybe<FilmCreateManyWithoutAnimatedInput>,
-  composed?: Maybe<FilmCreateManyWithoutComposedInput>,
-  directed?: Maybe<FilmCreateManyWithoutDirectedInput>,
-  image?: Maybe<ImageCreateOneWithoutImageInput>,
-  film?: Maybe<FilmCreateOneWithoutFilmInput>,
-  frameSequence?: Maybe<FrameSequenceCreateOneWithoutFrameSequenceInput>,
-};
-
-export type PersonCreateWithoutFrameSequenceInput = {
-  id: Scalars['String'],
   alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country: Country,
+  birthYear?: Maybe<Scalars['Int']>,
   birthMonth?: Maybe<Scalars['Int']>,
   birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country: Country,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
   deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
-  firstName: Scalars['String'],
-  kanji?: Maybe<Scalars['String']>,
-  lastName: Scalars['String'],
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
   website?: Maybe<Scalars['String']>,
-  animated?: Maybe<FilmCreateManyWithoutAnimatedInput>,
-  composed?: Maybe<FilmCreateManyWithoutComposedInput>,
-  directed?: Maybe<FilmCreateManyWithoutDirectedInput>,
-  founded?: Maybe<StudioCreateManyWithoutFoundedInput>,
-  image?: Maybe<ImageCreateOneWithoutImageInput>,
-  film?: Maybe<FilmCreateOneWithoutFilmInput>,
+  image?: Maybe<ImageCreateOneWithoutPersonsInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutArtistsInput>,
+  directed?: Maybe<FilmCreateManyWithoutDirectorsInput>,
+  wrote?: Maybe<FilmCreateManyWithoutWritersInput>,
+  composed?: Maybe<FilmCreateManyWithoutComposersInput>,
 };
 
 export type PersonCreateWithoutImageInput = {
   id: Scalars['String'],
-  alias?: Maybe<Scalars['String']>,
-  birthMonth?: Maybe<Scalars['Int']>,
-  birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country: Country,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
-  deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
+  lastName: Scalars['String'],
   firstName: Scalars['String'],
   kanji?: Maybe<Scalars['String']>,
-  lastName: Scalars['String'],
+  alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country: Country,
+  birthYear?: Maybe<Scalars['Int']>,
+  birthMonth?: Maybe<Scalars['Int']>,
+  birthDay?: Maybe<Scalars['Int']>,
+  deathYear?: Maybe<Scalars['Int']>,
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
   website?: Maybe<Scalars['String']>,
-  animated?: Maybe<FilmCreateManyWithoutAnimatedInput>,
-  composed?: Maybe<FilmCreateManyWithoutComposedInput>,
-  directed?: Maybe<FilmCreateManyWithoutDirectedInput>,
-  founded?: Maybe<StudioCreateManyWithoutFoundedInput>,
-  film?: Maybe<FilmCreateOneWithoutFilmInput>,
-  frameSequence?: Maybe<FrameSequenceCreateOneWithoutFrameSequenceInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutArtistsInput>,
+  directed?: Maybe<FilmCreateManyWithoutDirectorsInput>,
+  wrote?: Maybe<FilmCreateManyWithoutWritersInput>,
+  composed?: Maybe<FilmCreateManyWithoutComposersInput>,
+  founded?: Maybe<StudioCreateManyWithoutFoundersInput>,
+};
+
+export type PersonCreateWithoutWroteInput = {
+  id: Scalars['String'],
+  lastName: Scalars['String'],
+  firstName: Scalars['String'],
+  kanji?: Maybe<Scalars['String']>,
+  alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country: Country,
+  birthYear?: Maybe<Scalars['Int']>,
+  birthMonth?: Maybe<Scalars['Int']>,
+  birthDay?: Maybe<Scalars['Int']>,
+  deathYear?: Maybe<Scalars['Int']>,
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
+  website?: Maybe<Scalars['String']>,
+  image?: Maybe<ImageCreateOneWithoutPersonsInput>,
+  animationSequences?: Maybe<AnimationSequenceCreateManyWithoutArtistsInput>,
+  directed?: Maybe<FilmCreateManyWithoutDirectorsInput>,
+  composed?: Maybe<FilmCreateManyWithoutComposersInput>,
+  founded?: Maybe<StudioCreateManyWithoutFoundersInput>,
 };
 
 export type PersonDirectedOrderByInput = {
-  releaseYear?: Maybe<OrderByArg>,
   title?: Maybe<OrderByArg>,
   titleJP?: Maybe<OrderByArg>,
   titleEN?: Maybe<OrderByArg>,
+  releaseYear?: Maybe<OrderByArg>,
 };
 
 export type PersonDirectedWhereInput = {
@@ -1540,34 +1611,35 @@ export type PersonFilter = {
 };
 
 export type PersonFoundedOrderByInput = {
-  foundedYear?: Maybe<OrderByArg>,
   name?: Maybe<OrderByArg>,
+  foundedYear?: Maybe<OrderByArg>,
 };
 
 export type PersonFoundedWhereInput = {
-  country?: Maybe<Country>,
   foundedYear?: Maybe<IntFilter>,
+  country?: Maybe<Country>,
 };
 
 export type PersonScalarWhereInput = {
   id?: Maybe<StringFilter>,
+  lastName?: Maybe<StringFilter>,
+  firstName?: Maybe<StringFilter>,
+  kanji?: Maybe<NullableStringFilter>,
   alias?: Maybe<NullableStringFilter>,
-  animated?: Maybe<FilmFilter>,
+  description?: Maybe<NullableStringFilter>,
+  country?: Maybe<Country>,
+  birthYear?: Maybe<NullableIntFilter>,
   birthMonth?: Maybe<NullableIntFilter>,
   birthDay?: Maybe<NullableIntFilter>,
-  birthYear?: Maybe<NullableIntFilter>,
-  country?: Maybe<Country>,
-  composed?: Maybe<FilmFilter>,
-  directed?: Maybe<FilmFilter>,
-  deathDay?: Maybe<NullableIntFilter>,
-  deathMonth?: Maybe<NullableIntFilter>,
   deathYear?: Maybe<NullableIntFilter>,
-  description?: Maybe<NullableStringFilter>,
-  firstName?: Maybe<StringFilter>,
-  founded?: Maybe<StudioFilter>,
-  kanji?: Maybe<NullableStringFilter>,
-  lastName?: Maybe<StringFilter>,
+  deathMonth?: Maybe<NullableIntFilter>,
+  deathDay?: Maybe<NullableIntFilter>,
   website?: Maybe<NullableStringFilter>,
+  animationSequences?: Maybe<AnimationSequenceFilter>,
+  directed?: Maybe<FilmFilter>,
+  wrote?: Maybe<FilmFilter>,
+  composed?: Maybe<FilmFilter>,
+  founded?: Maybe<StudioFilter>,
   AND?: Maybe<Array<PersonScalarWhereInput>>,
   OR?: Maybe<Array<PersonScalarWhereInput>>,
   NOT?: Maybe<Array<PersonScalarWhereInput>>,
@@ -1575,43 +1647,54 @@ export type PersonScalarWhereInput = {
 
 export type PersonUpdateInput = {
   id?: Maybe<Scalars['String']>,
-  alias?: Maybe<Scalars['String']>,
-  birthMonth?: Maybe<Scalars['Int']>,
-  birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country?: Maybe<Country>,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
-  deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
+  lastName?: Maybe<Scalars['String']>,
   firstName?: Maybe<Scalars['String']>,
   kanji?: Maybe<Scalars['String']>,
-  lastName?: Maybe<Scalars['String']>,
+  alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country?: Maybe<Country>,
+  birthYear?: Maybe<Scalars['Int']>,
+  birthMonth?: Maybe<Scalars['Int']>,
+  birthDay?: Maybe<Scalars['Int']>,
+  deathYear?: Maybe<Scalars['Int']>,
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
   website?: Maybe<Scalars['String']>,
-  animated?: Maybe<FilmUpdateManyWithoutPersonInput>,
-  composed?: Maybe<FilmUpdateManyWithoutComposersInput>,
-  directed?: Maybe<FilmUpdateManyWithoutDirectorsInput>,
-  founded?: Maybe<StudioUpdateManyWithoutFoundersInput>,
   image?: Maybe<ImageUpdateOneWithoutPersonsInput>,
-  film?: Maybe<FilmUpdateOneWithoutAnimatorsInput>,
-  frameSequence?: Maybe<FrameSequenceUpdateOneWithoutArtistsInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutArtistsInput>,
+  directed?: Maybe<FilmUpdateManyWithoutDirectorsInput>,
+  wrote?: Maybe<FilmUpdateManyWithoutWritersInput>,
+  composed?: Maybe<FilmUpdateManyWithoutComposersInput>,
+  founded?: Maybe<StudioUpdateManyWithoutFoundersInput>,
 };
 
 export type PersonUpdateManyDataInput = {
   id?: Maybe<Scalars['String']>,
-  alias?: Maybe<Scalars['String']>,
-  birthMonth?: Maybe<Scalars['Int']>,
-  birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country?: Maybe<Country>,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
-  deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
+  lastName?: Maybe<Scalars['String']>,
   firstName?: Maybe<Scalars['String']>,
   kanji?: Maybe<Scalars['String']>,
-  lastName?: Maybe<Scalars['String']>,
+  alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country?: Maybe<Country>,
+  birthYear?: Maybe<Scalars['Int']>,
+  birthMonth?: Maybe<Scalars['Int']>,
+  birthDay?: Maybe<Scalars['Int']>,
+  deathYear?: Maybe<Scalars['Int']>,
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
   website?: Maybe<Scalars['String']>,
+};
+
+export type PersonUpdateManyWithoutAnimationSequencesInput = {
+  create?: Maybe<Array<PersonCreateWithoutAnimationSequencesInput>>,
+  connect?: Maybe<Array<PersonWhereUniqueInput>>,
+  set?: Maybe<Array<PersonWhereUniqueInput>>,
+  disconnect?: Maybe<Array<PersonWhereUniqueInput>>,
+  delete?: Maybe<Array<PersonWhereUniqueInput>>,
+  update?: Maybe<Array<PersonUpdateWithWhereUniqueWithoutAnimationSequencesInput>>,
+  updateMany?: Maybe<Array<PersonUpdateManyWithWhereNestedInput>>,
+  deleteMany?: Maybe<Array<PersonScalarWhereInput>>,
+  upsert?: Maybe<Array<PersonUpsertWithWhereUniqueWithoutAnimationSequencesInput>>,
 };
 
 export type PersonUpdateManyWithoutComposedInput = {
@@ -1638,18 +1721,6 @@ export type PersonUpdateManyWithoutDirectedInput = {
   upsert?: Maybe<Array<PersonUpsertWithWhereUniqueWithoutDirectedInput>>,
 };
 
-export type PersonUpdateManyWithoutFilmInput = {
-  create?: Maybe<Array<PersonCreateWithoutFilmInput>>,
-  connect?: Maybe<Array<PersonWhereUniqueInput>>,
-  set?: Maybe<Array<PersonWhereUniqueInput>>,
-  disconnect?: Maybe<Array<PersonWhereUniqueInput>>,
-  delete?: Maybe<Array<PersonWhereUniqueInput>>,
-  update?: Maybe<Array<PersonUpdateWithWhereUniqueWithoutFilmInput>>,
-  updateMany?: Maybe<Array<PersonUpdateManyWithWhereNestedInput>>,
-  deleteMany?: Maybe<Array<PersonScalarWhereInput>>,
-  upsert?: Maybe<Array<PersonUpsertWithWhereUniqueWithoutFilmInput>>,
-};
-
 export type PersonUpdateManyWithoutFoundedInput = {
   create?: Maybe<Array<PersonCreateWithoutFoundedInput>>,
   connect?: Maybe<Array<PersonWhereUniqueInput>>,
@@ -1660,18 +1731,6 @@ export type PersonUpdateManyWithoutFoundedInput = {
   updateMany?: Maybe<Array<PersonUpdateManyWithWhereNestedInput>>,
   deleteMany?: Maybe<Array<PersonScalarWhereInput>>,
   upsert?: Maybe<Array<PersonUpsertWithWhereUniqueWithoutFoundedInput>>,
-};
-
-export type PersonUpdateManyWithoutFrameSequenceInput = {
-  create?: Maybe<Array<PersonCreateWithoutFrameSequenceInput>>,
-  connect?: Maybe<Array<PersonWhereUniqueInput>>,
-  set?: Maybe<Array<PersonWhereUniqueInput>>,
-  disconnect?: Maybe<Array<PersonWhereUniqueInput>>,
-  delete?: Maybe<Array<PersonWhereUniqueInput>>,
-  update?: Maybe<Array<PersonUpdateWithWhereUniqueWithoutFrameSequenceInput>>,
-  updateMany?: Maybe<Array<PersonUpdateManyWithWhereNestedInput>>,
-  deleteMany?: Maybe<Array<PersonScalarWhereInput>>,
-  upsert?: Maybe<Array<PersonUpsertWithWhereUniqueWithoutFrameSequenceInput>>,
 };
 
 export type PersonUpdateManyWithoutImageInput = {
@@ -1686,179 +1745,158 @@ export type PersonUpdateManyWithoutImageInput = {
   upsert?: Maybe<Array<PersonUpsertWithWhereUniqueWithoutImageInput>>,
 };
 
+export type PersonUpdateManyWithoutWroteInput = {
+  create?: Maybe<Array<PersonCreateWithoutWroteInput>>,
+  connect?: Maybe<Array<PersonWhereUniqueInput>>,
+  set?: Maybe<Array<PersonWhereUniqueInput>>,
+  disconnect?: Maybe<Array<PersonWhereUniqueInput>>,
+  delete?: Maybe<Array<PersonWhereUniqueInput>>,
+  update?: Maybe<Array<PersonUpdateWithWhereUniqueWithoutWroteInput>>,
+  updateMany?: Maybe<Array<PersonUpdateManyWithWhereNestedInput>>,
+  deleteMany?: Maybe<Array<PersonScalarWhereInput>>,
+  upsert?: Maybe<Array<PersonUpsertWithWhereUniqueWithoutWroteInput>>,
+};
+
 export type PersonUpdateManyWithWhereNestedInput = {
   where: PersonScalarWhereInput,
   data: PersonUpdateManyDataInput,
 };
 
-export type PersonUpdateOneWithoutAnimatedInput = {
-  create?: Maybe<PersonCreateWithoutAnimatedInput>,
-  connect?: Maybe<PersonWhereUniqueInput>,
-  disconnect?: Maybe<Scalars['Boolean']>,
-  delete?: Maybe<Scalars['Boolean']>,
-  update?: Maybe<PersonUpdateWithoutAnimatedDataInput>,
-  upsert?: Maybe<PersonUpsertWithoutAnimatedInput>,
-};
-
-export type PersonUpdateWithoutAnimatedDataInput = {
+export type PersonUpdateWithoutAnimationSequencesDataInput = {
   id?: Maybe<Scalars['String']>,
-  alias?: Maybe<Scalars['String']>,
-  birthMonth?: Maybe<Scalars['Int']>,
-  birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country?: Maybe<Country>,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
-  deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
+  lastName?: Maybe<Scalars['String']>,
   firstName?: Maybe<Scalars['String']>,
   kanji?: Maybe<Scalars['String']>,
-  lastName?: Maybe<Scalars['String']>,
+  alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country?: Maybe<Country>,
+  birthYear?: Maybe<Scalars['Int']>,
+  birthMonth?: Maybe<Scalars['Int']>,
+  birthDay?: Maybe<Scalars['Int']>,
+  deathYear?: Maybe<Scalars['Int']>,
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
   website?: Maybe<Scalars['String']>,
-  composed?: Maybe<FilmUpdateManyWithoutComposersInput>,
-  directed?: Maybe<FilmUpdateManyWithoutDirectorsInput>,
-  founded?: Maybe<StudioUpdateManyWithoutFoundersInput>,
   image?: Maybe<ImageUpdateOneWithoutPersonsInput>,
-  film?: Maybe<FilmUpdateOneWithoutAnimatorsInput>,
-  frameSequence?: Maybe<FrameSequenceUpdateOneWithoutArtistsInput>,
+  directed?: Maybe<FilmUpdateManyWithoutDirectorsInput>,
+  wrote?: Maybe<FilmUpdateManyWithoutWritersInput>,
+  composed?: Maybe<FilmUpdateManyWithoutComposersInput>,
+  founded?: Maybe<StudioUpdateManyWithoutFoundersInput>,
 };
 
 export type PersonUpdateWithoutComposedDataInput = {
   id?: Maybe<Scalars['String']>,
-  alias?: Maybe<Scalars['String']>,
-  birthMonth?: Maybe<Scalars['Int']>,
-  birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country?: Maybe<Country>,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
-  deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
+  lastName?: Maybe<Scalars['String']>,
   firstName?: Maybe<Scalars['String']>,
   kanji?: Maybe<Scalars['String']>,
-  lastName?: Maybe<Scalars['String']>,
+  alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country?: Maybe<Country>,
+  birthYear?: Maybe<Scalars['Int']>,
+  birthMonth?: Maybe<Scalars['Int']>,
+  birthDay?: Maybe<Scalars['Int']>,
+  deathYear?: Maybe<Scalars['Int']>,
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
   website?: Maybe<Scalars['String']>,
-  animated?: Maybe<FilmUpdateManyWithoutPersonInput>,
-  directed?: Maybe<FilmUpdateManyWithoutDirectorsInput>,
-  founded?: Maybe<StudioUpdateManyWithoutFoundersInput>,
   image?: Maybe<ImageUpdateOneWithoutPersonsInput>,
-  film?: Maybe<FilmUpdateOneWithoutAnimatorsInput>,
-  frameSequence?: Maybe<FrameSequenceUpdateOneWithoutArtistsInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutArtistsInput>,
+  directed?: Maybe<FilmUpdateManyWithoutDirectorsInput>,
+  wrote?: Maybe<FilmUpdateManyWithoutWritersInput>,
+  founded?: Maybe<StudioUpdateManyWithoutFoundersInput>,
 };
 
 export type PersonUpdateWithoutDirectedDataInput = {
   id?: Maybe<Scalars['String']>,
-  alias?: Maybe<Scalars['String']>,
-  birthMonth?: Maybe<Scalars['Int']>,
-  birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country?: Maybe<Country>,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
-  deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
+  lastName?: Maybe<Scalars['String']>,
   firstName?: Maybe<Scalars['String']>,
   kanji?: Maybe<Scalars['String']>,
-  lastName?: Maybe<Scalars['String']>,
-  website?: Maybe<Scalars['String']>,
-  animated?: Maybe<FilmUpdateManyWithoutPersonInput>,
-  composed?: Maybe<FilmUpdateManyWithoutComposersInput>,
-  founded?: Maybe<StudioUpdateManyWithoutFoundersInput>,
-  image?: Maybe<ImageUpdateOneWithoutPersonsInput>,
-  film?: Maybe<FilmUpdateOneWithoutAnimatorsInput>,
-  frameSequence?: Maybe<FrameSequenceUpdateOneWithoutArtistsInput>,
-};
-
-export type PersonUpdateWithoutFilmDataInput = {
-  id?: Maybe<Scalars['String']>,
   alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country?: Maybe<Country>,
+  birthYear?: Maybe<Scalars['Int']>,
   birthMonth?: Maybe<Scalars['Int']>,
   birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country?: Maybe<Country>,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
   deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
-  firstName?: Maybe<Scalars['String']>,
-  kanji?: Maybe<Scalars['String']>,
-  lastName?: Maybe<Scalars['String']>,
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
   website?: Maybe<Scalars['String']>,
-  animated?: Maybe<FilmUpdateManyWithoutPersonInput>,
-  composed?: Maybe<FilmUpdateManyWithoutComposersInput>,
-  directed?: Maybe<FilmUpdateManyWithoutDirectorsInput>,
-  founded?: Maybe<StudioUpdateManyWithoutFoundersInput>,
   image?: Maybe<ImageUpdateOneWithoutPersonsInput>,
-  frameSequence?: Maybe<FrameSequenceUpdateOneWithoutArtistsInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutArtistsInput>,
+  wrote?: Maybe<FilmUpdateManyWithoutWritersInput>,
+  composed?: Maybe<FilmUpdateManyWithoutComposersInput>,
+  founded?: Maybe<StudioUpdateManyWithoutFoundersInput>,
 };
 
 export type PersonUpdateWithoutFoundedDataInput = {
   id?: Maybe<Scalars['String']>,
-  alias?: Maybe<Scalars['String']>,
-  birthMonth?: Maybe<Scalars['Int']>,
-  birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country?: Maybe<Country>,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
-  deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
+  lastName?: Maybe<Scalars['String']>,
   firstName?: Maybe<Scalars['String']>,
   kanji?: Maybe<Scalars['String']>,
-  lastName?: Maybe<Scalars['String']>,
-  website?: Maybe<Scalars['String']>,
-  animated?: Maybe<FilmUpdateManyWithoutPersonInput>,
-  composed?: Maybe<FilmUpdateManyWithoutComposersInput>,
-  directed?: Maybe<FilmUpdateManyWithoutDirectorsInput>,
-  image?: Maybe<ImageUpdateOneWithoutPersonsInput>,
-  film?: Maybe<FilmUpdateOneWithoutAnimatorsInput>,
-  frameSequence?: Maybe<FrameSequenceUpdateOneWithoutArtistsInput>,
-};
-
-export type PersonUpdateWithoutFrameSequenceDataInput = {
-  id?: Maybe<Scalars['String']>,
   alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country?: Maybe<Country>,
+  birthYear?: Maybe<Scalars['Int']>,
   birthMonth?: Maybe<Scalars['Int']>,
   birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country?: Maybe<Country>,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
   deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
-  firstName?: Maybe<Scalars['String']>,
-  kanji?: Maybe<Scalars['String']>,
-  lastName?: Maybe<Scalars['String']>,
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
   website?: Maybe<Scalars['String']>,
-  animated?: Maybe<FilmUpdateManyWithoutPersonInput>,
-  composed?: Maybe<FilmUpdateManyWithoutComposersInput>,
-  directed?: Maybe<FilmUpdateManyWithoutDirectorsInput>,
-  founded?: Maybe<StudioUpdateManyWithoutFoundersInput>,
   image?: Maybe<ImageUpdateOneWithoutPersonsInput>,
-  film?: Maybe<FilmUpdateOneWithoutAnimatorsInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutArtistsInput>,
+  directed?: Maybe<FilmUpdateManyWithoutDirectorsInput>,
+  wrote?: Maybe<FilmUpdateManyWithoutWritersInput>,
+  composed?: Maybe<FilmUpdateManyWithoutComposersInput>,
 };
 
 export type PersonUpdateWithoutImageDataInput = {
   id?: Maybe<Scalars['String']>,
-  alias?: Maybe<Scalars['String']>,
-  birthMonth?: Maybe<Scalars['Int']>,
-  birthDay?: Maybe<Scalars['Int']>,
-  birthYear?: Maybe<Scalars['Int']>,
-  country?: Maybe<Country>,
-  deathDay?: Maybe<Scalars['Int']>,
-  deathMonth?: Maybe<Scalars['Int']>,
-  deathYear?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
+  lastName?: Maybe<Scalars['String']>,
   firstName?: Maybe<Scalars['String']>,
   kanji?: Maybe<Scalars['String']>,
-  lastName?: Maybe<Scalars['String']>,
+  alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country?: Maybe<Country>,
+  birthYear?: Maybe<Scalars['Int']>,
+  birthMonth?: Maybe<Scalars['Int']>,
+  birthDay?: Maybe<Scalars['Int']>,
+  deathYear?: Maybe<Scalars['Int']>,
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
   website?: Maybe<Scalars['String']>,
-  animated?: Maybe<FilmUpdateManyWithoutPersonInput>,
-  composed?: Maybe<FilmUpdateManyWithoutComposersInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutArtistsInput>,
   directed?: Maybe<FilmUpdateManyWithoutDirectorsInput>,
+  wrote?: Maybe<FilmUpdateManyWithoutWritersInput>,
+  composed?: Maybe<FilmUpdateManyWithoutComposersInput>,
   founded?: Maybe<StudioUpdateManyWithoutFoundersInput>,
-  film?: Maybe<FilmUpdateOneWithoutAnimatorsInput>,
-  frameSequence?: Maybe<FrameSequenceUpdateOneWithoutArtistsInput>,
+};
+
+export type PersonUpdateWithoutWroteDataInput = {
+  id?: Maybe<Scalars['String']>,
+  lastName?: Maybe<Scalars['String']>,
+  firstName?: Maybe<Scalars['String']>,
+  kanji?: Maybe<Scalars['String']>,
+  alias?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  country?: Maybe<Country>,
+  birthYear?: Maybe<Scalars['Int']>,
+  birthMonth?: Maybe<Scalars['Int']>,
+  birthDay?: Maybe<Scalars['Int']>,
+  deathYear?: Maybe<Scalars['Int']>,
+  deathMonth?: Maybe<Scalars['Int']>,
+  deathDay?: Maybe<Scalars['Int']>,
+  website?: Maybe<Scalars['String']>,
+  image?: Maybe<ImageUpdateOneWithoutPersonsInput>,
+  animationSequences?: Maybe<AnimationSequenceUpdateManyWithoutArtistsInput>,
+  directed?: Maybe<FilmUpdateManyWithoutDirectorsInput>,
+  composed?: Maybe<FilmUpdateManyWithoutComposersInput>,
+  founded?: Maybe<StudioUpdateManyWithoutFoundersInput>,
+};
+
+export type PersonUpdateWithWhereUniqueWithoutAnimationSequencesInput = {
+  where: PersonWhereUniqueInput,
+  data: PersonUpdateWithoutAnimationSequencesDataInput,
 };
 
 export type PersonUpdateWithWhereUniqueWithoutComposedInput = {
@@ -1871,19 +1909,9 @@ export type PersonUpdateWithWhereUniqueWithoutDirectedInput = {
   data: PersonUpdateWithoutDirectedDataInput,
 };
 
-export type PersonUpdateWithWhereUniqueWithoutFilmInput = {
-  where: PersonWhereUniqueInput,
-  data: PersonUpdateWithoutFilmDataInput,
-};
-
 export type PersonUpdateWithWhereUniqueWithoutFoundedInput = {
   where: PersonWhereUniqueInput,
   data: PersonUpdateWithoutFoundedDataInput,
-};
-
-export type PersonUpdateWithWhereUniqueWithoutFrameSequenceInput = {
-  where: PersonWhereUniqueInput,
-  data: PersonUpdateWithoutFrameSequenceDataInput,
 };
 
 export type PersonUpdateWithWhereUniqueWithoutImageInput = {
@@ -1891,9 +1919,15 @@ export type PersonUpdateWithWhereUniqueWithoutImageInput = {
   data: PersonUpdateWithoutImageDataInput,
 };
 
-export type PersonUpsertWithoutAnimatedInput = {
-  update: PersonUpdateWithoutAnimatedDataInput,
-  create: PersonCreateWithoutAnimatedInput,
+export type PersonUpdateWithWhereUniqueWithoutWroteInput = {
+  where: PersonWhereUniqueInput,
+  data: PersonUpdateWithoutWroteDataInput,
+};
+
+export type PersonUpsertWithWhereUniqueWithoutAnimationSequencesInput = {
+  where: PersonWhereUniqueInput,
+  update: PersonUpdateWithoutAnimationSequencesDataInput,
+  create: PersonCreateWithoutAnimationSequencesInput,
 };
 
 export type PersonUpsertWithWhereUniqueWithoutComposedInput = {
@@ -1908,22 +1942,10 @@ export type PersonUpsertWithWhereUniqueWithoutDirectedInput = {
   create: PersonCreateWithoutDirectedInput,
 };
 
-export type PersonUpsertWithWhereUniqueWithoutFilmInput = {
-  where: PersonWhereUniqueInput,
-  update: PersonUpdateWithoutFilmDataInput,
-  create: PersonCreateWithoutFilmInput,
-};
-
 export type PersonUpsertWithWhereUniqueWithoutFoundedInput = {
   where: PersonWhereUniqueInput,
   update: PersonUpdateWithoutFoundedDataInput,
   create: PersonCreateWithoutFoundedInput,
-};
-
-export type PersonUpsertWithWhereUniqueWithoutFrameSequenceInput = {
-  where: PersonWhereUniqueInput,
-  update: PersonUpdateWithoutFrameSequenceDataInput,
-  create: PersonCreateWithoutFrameSequenceInput,
 };
 
 export type PersonUpsertWithWhereUniqueWithoutImageInput = {
@@ -1932,35 +1954,51 @@ export type PersonUpsertWithWhereUniqueWithoutImageInput = {
   create: PersonCreateWithoutImageInput,
 };
 
+export type PersonUpsertWithWhereUniqueWithoutWroteInput = {
+  where: PersonWhereUniqueInput,
+  update: PersonUpdateWithoutWroteDataInput,
+  create: PersonCreateWithoutWroteInput,
+};
+
 export type PersonWhereInput = {
   id?: Maybe<StringFilter>,
+  lastName?: Maybe<StringFilter>,
+  firstName?: Maybe<StringFilter>,
+  kanji?: Maybe<NullableStringFilter>,
   alias?: Maybe<NullableStringFilter>,
-  animated?: Maybe<FilmFilter>,
+  description?: Maybe<NullableStringFilter>,
+  country?: Maybe<Country>,
+  birthYear?: Maybe<NullableIntFilter>,
   birthMonth?: Maybe<NullableIntFilter>,
   birthDay?: Maybe<NullableIntFilter>,
-  birthYear?: Maybe<NullableIntFilter>,
-  country?: Maybe<Country>,
-  composed?: Maybe<FilmFilter>,
-  directed?: Maybe<FilmFilter>,
-  deathDay?: Maybe<NullableIntFilter>,
-  deathMonth?: Maybe<NullableIntFilter>,
   deathYear?: Maybe<NullableIntFilter>,
-  description?: Maybe<NullableStringFilter>,
-  firstName?: Maybe<StringFilter>,
-  founded?: Maybe<StudioFilter>,
-  kanji?: Maybe<NullableStringFilter>,
-  lastName?: Maybe<StringFilter>,
+  deathMonth?: Maybe<NullableIntFilter>,
+  deathDay?: Maybe<NullableIntFilter>,
   website?: Maybe<NullableStringFilter>,
+  animationSequences?: Maybe<AnimationSequenceFilter>,
+  directed?: Maybe<FilmFilter>,
+  wrote?: Maybe<FilmFilter>,
+  composed?: Maybe<FilmFilter>,
+  founded?: Maybe<StudioFilter>,
   AND?: Maybe<Array<PersonWhereInput>>,
   OR?: Maybe<Array<PersonWhereInput>>,
   NOT?: Maybe<Array<PersonWhereInput>>,
   image?: Maybe<ImageWhereInput>,
-  film?: Maybe<FilmWhereInput>,
-  frameSequence?: Maybe<FrameSequenceWhereInput>,
 };
 
 export type PersonWhereUniqueInput = {
   id?: Maybe<Scalars['String']>,
+};
+
+export type PersonWroteOrderByInput = {
+  title?: Maybe<OrderByArg>,
+  titleJP?: Maybe<OrderByArg>,
+  titleEN?: Maybe<OrderByArg>,
+  releaseYear?: Maybe<OrderByArg>,
+};
+
+export type PersonWroteWhereInput = {
+  releaseYear?: Maybe<IntFilter>,
 };
 
 export type Query = {
@@ -2022,10 +2060,10 @@ export type QueryStudiosArgs = {
 };
 
 export type QueryFilmsOrderByInput = {
-  releaseYear?: Maybe<OrderByArg>,
   title?: Maybe<OrderByArg>,
   titleJP?: Maybe<OrderByArg>,
   titleEN?: Maybe<OrderByArg>,
+  releaseYear?: Maybe<OrderByArg>,
 };
 
 export type QueryFilmsWhereInput = {
@@ -2033,100 +2071,96 @@ export type QueryFilmsWhereInput = {
 };
 
 export type QueryPeopleOrderByInput = {
-  alias?: Maybe<OrderByArg>,
-  birthYear?: Maybe<OrderByArg>,
-  country?: Maybe<OrderByArg>,
-  firstName?: Maybe<OrderByArg>,
   lastName?: Maybe<OrderByArg>,
+  firstName?: Maybe<OrderByArg>,
+  alias?: Maybe<OrderByArg>,
+  country?: Maybe<OrderByArg>,
+  birthYear?: Maybe<OrderByArg>,
 };
 
 export type QueryPeopleWhereInput = {
-  birthYear?: Maybe<NullableIntFilter>,
   country?: Maybe<Country>,
+  birthYear?: Maybe<NullableIntFilter>,
 };
 
 export type QueryStudiosOrderByInput = {
-  foundedYear?: Maybe<OrderByArg>,
   name?: Maybe<OrderByArg>,
+  foundedYear?: Maybe<OrderByArg>,
 };
 
 export type QueryStudiosWhereInput = {
-  country?: Maybe<Country>,
   foundedYear?: Maybe<IntFilter>,
+  country?: Maybe<Country>,
 };
 
 export type Release = {
    __typename?: 'Release',
-  id: Scalars['ID'],
-  country: Country,
+  id: Scalars['String'],
   film: Film,
-  format: Scalars['String'],
   images: Array<Image>,
-  notes?: Maybe<Scalars['String']>,
-  region: Scalars['String'],
-  releaseDay?: Maybe<Scalars['Int']>,
-  releaseMonth?: Maybe<Scalars['Int']>,
   releaseYear: Scalars['Int'],
+  releaseMonth?: Maybe<Scalars['Int']>,
+  releaseDay?: Maybe<Scalars['Int']>,
+  country: Country,
+  format: Scalars['String'],
+  notes?: Maybe<Scalars['String']>,
   runtime: Scalars['Int'],
 };
 
 
 export type ReleaseImagesArgs = {
   skip?: Maybe<Scalars['Int']>,
-  after?: Maybe<Scalars['ID']>,
-  before?: Maybe<Scalars['ID']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
   first?: Maybe<Scalars['Int']>,
   last?: Maybe<Scalars['Int']>
 };
 
 export type ReleaseCreateInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
+  releaseYear: Scalars['Int'],
+  releaseMonth?: Maybe<Scalars['Int']>,
+  releaseDay?: Maybe<Scalars['Int']>,
   country: Country,
   format: Scalars['String'],
   notes?: Maybe<Scalars['String']>,
-  region: Scalars['String'],
-  releaseDay?: Maybe<Scalars['Int']>,
-  releaseMonth?: Maybe<Scalars['Int']>,
-  releaseYear: Scalars['Int'],
   runtime: Scalars['Int'],
-  film: FilmCreateOneWithoutFilmInput,
-  images?: Maybe<ImageCreateManyWithoutImagesInput>,
+  film: FilmCreateOneWithoutReleasesInput,
+  images?: Maybe<ImageCreateManyWithoutReleaseInput>,
 };
 
-export type ReleaseCreateManyWithoutReleasesInput = {
+export type ReleaseCreateManyWithoutFilmInput = {
   create?: Maybe<Array<ReleaseCreateWithoutFilmInput>>,
   connect?: Maybe<Array<ReleaseWhereUniqueInput>>,
 };
 
-export type ReleaseCreateOneWithoutReleaseInput = {
+export type ReleaseCreateOneWithoutImagesInput = {
   create?: Maybe<ReleaseCreateWithoutImagesInput>,
   connect?: Maybe<ReleaseWhereUniqueInput>,
 };
 
 export type ReleaseCreateWithoutFilmInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
+  releaseYear: Scalars['Int'],
+  releaseMonth?: Maybe<Scalars['Int']>,
+  releaseDay?: Maybe<Scalars['Int']>,
   country: Country,
   format: Scalars['String'],
   notes?: Maybe<Scalars['String']>,
-  region: Scalars['String'],
-  releaseDay?: Maybe<Scalars['Int']>,
-  releaseMonth?: Maybe<Scalars['Int']>,
-  releaseYear: Scalars['Int'],
   runtime: Scalars['Int'],
-  images?: Maybe<ImageCreateManyWithoutImagesInput>,
+  images?: Maybe<ImageCreateManyWithoutReleaseInput>,
 };
 
 export type ReleaseCreateWithoutImagesInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
+  releaseYear: Scalars['Int'],
+  releaseMonth?: Maybe<Scalars['Int']>,
+  releaseDay?: Maybe<Scalars['Int']>,
   country: Country,
   format: Scalars['String'],
   notes?: Maybe<Scalars['String']>,
-  region: Scalars['String'],
-  releaseDay?: Maybe<Scalars['Int']>,
-  releaseMonth?: Maybe<Scalars['Int']>,
-  releaseYear: Scalars['Int'],
   runtime: Scalars['Int'],
-  film: FilmCreateOneWithoutFilmInput,
+  film: FilmCreateOneWithoutReleasesInput,
 };
 
 export type ReleaseFilter = {
@@ -2137,14 +2171,13 @@ export type ReleaseFilter = {
 
 export type ReleaseScalarWhereInput = {
   id?: Maybe<StringFilter>,
+  images?: Maybe<ImageFilter>,
+  releaseYear?: Maybe<IntFilter>,
+  releaseMonth?: Maybe<NullableIntFilter>,
+  releaseDay?: Maybe<NullableIntFilter>,
   country?: Maybe<Country>,
   format?: Maybe<StringFilter>,
-  images?: Maybe<ImageFilter>,
   notes?: Maybe<NullableStringFilter>,
-  region?: Maybe<StringFilter>,
-  releaseDay?: Maybe<NullableIntFilter>,
-  releaseMonth?: Maybe<NullableIntFilter>,
-  releaseYear?: Maybe<IntFilter>,
   runtime?: Maybe<IntFilter>,
   AND?: Maybe<Array<ReleaseScalarWhereInput>>,
   OR?: Maybe<Array<ReleaseScalarWhereInput>>,
@@ -2152,28 +2185,26 @@ export type ReleaseScalarWhereInput = {
 };
 
 export type ReleaseUpdateInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
+  releaseYear?: Maybe<Scalars['Int']>,
+  releaseMonth?: Maybe<Scalars['Int']>,
+  releaseDay?: Maybe<Scalars['Int']>,
   country?: Maybe<Country>,
   format?: Maybe<Scalars['String']>,
   notes?: Maybe<Scalars['String']>,
-  region?: Maybe<Scalars['String']>,
-  releaseDay?: Maybe<Scalars['Int']>,
-  releaseMonth?: Maybe<Scalars['Int']>,
-  releaseYear?: Maybe<Scalars['Int']>,
   runtime?: Maybe<Scalars['Int']>,
   film?: Maybe<FilmUpdateOneRequiredWithoutReleasesInput>,
   images?: Maybe<ImageUpdateManyWithoutReleaseInput>,
 };
 
 export type ReleaseUpdateManyDataInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
+  releaseYear?: Maybe<Scalars['Int']>,
+  releaseMonth?: Maybe<Scalars['Int']>,
+  releaseDay?: Maybe<Scalars['Int']>,
   country?: Maybe<Country>,
   format?: Maybe<Scalars['String']>,
   notes?: Maybe<Scalars['String']>,
-  region?: Maybe<Scalars['String']>,
-  releaseDay?: Maybe<Scalars['Int']>,
-  releaseMonth?: Maybe<Scalars['Int']>,
-  releaseYear?: Maybe<Scalars['Int']>,
   runtime?: Maybe<Scalars['Int']>,
 };
 
@@ -2204,27 +2235,25 @@ export type ReleaseUpdateOneWithoutImagesInput = {
 };
 
 export type ReleaseUpdateWithoutFilmDataInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
+  releaseYear?: Maybe<Scalars['Int']>,
+  releaseMonth?: Maybe<Scalars['Int']>,
+  releaseDay?: Maybe<Scalars['Int']>,
   country?: Maybe<Country>,
   format?: Maybe<Scalars['String']>,
   notes?: Maybe<Scalars['String']>,
-  region?: Maybe<Scalars['String']>,
-  releaseDay?: Maybe<Scalars['Int']>,
-  releaseMonth?: Maybe<Scalars['Int']>,
-  releaseYear?: Maybe<Scalars['Int']>,
   runtime?: Maybe<Scalars['Int']>,
   images?: Maybe<ImageUpdateManyWithoutReleaseInput>,
 };
 
 export type ReleaseUpdateWithoutImagesDataInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
+  releaseYear?: Maybe<Scalars['Int']>,
+  releaseMonth?: Maybe<Scalars['Int']>,
+  releaseDay?: Maybe<Scalars['Int']>,
   country?: Maybe<Country>,
   format?: Maybe<Scalars['String']>,
   notes?: Maybe<Scalars['String']>,
-  region?: Maybe<Scalars['String']>,
-  releaseDay?: Maybe<Scalars['Int']>,
-  releaseMonth?: Maybe<Scalars['Int']>,
-  releaseYear?: Maybe<Scalars['Int']>,
   runtime?: Maybe<Scalars['Int']>,
   film?: Maybe<FilmUpdateOneRequiredWithoutReleasesInput>,
 };
@@ -2247,14 +2276,13 @@ export type ReleaseUpsertWithWhereUniqueWithoutFilmInput = {
 
 export type ReleaseWhereInput = {
   id?: Maybe<StringFilter>,
+  images?: Maybe<ImageFilter>,
+  releaseYear?: Maybe<IntFilter>,
+  releaseMonth?: Maybe<NullableIntFilter>,
+  releaseDay?: Maybe<NullableIntFilter>,
   country?: Maybe<Country>,
   format?: Maybe<StringFilter>,
-  images?: Maybe<ImageFilter>,
   notes?: Maybe<NullableStringFilter>,
-  region?: Maybe<StringFilter>,
-  releaseDay?: Maybe<NullableIntFilter>,
-  releaseMonth?: Maybe<NullableIntFilter>,
-  releaseYear?: Maybe<IntFilter>,
   runtime?: Maybe<IntFilter>,
   AND?: Maybe<Array<ReleaseWhereInput>>,
   OR?: Maybe<Array<ReleaseWhereInput>>,
@@ -2263,7 +2291,7 @@ export type ReleaseWhereInput = {
 };
 
 export type ReleaseWhereUniqueInput = {
-  id?: Maybe<Scalars['ID']>,
+  id?: Maybe<Scalars['String']>,
 };
 
 export type StringFilter = {
@@ -2283,12 +2311,24 @@ export type StringFilter = {
 export type Studio = {
    __typename?: 'Studio',
   id: Scalars['String'],
+  name: Scalars['String'],
+  image?: Maybe<Image>,
+  foundedYear: Scalars['Int'],
+  films: Array<Film>,
   city?: Maybe<Scalars['String']>,
   country: Country,
-  foundedYear: Scalars['Int'],
   founders: Array<Person>,
-  image?: Maybe<Image>,
-  name: Scalars['String'],
+};
+
+
+export type StudioFilmsArgs = {
+  where?: Maybe<StudioFilmsWhereInput>,
+  orderBy?: Maybe<StudioFilmsOrderByInput>,
+  skip?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>
 };
 
 
@@ -2304,58 +2344,69 @@ export type StudioFoundersArgs = {
 
 export type StudioCreateInput = {
   id: Scalars['String'],
+  name: Scalars['String'],
+  foundedYear: Scalars['Int'],
   city?: Maybe<Scalars['String']>,
   country: Country,
-  foundedYear: Scalars['Int'],
-  name: Scalars['String'],
-  films?: Maybe<FilmCreateManyWithoutFilmsInput>,
-  founders?: Maybe<PersonCreateManyWithoutFoundersInput>,
-  image?: Maybe<ImageCreateOneWithoutImageInput>,
+  image?: Maybe<ImageCreateOneWithoutStudiosInput>,
+  films?: Maybe<FilmCreateManyWithoutStudioInput>,
+  founders?: Maybe<PersonCreateManyWithoutFoundedInput>,
 };
 
-export type StudioCreateManyWithoutFoundedInput = {
+export type StudioCreateManyWithoutFoundersInput = {
   create?: Maybe<Array<StudioCreateWithoutFoundersInput>>,
   connect?: Maybe<Array<StudioWhereUniqueInput>>,
 };
 
-export type StudioCreateManyWithoutStudiosInput = {
+export type StudioCreateManyWithoutImageInput = {
   create?: Maybe<Array<StudioCreateWithoutImageInput>>,
   connect?: Maybe<Array<StudioWhereUniqueInput>>,
 };
 
-export type StudioCreateOneWithoutStudioInput = {
+export type StudioCreateOneWithoutFilmsInput = {
   create?: Maybe<StudioCreateWithoutFilmsInput>,
   connect?: Maybe<StudioWhereUniqueInput>,
 };
 
 export type StudioCreateWithoutFilmsInput = {
   id: Scalars['String'],
+  name: Scalars['String'],
+  foundedYear: Scalars['Int'],
   city?: Maybe<Scalars['String']>,
   country: Country,
-  foundedYear: Scalars['Int'],
-  name: Scalars['String'],
-  founders?: Maybe<PersonCreateManyWithoutFoundersInput>,
-  image?: Maybe<ImageCreateOneWithoutImageInput>,
+  image?: Maybe<ImageCreateOneWithoutStudiosInput>,
+  founders?: Maybe<PersonCreateManyWithoutFoundedInput>,
 };
 
 export type StudioCreateWithoutFoundersInput = {
   id: Scalars['String'],
+  name: Scalars['String'],
+  foundedYear: Scalars['Int'],
   city?: Maybe<Scalars['String']>,
   country: Country,
-  foundedYear: Scalars['Int'],
-  name: Scalars['String'],
-  films?: Maybe<FilmCreateManyWithoutFilmsInput>,
-  image?: Maybe<ImageCreateOneWithoutImageInput>,
+  image?: Maybe<ImageCreateOneWithoutStudiosInput>,
+  films?: Maybe<FilmCreateManyWithoutStudioInput>,
 };
 
 export type StudioCreateWithoutImageInput = {
   id: Scalars['String'],
+  name: Scalars['String'],
+  foundedYear: Scalars['Int'],
   city?: Maybe<Scalars['String']>,
   country: Country,
-  foundedYear: Scalars['Int'],
-  name: Scalars['String'],
-  films?: Maybe<FilmCreateManyWithoutFilmsInput>,
-  founders?: Maybe<PersonCreateManyWithoutFoundersInput>,
+  films?: Maybe<FilmCreateManyWithoutStudioInput>,
+  founders?: Maybe<PersonCreateManyWithoutFoundedInput>,
+};
+
+export type StudioFilmsOrderByInput = {
+  title?: Maybe<OrderByArg>,
+  titleJP?: Maybe<OrderByArg>,
+  titleEN?: Maybe<OrderByArg>,
+  releaseYear?: Maybe<OrderByArg>,
+};
+
+export type StudioFilmsWhereInput = {
+  releaseYear?: Maybe<IntFilter>,
 };
 
 export type StudioFilter = {
@@ -2365,26 +2416,26 @@ export type StudioFilter = {
 };
 
 export type StudioFoundersOrderByInput = {
-  alias?: Maybe<OrderByArg>,
-  birthYear?: Maybe<OrderByArg>,
-  country?: Maybe<OrderByArg>,
-  firstName?: Maybe<OrderByArg>,
   lastName?: Maybe<OrderByArg>,
+  firstName?: Maybe<OrderByArg>,
+  alias?: Maybe<OrderByArg>,
+  country?: Maybe<OrderByArg>,
+  birthYear?: Maybe<OrderByArg>,
 };
 
 export type StudioFoundersWhereInput = {
-  birthYear?: Maybe<NullableIntFilter>,
   country?: Maybe<Country>,
+  birthYear?: Maybe<NullableIntFilter>,
 };
 
 export type StudioScalarWhereInput = {
   id?: Maybe<StringFilter>,
+  name?: Maybe<StringFilter>,
+  foundedYear?: Maybe<IntFilter>,
+  films?: Maybe<FilmFilter>,
   city?: Maybe<NullableStringFilter>,
   country?: Maybe<Country>,
-  films?: Maybe<FilmFilter>,
-  foundedYear?: Maybe<IntFilter>,
   founders?: Maybe<PersonFilter>,
-  name?: Maybe<StringFilter>,
   AND?: Maybe<Array<StudioScalarWhereInput>>,
   OR?: Maybe<Array<StudioScalarWhereInput>>,
   NOT?: Maybe<Array<StudioScalarWhereInput>>,
@@ -2392,21 +2443,21 @@ export type StudioScalarWhereInput = {
 
 export type StudioUpdateInput = {
   id?: Maybe<Scalars['String']>,
+  name?: Maybe<Scalars['String']>,
+  foundedYear?: Maybe<Scalars['Int']>,
   city?: Maybe<Scalars['String']>,
   country?: Maybe<Country>,
-  foundedYear?: Maybe<Scalars['Int']>,
-  name?: Maybe<Scalars['String']>,
+  image?: Maybe<ImageUpdateOneWithoutStudiosInput>,
   films?: Maybe<FilmUpdateManyWithoutStudioInput>,
   founders?: Maybe<PersonUpdateManyWithoutFoundedInput>,
-  image?: Maybe<ImageUpdateOneWithoutStudiosInput>,
 };
 
 export type StudioUpdateManyDataInput = {
   id?: Maybe<Scalars['String']>,
+  name?: Maybe<Scalars['String']>,
+  foundedYear?: Maybe<Scalars['Int']>,
   city?: Maybe<Scalars['String']>,
   country?: Maybe<Country>,
-  foundedYear?: Maybe<Scalars['Int']>,
-  name?: Maybe<Scalars['String']>,
 };
 
 export type StudioUpdateManyWithoutFoundersInput = {
@@ -2449,30 +2500,30 @@ export type StudioUpdateOneWithoutFilmsInput = {
 
 export type StudioUpdateWithoutFilmsDataInput = {
   id?: Maybe<Scalars['String']>,
+  name?: Maybe<Scalars['String']>,
+  foundedYear?: Maybe<Scalars['Int']>,
   city?: Maybe<Scalars['String']>,
   country?: Maybe<Country>,
-  foundedYear?: Maybe<Scalars['Int']>,
-  name?: Maybe<Scalars['String']>,
-  founders?: Maybe<PersonUpdateManyWithoutFoundedInput>,
   image?: Maybe<ImageUpdateOneWithoutStudiosInput>,
+  founders?: Maybe<PersonUpdateManyWithoutFoundedInput>,
 };
 
 export type StudioUpdateWithoutFoundersDataInput = {
   id?: Maybe<Scalars['String']>,
+  name?: Maybe<Scalars['String']>,
+  foundedYear?: Maybe<Scalars['Int']>,
   city?: Maybe<Scalars['String']>,
   country?: Maybe<Country>,
-  foundedYear?: Maybe<Scalars['Int']>,
-  name?: Maybe<Scalars['String']>,
-  films?: Maybe<FilmUpdateManyWithoutStudioInput>,
   image?: Maybe<ImageUpdateOneWithoutStudiosInput>,
+  films?: Maybe<FilmUpdateManyWithoutStudioInput>,
 };
 
 export type StudioUpdateWithoutImageDataInput = {
   id?: Maybe<Scalars['String']>,
+  name?: Maybe<Scalars['String']>,
+  foundedYear?: Maybe<Scalars['Int']>,
   city?: Maybe<Scalars['String']>,
   country?: Maybe<Country>,
-  foundedYear?: Maybe<Scalars['Int']>,
-  name?: Maybe<Scalars['String']>,
   films?: Maybe<FilmUpdateManyWithoutStudioInput>,
   founders?: Maybe<PersonUpdateManyWithoutFoundedInput>,
 };
@@ -2506,12 +2557,12 @@ export type StudioUpsertWithWhereUniqueWithoutImageInput = {
 
 export type StudioWhereInput = {
   id?: Maybe<StringFilter>,
+  name?: Maybe<StringFilter>,
+  foundedYear?: Maybe<IntFilter>,
+  films?: Maybe<FilmFilter>,
   city?: Maybe<NullableStringFilter>,
   country?: Maybe<Country>,
-  films?: Maybe<FilmFilter>,
-  foundedYear?: Maybe<IntFilter>,
   founders?: Maybe<PersonFilter>,
-  name?: Maybe<StringFilter>,
   AND?: Maybe<Array<StudioWhereInput>>,
   OR?: Maybe<Array<StudioWhereInput>>,
   NOT?: Maybe<Array<StudioWhereInput>>,
@@ -2531,12 +2582,9 @@ export type AllFilmsQuery = (
   & { films: Array<(
     { __typename?: 'Film' }
     & Pick<Film, 'id' | 'title' | 'titleEN' | 'releaseYear'>
-    & { directors: Array<(
-      { __typename?: 'Person' }
-      & Pick<Person, 'alias' | 'firstName' | 'lastName'>
-    )>, image: (
+    & { image: (
       { __typename?: 'Image' }
-      & Pick<Image, 'name' | 'url'>
+      & Pick<Image, 'title' | 'url'>
     ), studio: Maybe<(
       { __typename?: 'Studio' }
       & Pick<Studio, 'name'>
@@ -2557,18 +2605,44 @@ export type OneFilmQuery = (
     & { image: (
       { __typename?: 'Image' }
       & Pick<Image, 'url'>
-    ), animators: Array<(
-      { __typename?: 'Person' }
-      & Pick<Person, 'id' | 'alias' | 'firstName' | 'lastName'>
-    )>, composers: Array<(
-      { __typename?: 'Person' }
-      & Pick<Person, 'id' | 'alias' | 'firstName' | 'lastName'>
+    ), studio: Maybe<(
+      { __typename?: 'Studio' }
+      & Pick<Studio, 'id' | 'name'>
+      & { image: Maybe<(
+        { __typename?: 'Image' }
+        & Pick<Image, 'title' | 'url'>
+      )> }
     )>, directors: Array<(
       { __typename?: 'Person' }
-      & Pick<Person, 'id' | 'alias' | 'firstName' | 'lastName'>
+      & Pick<Person, 'id' | 'lastName' | 'firstName' | 'alias'>
+      & { image: Maybe<(
+        { __typename?: 'Image' }
+        & Pick<Image, 'title' | 'url'>
+      )> }
+    )>, writers: Array<(
+      { __typename?: 'Person' }
+      & Pick<Person, 'id' | 'lastName' | 'firstName' | 'alias'>
+      & { image: Maybe<(
+        { __typename?: 'Image' }
+        & Pick<Image, 'title' | 'url'>
+      )> }
+    )>, composers: Array<(
+      { __typename?: 'Person' }
+      & Pick<Person, 'id' | 'lastName' | 'firstName' | 'alias'>
+      & { image: Maybe<(
+        { __typename?: 'Image' }
+        & Pick<Image, 'title' | 'url'>
+      )> }
+    )>, animationSequences: Array<(
+      { __typename?: 'AnimationSequence' }
+      & Pick<AnimationSequence, 'id' | 'url'>
+      & { image: (
+        { __typename?: 'Image' }
+        & Pick<Image, 'title' | 'url'>
+      ) }
     )>, releases: Array<(
       { __typename?: 'Release' }
-      & Pick<Release, 'country' | 'notes' | 'region' | 'releaseDay' | 'releaseMonth' | 'releaseYear'>
+      & Pick<Release, 'country' | 'notes' | 'releaseDay' | 'releaseMonth' | 'releaseYear'>
       & { images: Array<(
         { __typename?: 'Image' }
         & Pick<Image, 'url'>
@@ -2586,31 +2660,95 @@ export type OnePersonQuery = (
   { __typename?: 'Query' }
   & { person: Maybe<(
     { __typename?: 'Person' }
-    & Pick<Person, 'alias' | 'birthDay' | 'birthMonth' | 'birthYear' | 'deathDay' | 'deathMonth' | 'deathYear' | 'description' | 'firstName' | 'kanji' | 'lastName'>
+    & Pick<Person, 'lastName' | 'firstName' | 'kanji' | 'alias' | 'birthDay' | 'birthMonth' | 'birthYear' | 'deathDay' | 'deathMonth' | 'deathYear' | 'description' | 'country'>
     & { image: Maybe<(
       { __typename?: 'Image' }
-      & Pick<Image, 'copyright' | 'name' | 'url'>
-    )>, animated: Array<(
-      { __typename?: 'Film' }
-      & Pick<Film, 'id' | 'releaseYear' | 'title' | 'titleEN'>
-      & { image: (
+      & Pick<Image, 'copyright' | 'title' | 'url'>
+    )>, founded: Array<(
+      { __typename?: 'Studio' }
+      & Pick<Studio, 'id' | 'name'>
+      & { image: Maybe<(
         { __typename?: 'Image' }
-        & Pick<Image, 'name' | 'url'>
-      ) }
+        & Pick<Image, 'title' | 'url'>
+      )> }
     )>, directed: Array<(
       { __typename?: 'Film' }
-      & Pick<Film, 'id' | 'releaseYear' | 'title' | 'titleEN'>
+      & Pick<Film, 'id' | 'title' | 'titleEN' | 'releaseYear'>
       & { image: (
         { __typename?: 'Image' }
-        & Pick<Image, 'name' | 'url'>
-      ) }
+        & Pick<Image, 'title' | 'url'>
+      ), studio: Maybe<(
+        { __typename?: 'Studio' }
+        & Pick<Studio, 'name'>
+      )> }
+    )>, wrote: Array<(
+      { __typename?: 'Film' }
+      & Pick<Film, 'id' | 'title' | 'titleEN' | 'releaseYear'>
+      & { image: (
+        { __typename?: 'Image' }
+        & Pick<Image, 'title' | 'url'>
+      ), studio: Maybe<(
+        { __typename?: 'Studio' }
+        & Pick<Studio, 'name'>
+      )> }
     )>, composed: Array<(
       { __typename?: 'Film' }
-      & Pick<Film, 'id' | 'releaseYear' | 'title' | 'titleEN'>
+      & Pick<Film, 'id' | 'title' | 'titleEN' | 'releaseYear'>
       & { image: (
         { __typename?: 'Image' }
-        & Pick<Image, 'name' | 'url'>
+        & Pick<Image, 'title' | 'url'>
+      ), studio: Maybe<(
+        { __typename?: 'Studio' }
+        & Pick<Studio, 'name'>
+      )> }
+    )>, animationSequences: Array<(
+      { __typename?: 'AnimationSequence' }
+      & Pick<AnimationSequence, 'id' | 'url'>
+      & { film: (
+        { __typename?: 'Film' }
+        & Pick<Film, 'id' | 'releaseYear' | 'title' | 'titleEN'>
+        & { image: (
+          { __typename?: 'Image' }
+          & Pick<Image, 'title' | 'url'>
+        ) }
+      ), image: (
+        { __typename?: 'Image' }
+        & Pick<Image, 'title' | 'url'>
       ) }
+    )> }
+  )> }
+);
+
+export type OneStudioQueryVariables = {
+  id?: Maybe<Scalars['String']>
+};
+
+
+export type OneStudioQuery = (
+  { __typename?: 'Query' }
+  & { studio: Maybe<(
+    { __typename?: 'Studio' }
+    & Pick<Studio, 'id' | 'name' | 'foundedYear' | 'country' | 'city'>
+    & { founders: Array<(
+      { __typename?: 'Person' }
+      & Pick<Person, 'id' | 'firstName' | 'lastName' | 'alias'>
+      & { image: Maybe<(
+        { __typename?: 'Image' }
+        & Pick<Image, 'title' | 'url'>
+      )> }
+    )>, image: Maybe<(
+      { __typename?: 'Image' }
+      & Pick<Image, 'title' | 'url'>
+    )>, films: Array<(
+      { __typename?: 'Film' }
+      & Pick<Film, 'id' | 'title' | 'titleEN' | 'releaseYear'>
+      & { image: (
+        { __typename?: 'Image' }
+        & Pick<Image, 'title' | 'url'>
+      ), studio: Maybe<(
+        { __typename?: 'Studio' }
+        & Pick<Studio, 'name'>
+      )> }
     )> }
   )> }
 );
