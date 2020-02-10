@@ -4,46 +4,36 @@ import { Link } from '/web_modules/preact-router.js';
 import SkeletonImg from '../SkeletonImg/index.js';
 import SkeletonText from '../SkeletonText/index.js';
 
-import { AllFilmsQuery } from '../../types/graphql';
-
 interface FilmCardProps {
-  directors: AllFilmsQuery['films'][0]['directors'];
   id: string;
   image?: string;
+  meta?: string;
   releaseYear: number;
   skeleton?: boolean;
-  studio?: string;
   title: string;
   titleEN: string;
 }
 
-const formatPerson = (person: AllFilmsQuery['films'][0]['directors'][0]) =>
-  person.alias ? person.alias : `${person.firstName} ${person.lastName}`;
-
 const FilmCard: preact.FunctionComponent<FilmCardProps> = ({
-  directors,
   id,
   image,
+  meta,
   releaseYear,
   skeleton,
-  studio,
   title,
   titleEN,
 }) =>
   !skeleton ? (
     <Link activeClassName="is-active" href={`/film/${id}`} className="filmCard">
-      <img className="filmCard-img" alt={title} src={image} height="425" width="300" />
+      <div className="filmCard-img">
+        <img alt={title} src={image} height="425" width="300" />
+      </div>
       <h3 className="filmCard-title">
         {title}
         {titleEN !== title && [<br />, titleEN]}
-        <small>
-          {directors.map(
-            director => director.alias || `${director.firstName} ${director.lastName}`
-          )}
-          {studio && [' / ', studio]}
-        </small>
       </h3>
       <div className="filmCard-year">{releaseYear}</div>
+      {meta}
     </Link>
   ) : (
     <div className="filmCard">
@@ -53,10 +43,7 @@ const FilmCard: preact.FunctionComponent<FilmCardProps> = ({
       <h3 className="filmCard-title">
         <SkeletonText>{title}</SkeletonText>
         <small>
-          <SkeletonText>
-            {directors.map(formatPerson)}
-            {studio && [' / ', studio]}
-          </SkeletonText>
+          <SkeletonText>{meta}</SkeletonText>
         </small>
       </h3>
       <div className="filmCard-year">

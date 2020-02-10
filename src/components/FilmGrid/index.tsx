@@ -5,20 +5,20 @@ import { AllFilmsQuery } from '../../types/graphql';
 
 interface FilmGridProps {
   films?: AllFilmsQuery['films'];
+  meta?: { [key: string]: string };
 }
 
-const FilmGrid: preact.FunctionComponent<FilmGridProps> = ({ films }) => {
+const FilmGrid: preact.FunctionComponent<FilmGridProps> = ({ films, meta }) => {
   if (films) {
     return (
       <div className="filmGrid">
         {films.map(film => (
           <FilmCard
             key={film.id}
-            directors={film.directors}
             id={film.id}
             image={film.image.url}
+            meta={meta && meta[film.id]}
             releaseYear={film.releaseYear}
-            studio={film.studio.name}
             title={film.title}
             titleEN={film.titleEN}
           />
@@ -31,7 +31,6 @@ const FilmGrid: preact.FunctionComponent<FilmGridProps> = ({ films }) => {
       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(n => (
         <FilmCard
           key={n}
-          directors={[{ firstName: 'Winsor', lastName: 'McCay' }]}
           releaseYear={1914}
           skeleton
           id="gertie-the-dinosaur"

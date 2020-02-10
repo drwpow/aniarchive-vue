@@ -1,0 +1,40 @@
+.animationGrid {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.animationGrid-item {
+  border-radius: 0.25rem;
+  display: block;
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    background: hsl(var(--black));
+    border-radius: 0.25em;
+    color: hsl(var(--white));
+    content: attr(data-id);
+    font-size: var(--d2);
+    left: 0.5rem;
+    opacity: 0;
+    padding: 0.5em 0.75em;
+    position: absolute;
+    top: 0.5rem;
+    transition: opacity 150ms linear;
+  }
+
+  &:focus,
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  & img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}

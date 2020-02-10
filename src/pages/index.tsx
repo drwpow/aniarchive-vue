@@ -15,10 +15,14 @@ const HomePage: preact.FunctionComponent<{}> = () => {
     variables: {},
   });
 
+  const meta: { [key: string]: string } = data
+    ? data.films.reduce((metaObj, film) => ({ ...metaObj, [film.id]: film.studio.name }), {})
+    : {};
+
   return (
     <Block>
       <Wrapper>
-        <FilmGrid films={data ? data.films : undefined} />
+        <FilmGrid films={data ? data.films : undefined} meta={meta} />
       </Wrapper>
     </Block>
   );
