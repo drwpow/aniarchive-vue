@@ -1,0 +1,1 @@
+export default 'query oneStudio($id:String){studio(where:{id:$id}){id name foundedYear country city founders{id firstName lastName alias image{title url}}image{title url}films(orderBy:{releaseYear:asc}){id title titleEN releaseYear image{title url}studio{name}}}}'

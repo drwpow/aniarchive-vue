@@ -1,0 +1,1 @@
+export default 'query allFilms{films(orderBy:{releaseYear:desc}){id title titleEN releaseYear image{title url}studio{name}}}'
