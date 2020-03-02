@@ -61,6 +61,6 @@
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0",
-    "typescript": "^3.8.2"
+    "typescript": "^3.8.3"
   }
 }
