@@ -57,7 +57,7 @@
     "prettier": "^1.19.1",
     "serve": "^11.3.0",
     "snowpack": "^1.4.0",
-    "stylelint": "^13.2.0",
+    "stylelint": "^13.2.1",
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0",
