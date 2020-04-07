@@ -37,7 +37,7 @@
     "preact-router": "^3.2.1"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.13.1",
+    "@graphql-codegen/cli": "^1.13.2",
     "@graphql-codegen/typescript": "^1.13.1",
     "@graphql-codegen/typescript-operations": "^1.13.1",
     "@types/node": "^13.11.0",
