@@ -33,7 +33,7 @@
     "postcss-cli": "^7.1.0",
     "postcss-easy-import": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
-    "preact": "^10.3.4",
+    "preact": "^10.4.0",
     "preact-router": "^3.2.1"
   },
   "devDependencies": {
