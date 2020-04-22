@@ -54,7 +54,7 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^3.0.0",
     "gqlmin": "0.0.1",
-    "prettier": "^2.0.2",
+    "prettier": "^2.0.5",
     "serve": "^11.3.0",
     "snowpack": "^1.6.0",
     "stylelint": "^13.3.0",
