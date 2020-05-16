@@ -6,7 +6,7 @@ import gqlFetch from '../utils/gql-fetch.js';
 
 // minified with https://codepen.io/dangodev/pen/Baoqmoy
 const query =
-  'query oneFilm($id:String){film(where:{id:$id}){title titleEN image{url}releaseYear studio{id name image{title url}}directors{id lastName firstName alias image{title url}}writers{id lastName firstName alias image{title url}}composers{id lastName firstName alias image{title url}}animationSequences{id image{title url}url}releases{country images{url}notes releaseDay releaseMonth releaseYear}}}';
+  'query oneFilm($id:String){film(where:{id:$id}){title titleEN image{url}releaseYear studio{id name image{title url}}directors{id lastName firstName alias image{title url}}writers{id lastName firstName alias image{title url}}composers{id lastName firstName alias image{title url}}animationSequences{artists{id firstName lastName alias image{title url}}id image{title url}url}releases{country images{url}notes releaseDay releaseMonth releaseYear}}}';
 
 export default {
   data() {

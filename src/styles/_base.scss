@@ -1,3 +1,29 @@
 body {
+  color: hsl(var(--fg));
   font-family: var(--sans);
+  background: hsl(var(--bg));
+}
+
+a {
+  color: hsl(var(--interactive));
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  max-width: 45em;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: var(--u4);
+}
+
+h2 {
+  font-weight: 400;
+  font-size: var(--u2);
 }

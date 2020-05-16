@@ -1,0 +1,31 @@
+$prefix: '' !default;
+
+.#{$prefix}-input {
+  display: block;
+  color: hsl(var(--fg-offset-2));
+  font-weight: 500;
+  font-size: var(--d2);
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+
+  input {
+    display: block;
+    min-width: none;
+    max-width: 100%;
+    margin-top: 0.25rem;
+    padding: 0.5em 0.75em;
+    color: hsl(var(--fg));
+    font-size: 1rem;
+    background: none;
+    border: 1px solid hsl(var(--bg-offset-2));
+    border-radius: 0.25rem;
+
+    &[type='number'],
+    &[inputmode='numeric'],
+    &[inputmode='decimal'],
+    &[pattern='[0-9]*'],
+    &[pattern^='\d'] {
+      font-family: var(--mono);
+    }
+  }
+}

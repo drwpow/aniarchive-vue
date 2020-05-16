@@ -1,0 +1,111 @@
+$prefix: '' !default;
+
+.#{$prefix}-filter {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: calc(50% - 0.75rem) 1fr 1fr;
+  margin-bottom: 2rem;
+
+  &-dropdown {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-expand {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0.5em 0.75em;
+    color: currentColor;
+    font-size: inherit;
+    font-family: inherit;
+    text-align: left;
+    background: none;
+    border: 1px solid hsl(var(--bg-offset-2));
+    border-radius: 0.25rem;
+    cursor: pointer;
+    appearance: none;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-right: 1px solid hsl(var(--fg));
+      border-bottom: 1px solid hsl(var(--fg));
+      transform: translateY(-62.5%) rotate(45deg);
+      content: '';
+      pointer-events: none;
+    }
+  }
+
+  &-studios,
+  &-years {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1.5rem;
+    background: hsl(var(--bg));
+    border: 1px solid hsl(var(--bg-offset));
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+
+    &[aria-hidden] {
+      display: none;
+    }
+  }
+
+  &-studios {
+    border: none;
+    appearance: none;
+  }
+
+  &-title {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    color: hsl(var(--fg));
+    font-size: 1em;
+    font-family: inherit;
+    background: none;
+    border: 1px solid hsl(var(--bg-offset-2));
+    border-radius: 0.25em;
+    transition: border-color 150ms linear;
+
+    &:focus {
+      border-color: hsl(0, 0%, 50%);
+    }
+  }
+
+  &-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    display: none;
+
+    &[data-visible='true'] {
+      display: block;
+    }
+  }
+
+  &-years {
+    position: absolute;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+
+    input {
+      box-sizing: border-box;
+      width: 100%;
+    }
+  }
+}

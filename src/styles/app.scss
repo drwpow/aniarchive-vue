@@ -5,9 +5,12 @@
 // components
 @use "components/animationgrid" with ($prefix: 'ani');
 @use "components/block" with ($prefix: 'ani');
+@use "components/checkbox" with ($prefix: 'ani');
 @use "components/filmdetail" with ($prefix: 'ani');
 @use "components/filmgrid" with ($prefix: 'ani');
+@use "components/filter" with ($prefix: 'ani');
 @use "components/imagelink" with ($prefix: 'ani');
+@use "components/input" with ($prefix: 'ani');
 @use "components/meta" with ($prefix: 'ani');
 @use "components/nav" with ($prefix: 'ani');
 @use "components/persondetail" with ($prefix: 'ani');

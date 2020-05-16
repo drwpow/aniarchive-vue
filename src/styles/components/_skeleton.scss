@@ -2,7 +2,7 @@ $prefix: '' !default;
 
 @keyframes skeletonFlash {
   to {
-    transform: translateX(100%); /* line width shouldn’t be more than this */
+    transform: translateX(125%); /* line width shouldn’t be more than this */
   }
 }
 
@@ -31,7 +31,7 @@ $prefix: '' !default;
     background-repeat: no-repeat;
     opacity: 0.4;
     animation-name: skeletonFlash;
-    animation-duration: 1.5s;
+    animation-duration: 1.4s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     content: '';
@@ -44,10 +44,10 @@ $prefix: '' !default;
 
   &::before {
     background-image: linear-gradient(
-      hsla(0, 0%, 100%, 0.1),
-      hsla(0, 0%, 100%, 0.1) 1em,
-      hsla(0, 0%, 100%, 0) 1em,
-      hsla(0, 0%, 100%, 0) 1.4em
+      rgba(0, 0, 0, 0.05),
+      rgba(0, 0, 0, 0.05) 1em,
+      rgba(0, 0, 0, 0) 1em,
+      rgba(0, 0, 0, 0) 1.5em
     );
     background-repeat: repeat-y;
     background-size: 100% 1.4em;
@@ -57,9 +57,9 @@ $prefix: '' !default;
     width: 60em; /* derived from font size */
     background-image: linear-gradient(
       60deg,
-      transparent 50%,
-      hsla(0, 0%, 100%, 0.15),
-      transparent 60%
+      rgba(255, 255, 255, 0) 33.3333%,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0) 66.6666%
     );
   }
 }
@@ -79,9 +79,9 @@ $prefix: '' !default;
     width: 100em; /* derived from font size */
     background-image: linear-gradient(
       60deg,
-      transparent 50%,
-      hsla(0, 0%, 100%, 0.1),
-      transparent 60%
+      rgba(255, 255, 255, 0) 33.3333%,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0) 66.6666%
     );
   }
 }

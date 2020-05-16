@@ -1,4 +1,12 @@
 // ----------
+// (D)isplay
+// ----------
+
+.db {
+  display: block;
+}
+
+// ----------
 // (G)rid
 // ----------
 
@@ -44,4 +52,12 @@ $max-size: 16;
       padding-#{$direction}: #{$i/2}rem;
     }
   }
+}
+
+// ---------------
+//  (T)ext (A)lign
+// ---------------
+
+.tac {
+  text-align: center;
 }

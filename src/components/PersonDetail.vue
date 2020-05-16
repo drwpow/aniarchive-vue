@@ -1,4 +1,5 @@
 <script>
+import AnimationGrid from './AnimationGrid.vue';
 import FilmGrid from './FilmGrid.vue';
 import StudioLink from './StudioLink.vue';
 
@@ -92,19 +93,31 @@ export default {
       return `${year}-${month}-${day}`;
     },
   },
-  components: { FilmGrid, StudioLink },
+  components: { AnimationGrid, FilmGrid, StudioLink },
 };
 </script>
 
 <template>
   <div v-if="person" class="ani-persondetail">
     <div class="ani-persondetail-img">
-      <img :src="person.image.url" :alt="person.image.title" width="400" />
+      <img
+        v-if="person.image"
+        class="ani-persondetail-photo"
+        :src="person.image.url"
+        :alt="person.image.title"
+        width="400"
+      />
+      <img
+        v-if="!person.image && person.animated && person.animated.length"
+        loading="lazy"
+        class="ani-persondetail-photo"
+        :src="person.animated[Math.floor(Math.random()*person.animated.length)].image.url"
+      />
     </div>
     <div class="ani-persondetail-details">
-      <h1 class="ani-persondetail-title">
-        {{ formattedName }} {{ !person.alias && person.kanji ? `(${person.kanji})` : '' }}
-      </h1>
+      <h1
+        class="ani-persondetail-title"
+      >{{ formattedName }} {{ !person.alias && person.kanji ? `(${person.kanji})` : '' }}</h1>
       <p>{{ person.description }}</p>
       <div class="ani-persondetail-meta">
         <div class="ani-meta">
@@ -117,11 +130,11 @@ export default {
           <div v-if="person.birthYear" class="ani-meta-key">Born</div>
           <div v-if="person.birthYear" class="ani-meta-val">{{ born }}</div>
 
-          <div v-if="person.birthYear" class="ani-meta-key">Age</div>
-          <div v-if="person.birthYear" class="ani-meta-val">{{ age }}</div>
-
           <div v-if="person.deathYear" class="ani-meta-key">Died</div>
           <div v-if="person.deathYear" class="ani-meta-val">{{ died }}</div>
+
+          <div v-if="person.birthYear" class="ani-meta-key">Age</div>
+          <div v-if="person.birthYear" class="ani-meta-val">{{ age }}</div>
 
           <div class="ani-meta-key">Country</div>
           <div class="ani-meta-val">{{ person.country }}</div>
@@ -132,16 +145,24 @@ export default {
           </div>
 
           <div v-if="hasAnimationCredit" class="ani-meta-key">Animated</div>
-          <div v-if="hasAnimationCredit"><FilmGrid :films="person.animated" small /></div>
+          <div v-if="hasAnimationCredit">
+            <AnimationGrid :sequences="person.animated" />
+          </div>
 
           <div v-if="hasDirectingCredit" class="ani-meta-key">Directed</div>
-          <div v-if="hasDirectingCredit"><FilmGrid :films="person.directed" small /></div>
+          <div v-if="hasDirectingCredit">
+            <FilmGrid :films="person.directed" small />
+          </div>
 
           <div v-if="hasWritingCredit" class="ani-meta-key">Wrote</div>
-          <div v-if="hasWritingCredit"><FilmGrid :films="person.wrote" small /></div>
+          <div v-if="hasWritingCredit">
+            <FilmGrid :films="person.wrote" small />
+          </div>
 
           <div v-if="hasComposingCredit" class="ani-meta-key">Composed</div>
-          <div v-if="hasComposingCredit"><FilmGrid :films="person.composed" small /></div>
+          <div v-if="hasComposingCredit">
+            <FilmGrid :films="person.composed" small />
+          </div>
         </div>
       </div>
     </div>

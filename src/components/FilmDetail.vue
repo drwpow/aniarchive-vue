@@ -39,8 +39,7 @@ export default {
     <div class="ani-filmdetail-details">
       <h1 class="ani-filmdetail-title">
         {{ film.title }}
-        <br />
-        {{ film.titleEN }}
+        <div v-if="film.title !== film.titleEN">{{ film.titleEN }}</div>
       </h1>
       {{ film.releaseYear }}
       <div class="ani-filmdetail-meta">
@@ -50,30 +49,36 @@ export default {
             <StudioLink :studio="film.studio" />
           </div>
 
-          <div v-if="hasDirectors" class="ani-meta-key">
-            Director{{ film.directors.length > 1 ? 's' : '' }}
-          </div>
+          <div
+            v-if="hasDirectors"
+            class="ani-meta-key"
+          >Director{{ film.directors.length > 1 ? 's' : '' }}</div>
           <div v-if="hasDirectors" class="ani-meta-val">
             <PersonLink v-for="person in film.directors" :key="person.id" :person="person" />
           </div>
 
-          <div v-if="hasWriters" class="ani-meta-key">
-            Writer{{ film.writers.length > 1 ? 's' : '' }}
-          </div>
+          <div v-if="hasWriters" class="ani-meta-key">Writer{{ film.writers.length > 1 ? 's' : '' }}</div>
           <div v-if="hasWriters" class="ani-meta-val">
             <PersonLink v-for="person in film.writers" :key="person.id" :person="person" />
           </div>
 
-          <div v-if="hasComposers" class="ani-meta-key">
-            Composer{{ film.composers.length > 1 ? 's' : '' }}
-          </div>
+          <div
+            v-if="hasComposers"
+            class="ani-meta-key"
+          >Composer{{ film.composers.length > 1 ? 's' : '' }}</div>
           <div v-if="hasComposers" class="ani-meta-val">
             <PersonLink v-for="person in film.composers" :key="person.id" :person="person" />
           </div>
         </div>
       </div>
       <div v-if="hasSakuga" class="ani-filmdetail-animations">
-        <h2 class="ani-filmdetail-subtitle">Sakuga</h2>
+        <h2
+          class="ani-filmdetail-subtitle"
+          title="Sakuga means “quality animation.” The following clips can be browsed on the third-party website sakugabooru.com (this website is not affiliated in any way with sakugabooru.com)"
+        >
+          Sakuga
+          <sup>?</sup>
+        </h2>
         <AnimationGrid :sequences="film.animationSequences" />
       </div>
       <div v-if="hasReleases">

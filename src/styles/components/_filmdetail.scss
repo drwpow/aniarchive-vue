@@ -26,5 +26,16 @@ $prefix: '' !default;
     font-size: var(--u3);
     margin-block-end: 1rem;
     margin-block-start: 1rem;
+
+    sup {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.25em;
+      height: 1.25em;
+      font-size: var(--d5);
+      border: 1px solid currentColor;
+      border-radius: 50%;
+    }
   }
 }

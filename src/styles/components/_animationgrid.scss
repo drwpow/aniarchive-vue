@@ -1,11 +1,29 @@
 $prefix: '' !default;
 
 .#{$prefix}-animationgrid {
+  position: relative;
   display: grid;
   grid-gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 
+  &-artists {
+    display: grid;
+    grid-gap: 0.5em;
+    margin-top: 0.5rem;
+  }
+
+  &-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   &-item {
+    overflow: hidden;
+  }
+
+  &-link {
     position: relative;
     display: block;
     overflow: hidden;
@@ -31,13 +49,6 @@ $prefix: '' !default;
       &::after {
         opacity: 1;
       }
-    }
-
-    & img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
   }
 }
