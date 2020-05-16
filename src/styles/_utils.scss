@@ -1,0 +1,47 @@
+// ----------
+// (G)rid
+// ----------
+
+$columns: 12;
+
+.grid {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat($columns, 1fr);
+  box-sizing: border-box;
+
+  @for $i from 1 through $columns {
+    &__col--#{$i} {
+      grid-column: span $i;
+    }
+  }
+
+  @for $i from 0 through 16 {
+    &--#{$i} {
+      grid-gap: #{$i / 2}rem;
+    }
+  }
+}
+
+// ---------------------
+//  (M)argin & (P)adding
+// ---------------------
+
+$directions: 'b' 'bottom', 'l' 'left', 't' 'top', 'r' 'right';
+$max-size: 16;
+
+@each $abbr, $direction in $directions {
+  @for $i from 0 through $max-size {
+    .m#{$abbr}#{$i} {
+      margin-#{$direction}: #{$i/2}rem;
+    }
+  }
+}
+
+@each $abbr, $direction in $directions {
+  @for $i from 0 through $max-size {
+    .p#{$abbr}#{$i} {
+      padding-#{$direction}: #{$i/2}rem;
+    }
+  }
+}

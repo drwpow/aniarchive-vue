@@ -1,0 +1,13 @@
+$prefix: '' !default;
+
+.#{$prefix}-meta {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: min-content auto;
+  margin-top: 2rem;
+
+  &-key {
+    font-weight: 700;
+    white-space: nowrap;
+  }
+}

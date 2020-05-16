@@ -1,66 +1,27 @@
 {
-  "name": "aniarchive-www",
+  "name": "aniarchive-vue",
   "author": {
     "email": "drew@pow.rs",
     "name": "Drew Powers"
   },
   "scripts": {
-    "build": "npm run build:copy && NODE_ENV=production npm run build:css && npm run build:gql && tsc",
-    "build:copy": "cpx 'src/*.html' public",
-    "build:css": "postcss src/styles.css -o public/app.min.css",
-    "build:css:watch": "postcss -w src/styles.css -o public/app.min.css",
-    "build:gql": "node scripts/graphql",
-    "build:watch": "npm run build && concurrently 'tsc -w' 'npm run build:copy --watch' 'npm run build:css:watch'",
-    "dev": "concurrently 'npm run build:watch' 'npm start'",
-    "generate:gql": "graphql-codegen --config codegen.yml",
-    "lint": "npm run lint:js && npm run lint:css",
-    "lint:css": "stylelint 'client/**/*.ts'",
-    "lint:js": "eslint --ext .js,.jsx,.ts,.tsx src",
-    "postinstall": "NODE_ENV=production snowpack --dest public/web_modules --optimize --clean",
-    "start": "serve -s public",
-    "typecheck": "tsc --noEmit"
-  },
-  "snowpack": {
-    "dedupe": [],
-    "webDependencies": [
-      "preact",
-      "preact/hooks",
-      "preact-router"
-    ]
+    "prepare": "snowpack",
+    "start": "concurrently 'snowpack dev' 'sass --watch src/styles/app.scss:src/styles/app.css'",
+    "build": "snowpack build && sass src/styles/app.scss:build/_dist_/styles/app.css --style compressed"
   },
   "dependencies": {
-    "cssnano": "^4.1.10",
-    "postcss-cli": "^7.1.0",
-    "postcss-easy-import": "^3.0.0",
-    "postcss-preset-env": "^6.7.0",
-    "preact": "^10.3.4",
-    "preact-router": "^3.2.1"
+    "vue": "^3.0.0-beta.12",
+    "vue-router": "^4.0.0-alpha.11"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.13.1",
-    "@graphql-codegen/typescript": "^1.13.1",
-    "@graphql-codegen/typescript-operations": "^1.13.1",
-    "@types/node": "^13.11.0",
-    "@typescript-eslint/eslint-plugin": "^2.26.0",
-    "@typescript-eslint/parser": "^2.26.0",
-    "concurrently": "^5.1.0",
-    "cpx": "^1.5.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^3.0.0",
-    "gqlmin": "0.0.1",
-    "prettier": "^2.0.2",
-    "serve": "^11.3.0",
-    "snowpack": "^1.6.0",
-    "stylelint": "^13.3.0",
+    "@snowpack/app-scripts-vue": "^0.4.0",
+    "concurrently": "^5.2.0",
+    "prettier": "^2.0.5",
+    "sass": "^1.26.5",
+    "snowpack": "^2.0.0-beta.20",
+    "stylelint": "^13.3.3",
     "stylelint-config-prettier": "^8.0.1",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-order": "^4.0.0",
-    "typescript": "^3.8.3"
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^20.0.0"
   }
 }

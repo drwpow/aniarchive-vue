@@ -1,7 +1,14 @@
 module.exports = {
-  extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
-  plugins: ['stylelint-order'],
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-config-rational-order',
+    'stylelint-config-prettier',
+  ],
   rules: {
-    'order/properties-alphabetical-order': true,
+    'at-rule-no-unknown': [
+      true,
+      { ignoreAtRules: ['use', 'each', 'for', 'mixin', 'extend', 'include'] },
+    ], // allow Sass syntax,
   },
+  syntax: 'scss',
 };

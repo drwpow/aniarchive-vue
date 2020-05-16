@@ -1,18 +1,21 @@
-# 👻 aniarchive-www
+# 👻 aniarchive-vue
 
-🚧 In Development 🏗️
+> ✨ Bootstrapped with Create Snowpack App (CSA).
 
-Front-end app for browsing [The Animation Archive API][gql]. Uses [snowpack][snowpack] +
-[preact][preact].
+[Vue][vue] implementation of the Animation Archive.
 
 ## Setup
 
 ```bash
 npm install
-npm run build
 npm start
 ```
 
-[preact]: https://github.com/preactjs/preact
-[snowpack]: https://github.com/pikapkg/snowpack
+## Other versions
+
+- Preact (coming soon!)
+- Svelte (coming… maybe?)
+
+[vue]: https://github.com/preactjs/preact
+[csa]: https://github.com/pikapkg/create-snowpack-app
 [gql]: https://github.com/dangodev/aniarchive-gql
