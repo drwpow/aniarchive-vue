@@ -10,16 +10,16 @@
     "build": "snowpack build && sass src/styles/app.scss:build/_dist_/styles/app.css --style compressed"
   },
   "dependencies": {
-    "vue": "^3.0.0-beta.12",
+    "vue": "^3.0.0-beta.14",
     "vue-router": "^4.0.0-alpha.11"
   },
   "devDependencies": {
-    "@snowpack/app-scripts-vue": "^0.4.0",
+    "@snowpack/app-scripts-vue": "^0.6.1",
     "concurrently": "^5.2.0",
     "prettier": "^2.0.5",
     "sass": "^1.26.5",
-    "snowpack": "^2.0.0-beta.20",
-    "stylelint": "^13.3.3",
+    "snowpack": "^2.0.0-rc.1",
+    "stylelint": "^13.4.1",
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^20.0.0"

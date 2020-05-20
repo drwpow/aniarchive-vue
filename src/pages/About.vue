@@ -11,8 +11,7 @@ export default {
     <section class="ani-wrapper">
       <NavBack />
       <h1>About</h1>
-      <p>The goal of this project is to build a cross-referenced database of animation history.</p>
-      <p>While there are other efforts that have attempted this, nothing has truly been crossed-referenced in a browsable way. Or if it has, it’s been stripped of information about the animators and artists that made it possible.</p>
+      <p>The goal of this project is to build a cross-referenced database of animation history. Purely for fun, as well as honoring the artists that gave life to beloved animated films.</p>
       <p>The project itself is the work of <a target="_blank" rel="noopener nofollow" href="https://pow.rs">Drew Powers</a>.</p>
       <h2 class="mt4">API</h2>
       <p>The first way this archive makes information accessible is via the <a target="_blank" rel="noopener nofollow" href="https://api.aniarchive.org">GraphQL API</a> (<a target="_blank" rel="noopener nofollow" href="https://github.com/dangodev/aniarchive-gql">source</a>). This resource will always be 100% free to browse or use for personal purposes. This free service is provided as-is, and you may be ratelimited at any time for any reason.</p>

@@ -2,7 +2,7 @@ $prefix: '' !default;
 
 .#{$prefix}-wrapper {
   box-sizing: content-box;
-  width: 100%;
+  width: calc(100vw - 3rem);
   max-width: 75rem;
   margin-right: auto;
   margin-left: auto;

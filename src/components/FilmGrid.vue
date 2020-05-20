@@ -15,7 +15,7 @@ export default {
 <template>
   <div>
     <!-- Loaded -->
-    <div v-if="films" class="ani-filmgrid" :data-small="small || undefined">
+    <div v-if="films" class="ani-unigrid" :data-small="small || undefined">
       <router-link
         v-for="{ animationSequences, title, titleEN, id, image, releaseYear } in films"
         :key="id"
@@ -29,19 +29,16 @@ export default {
             loading="lazy"
             :alt="title"
             :src="image.url"
-            height="425"
-            width="300"
+            height="270"
+            width="410"
           />
         </div>
-        <h3 class="ani-filmgrid-title">
-          {{ title }}
-          <small v-if="titleEN !== title">{{ titleEN }}</small>
-        </h3>
+        <h3 class="ani-filmgrid-title">{{ titleEN }}</h3>
         <div class="ani-filmgrid-year">{{ releaseYear }}</div>
       </router-link>
     </div>
     <!-- 💀 Skeleton -->
-    <div v-if="!films" class="ani-filmgrid" data-skeleton>
+    <div v-if="!films" class="ani-unigrid" data-skeleton>
       <div v-for="(_, i) in placeholders" :key="i" class="ani-filmgrid-card">
         <div class="ani-filmgrid-img">
           <div class="ani-skeleton--img" />

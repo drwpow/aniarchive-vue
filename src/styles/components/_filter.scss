@@ -1,9 +1,6 @@
 $prefix: '' !default;
 
 .#{$prefix}-filter {
-  display: grid;
-  grid-gap: 1.5rem;
-  grid-template-columns: calc(50% - 0.75rem) 1fr 1fr;
   margin-bottom: 2rem;
 
   &-dropdown {
@@ -12,6 +9,10 @@ $prefix: '' !default;
     display: flex;
     margin: 0;
     padding: 0;
+
+    @media (min-width: 900px) {
+      grid-column: span 2;
+    }
   }
 
   &-expand {
@@ -77,9 +78,19 @@ $prefix: '' !default;
     border: 1px solid hsl(var(--bg-offset-2));
     border-radius: 0.25em;
     transition: border-color 150ms linear;
+    -webkit-appearance: none;
+    appearance: none;
 
     &:focus {
       border-color: hsl(0, 0%, 50%);
+    }
+
+    @media (min-width: 600px) {
+      grid-column: span 2;
+    }
+
+    @media (min-width: 900px) {
+      grid-column: span 4;
     }
   }
 

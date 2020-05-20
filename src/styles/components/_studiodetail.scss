@@ -1,18 +1,15 @@
 $prefix: '' !default;
 
 .#{$prefix}-studiodetail {
-  display: grid;
-  grid-gap: 1.5rem;
-  grid-template-columns: calc(25% - 0.75rem) auto;
+  &-details {
+    grid-column: span 2;
 
-  &-films {
-    grid-column-start: 1;
-    grid-column-end: 3;
+    @media (min-width: 900px) {
+      grid-column: span 6;
+    }
   }
 
-  &-title {
-    font-weight: 300;
-    font-size: var(--u4);
-    margin-block-start: 0;
+  &-img {
+    grid-column: span 2;
   }
 }

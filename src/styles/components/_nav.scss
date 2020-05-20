@@ -2,7 +2,7 @@ $prefix: '' !default;
 
 .#{$prefix}-nav {
   height: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   border-bottom: 1px solid hsl(var(--fg-offset));
 
   & a {

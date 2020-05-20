@@ -78,7 +78,7 @@ export default {
   <div>
     <main rel="main" class="ani-block">
       <section class="ani-wrapper">
-        <header class="ani-filter">
+        <header class="ani-filter ani-unigrid">
           <div
             class="ani-filter-overlay"
             :data-visible="(dropdownYears || dropdownStudios) || undefined"

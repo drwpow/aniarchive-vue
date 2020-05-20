@@ -98,81 +98,86 @@ export default {
 </script>
 
 <template>
-  <div v-if="person" class="ani-persondetail">
-    <div class="ani-persondetail-img">
-      <img
-        v-if="person.image"
-        class="ani-persondetail-photo"
-        :src="person.image.url"
-        :alt="person.image.title"
-        width="400"
-      />
-      <img
-        v-if="!person.image && person.animated && person.animated.length"
-        loading="lazy"
-        class="ani-persondetail-photo"
-        :src="person.animated[Math.floor(Math.random()*person.animated.length)].image.url"
-      />
-    </div>
-    <div class="ani-persondetail-details">
-      <h1
-        class="ani-persondetail-title"
-      >{{ formattedName }} {{ !person.alias && person.kanji ? `(${person.kanji})` : '' }}</h1>
-      <p>{{ person.description }}</p>
-      <div class="ani-persondetail-meta">
-        <div class="ani-meta">
-          <div v-if="person.alias" class="ani-meta-key">Given Name</div>
-          <div v-if="person.alias" class="ani-meta-val">
-            {{ person.firstName }} {{ person.lastName }}
-            {{ person.kanji ? ` (${person.kanji})` : '' }}
-          </div>
+  <div>
+    <div v-if="person">
+      <div class="ani-persondetail ani-unigrid">
+        <div class="ani-persondetail-img">
+          <img
+            v-if="person.image"
+            class="ani-persondetail-photo"
+            :src="person.image.url"
+            :alt="person.image.title"
+            width="400"
+          />
+          <img
+            v-if="!person.image && person.animated && person.animated.length"
+            loading="lazy"
+            class="ani-persondetail-photo"
+            :src="person.animated[Math.floor(Math.random()*person.animated.length)].image.url"
+          />
+        </div>
+        <div class="ani-persondetail-details">
+          <h1
+            class="mt0 mb2"
+          >{{ formattedName }} {{ !person.alias && person.kanji ? `(${person.kanji})` : '' }}</h1>
+          <p>{{ person.description }}</p>
+          <div class="ani-persondetail-meta">
+            <div class="ani-meta">
+              <div v-if="person.alias" class="ani-meta-key">Given Name</div>
+              <div v-if="person.alias" class="ani-meta-val">
+                {{ person.firstName }} {{ person.lastName }}
+                {{ person.kanji ? ` (${person.kanji})` : '' }}
+              </div>
 
-          <div v-if="person.birthYear" class="ani-meta-key">Born</div>
-          <div v-if="person.birthYear" class="ani-meta-val">{{ born }}</div>
+              <div v-if="person.birthYear" class="ani-meta-key">Born</div>
+              <div v-if="person.birthYear" class="ani-meta-val">{{ born }}</div>
 
-          <div v-if="person.deathYear" class="ani-meta-key">Died</div>
-          <div v-if="person.deathYear" class="ani-meta-val">{{ died }}</div>
+              <div v-if="person.deathYear" class="ani-meta-key">Died</div>
+              <div v-if="person.deathYear" class="ani-meta-val">{{ died }}</div>
 
-          <div v-if="person.birthYear" class="ani-meta-key">Age</div>
-          <div v-if="person.birthYear" class="ani-meta-val">{{ age }}</div>
+              <div v-if="person.birthYear" class="ani-meta-key">Age</div>
+              <div v-if="person.birthYear" class="ani-meta-val">{{ age }}</div>
 
-          <div class="ani-meta-key">Country</div>
-          <div class="ani-meta-val">{{ person.country }}</div>
+              <div class="ani-meta-key">Country</div>
+              <div class="ani-meta-val">{{ person.country }}</div>
 
-          <div v-if="hasStudio" class="ani-meta-key">Founded</div>
-          <div v-if="hasStudio">
-            <StudioLink v-for="studio in person.founded" :key="studio.id" :studio="studio" />
-          </div>
-
-          <div v-if="hasAnimationCredit" class="ani-meta-key">Animated</div>
-          <div v-if="hasAnimationCredit">
-            <AnimationGrid :sequences="person.animated" />
-          </div>
-
-          <div v-if="hasDirectingCredit" class="ani-meta-key">Directed</div>
-          <div v-if="hasDirectingCredit">
-            <FilmGrid :films="person.directed" small />
-          </div>
-
-          <div v-if="hasWritingCredit" class="ani-meta-key">Wrote</div>
-          <div v-if="hasWritingCredit">
-            <FilmGrid :films="person.wrote" small />
-          </div>
-
-          <div v-if="hasComposingCredit" class="ani-meta-key">Composed</div>
-          <div v-if="hasComposingCredit">
-            <FilmGrid :films="person.composed" small />
+              <div v-if="hasStudio" class="ani-meta-key">Founded</div>
+              <div v-if="hasStudio">
+                <StudioLink v-for="studio in person.founded" :key="studio.id" :studio="studio" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <div v-if="hasAnimationCredit">
+        <h2 class="mt2 mb2">Animated</h2>
+        <AnimationGrid :sequences="person.animated" />
+      </div>
+
+      <div v-if="hasDirectingCredit">
+        <h2 class="mt2 mb2">Directed</h2>
+        <FilmGrid :films="person.directed" small />
+      </div>
+
+      <div v-if="hasWritingCredit">
+        <h2 class="mt2 mb2">Wrote</h2>
+        <FilmGrid :films="person.wrote" small />
+      </div>
+
+      <div v-if="hasComposingCredit">
+        <h2 class="mt2 mb2">Composed</h2>
+        <FilmGrid :films="person.composed" small />
+      </div>
     </div>
-  </div>
-  <div v-else class="ani-persondetail">
-    <div class="ani-skeleton--img" />
-    <div class="ani-persondetail-details">
-      <h1 class="ani-persondetail-title">
-        <div class="ani-skeleton">Winsor McCay</div>
-      </h1>
+
+    <div v-else class="ani-persondetail ani-unigrid">
+      <div class="ani-skeleton--img ani-persondetail-img" />
+      <div class="ani-persondetail-details">
+        <h1 class="mt0 mb2">
+          <div class="ani-skeleton">Winsor McCay</div>
+        </h1>
+      </div>
     </div>
   </div>
 </template>
