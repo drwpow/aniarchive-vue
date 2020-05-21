@@ -18,7 +18,7 @@
     "concurrently": "^5.2.0",
     "prettier": "^2.0.5",
     "sass": "^1.26.5",
-    "snowpack": "^2.0.0-rc.1",
+    "snowpack": "^2.0.0-rc.4",
     "stylelint": "^13.4.1",
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-rational-order": "^0.1.2",
