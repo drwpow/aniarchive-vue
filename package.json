@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "vue": "^3.0.0-rc.4",
-    "vue-router": "^4.0.0-beta.3"
+    "vue-router": "^4.0.0-beta.4"
   },
   "devDependencies": {
     "@snowpack/app-scripts-vue": "^1.8.1",
