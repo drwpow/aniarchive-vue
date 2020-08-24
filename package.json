@@ -16,7 +16,7 @@
   "devDependencies": {
     "@snowpack/app-scripts-vue": "^1.8.1",
     "concurrently": "^5.2.0",
-    "prettier": "^2.0.5",
+    "prettier": "^2.1.0",
     "sass": "^1.26.10",
     "snowpack": "^2.7.2",
     "stylelint": "^13.6.1",
