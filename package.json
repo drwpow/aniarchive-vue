@@ -10,7 +10,7 @@
     "build": "snowpack build && sass src/styles/app.scss:build/_dist_/styles/app.css --style compressed"
   },
   "dependencies": {
-    "vue": "^3.0.0-rc.5",
+    "vue": "^3.0.0-rc.10",
     "vue-router": "^4.0.0-beta.4"
   },
   "devDependencies": {
