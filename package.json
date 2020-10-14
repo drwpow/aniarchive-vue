@@ -6,19 +6,20 @@
   },
   "scripts": {
     "prepare": "snowpack",
-    "start": "concurrently 'snowpack dev' 'sass --watch src/styles/app.scss:src/styles/app.css'",
-    "build": "snowpack build && sass src/styles/app.scss:build/_dist_/styles/app.css --style compressed"
+    "start": "snowpack dev",
+    "build": "NODE_ENV=production snowpack build"
   },
   "dependencies": {
     "vue": "^3.0.0-rc.5",
     "vue-router": "^4.0.0-beta.4"
   },
   "devDependencies": {
-    "@snowpack/app-scripts-vue": "^1.8.1",
-    "concurrently": "^5.2.0",
+    "@snowpack/plugin-optimize": "^0.2.4",
+    "@snowpack/plugin-sass": "^1.0.1",
+    "@snowpack/plugin-vue": "^2.2.2",
     "prettier": "^2.0.5",
-    "sass": "^1.26.10",
-    "snowpack": "^2.7.2",
+    "sass": "^1.27.0",
+    "snowpack": "^2.14.0",
     "stylelint": "^13.6.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-rational-order": "^0.1.2",

@@ -1,3 +1,16 @@
 {
-  "extends": "@snowpack/app-scripts-vue"
+  "mount": {
+    "public": "/",
+    "src": "/_dist_"
+  },
+  "plugins": [
+    "@snowpack/plugin-vue",
+    [
+      "@snowpack/plugin-sass",
+      {
+        "style": "compressed"
+      }
+    ],
+    "@snowpack/plugin-optimize"
+  ]
 }
