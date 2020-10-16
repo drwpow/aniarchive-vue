@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@snowpack/plugin-optimize": "^0.2.4",
-    "@snowpack/plugin-sass": "^1.0.1",
+    "@snowpack/plugin-sass": "^1.1.0",
     "@snowpack/plugin-vue": "^2.2.2",
     "prettier": "^2.0.5",
     "sass": "^1.27.0",
