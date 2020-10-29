@@ -18,7 +18,7 @@
     "@snowpack/plugin-sass": "^1.0.1",
     "@snowpack/plugin-vue": "^2.2.2",
     "prettier": "^2.0.5",
-    "sass": "^1.27.0",
+    "sass": "^1.27.1",
     "snowpack": "^2.14.0",
     "stylelint": "^13.6.1",
     "stylelint-config-prettier": "^8.0.2",
