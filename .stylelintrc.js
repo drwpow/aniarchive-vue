@@ -9,6 +9,7 @@ module.exports = {
       true,
       { ignoreAtRules: ['use', 'each', 'for', 'mixin', 'extend', 'include'] },
     ], // allow Sass syntax,
+    'no-descending-specificity': null
   },
   syntax: 'scss',
 };

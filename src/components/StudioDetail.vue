@@ -1,10 +1,14 @@
 <script>
 import FilmGrid from './FilmGrid.vue';
 import PersonLink from './PersonLink.vue';
+import styles from './StudioDetail.module.scss';
 
 export default {
   props: {
     studio: Object,
+  },
+  data() {
+    return { styles };
   },
   computed: {
     hasFounders() {
@@ -18,13 +22,13 @@ export default {
 <template>
   <div>
     <div v-if="studio">
-      <div class="ani-studiodetail ani-unigrid">
-        <div class="ani-studiodetail-img">
+      <div class="ani-unigrid">
+        <div :class="styles.img">
           <img :src="studio.image.url" :alt="studio.name" width="400" />
         </div>
-        <div class="ani-studiodetail-details">
+        <div :class="styles.details">
           <h1 class="mt0 mb2">{{ studio.name }}</h1>
-          <div class="ani-studiodetail-meta">
+          <div>
             <div class="ani-meta">
               <div v-if="studio.foundedYear" class="ani-meta-key">Founded</div>
               <div v-if="studio.foundedYear" class="ani-meta-val">{{ studio.foundedYear }}</div>
@@ -48,10 +52,10 @@ export default {
       <FilmGrid :films="studio.films" />
     </div>
     <div v-else>
-      <div class="ani-studiodetail ani-unigrid">
-        <div class="ani-studiodetail-img ani-skeleton--img"></div>
-        <div class="ani-studiodetail-details">
-          <h1 class="ani-studiodetail-title">
+      <div class="ani-unigrid">
+        <div :class="{ [styles.img]: true, 'ani-skeleton--img': true }"></div>
+        <div :class="styles.details">
+          <h1>
             <div class="ani-skeleton">Studio Ghibli</div>
           </h1>
         </div>

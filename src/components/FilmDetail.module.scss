@@ -1,0 +1,18 @@
+.animations {
+  margin-block-start: 3rem;
+}
+
+.details {
+  grid-column: span 2;
+
+  @media (min-width: 900px) {
+    grid-column: span 6;
+  }
+}
+
+.img {
+  grid-column: span 2;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid hsl(var(--fg));
+}
