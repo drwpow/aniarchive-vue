@@ -5,21 +5,19 @@
     "name": "Drew Powers"
   },
   "scripts": {
-    "prepare": "snowpack",
     "start": "snowpack dev",
     "build": "NODE_ENV=production snowpack build"
   },
   "dependencies": {
-    "vue": "^3.0.0-rc.5",
-    "vue-router": "^4.0.0-beta.4"
+    "vue": "^3.0.2",
+    "vue-router": "^4.0.0-rc.1"
   },
   "devDependencies": {
-    "@snowpack/plugin-optimize": "^0.2.4",
-    "@snowpack/plugin-sass": "^1.0.1",
-    "@snowpack/plugin-vue": "^2.2.2",
-    "prettier": "^2.0.5",
-    "sass": "^1.27.0",
-    "snowpack": "^2.14.0",
+    "@snowpack/plugin-optimize": "^0.3.0-alpha.0",
+    "@snowpack/plugin-sass": "^1.1.1",
+    "@snowpack/plugin-vue": "^2.2.4",
+    "prettier": "^2.1.2",
+    "snowpack": "^2.15.1",
     "stylelint": "^13.6.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-rational-order": "^0.1.2",

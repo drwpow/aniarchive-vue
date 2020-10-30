@@ -1,0 +1,11 @@
+.details {
+  grid-column: span 2;
+
+  @media (min-width: 900px) {
+    grid-column: span 6;
+  }
+}
+
+.img {
+  grid-column: span 2;
+}

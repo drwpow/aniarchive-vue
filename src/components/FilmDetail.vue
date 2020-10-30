@@ -1,10 +1,14 @@
 <script>
+import styles from './AnimationGrid.module.scss';
 import AnimationGrid from './AnimationGrid.vue';
 import PersonLink from './PersonLink.vue';
 import StudioLink from './StudioLink.vue';
 
 export default {
   props: { film: Object },
+  data() {
+    return { styles }
+  },
   computed: {
     hasStudio() {
       return this.film && this.film.studio;
@@ -36,15 +40,15 @@ export default {
 <template>
   <div>
     <div v-if="film">
-      <div class="ani-filmdetail ani-unigrid">
-        <img class="ani-filmdetail-img" :src="film.image.url" :alt="film.title" width="400" />
-        <div class="ani-filmdetail-details">
+      <div class="ani-unigrid">
+        <img :class="styles.img" :src="film.image.url" :alt="film.title" width="400" />
+        <div :class="styles.details">
           <h1 class="mt0 mb2">
             {{ film.title }}
             <div v-if="film.title !== film.titleEN">{{ film.titleEN }}</div>
           </h1>
           {{ film.releaseYear }}
-          <div class="ani-filmdetail-meta">
+          <div>
             <div class="ani-meta">
               <div v-if="hasStudio" class="ani-meta-key">Studio</div>
               <div v-if="hasStudio" class="ani-meta-val">
@@ -78,7 +82,7 @@ export default {
           </div>
         </div>
       </div>
-      <div v-if="hasSakuga" class="ani-filmdetail-animations">
+      <div v-if="hasSakuga" :class="styles.animations">
         <h2
           class="mt2 mb2"
           title="Sakuga means “quality animation.” The following clips can be browsed on the third-party website sakugabooru.com (this website is not affiliated in any way with sakugabooru.com)"
@@ -100,9 +104,9 @@ export default {
       </div>
     </div>
 
-    <div v-else class="ani-filmdetail ani-unigrid">
-      <div class="ani-skeleton--img ani-filmdetail-img"></div>
-      <div class="ani-filmdetail-details">
+    <div v-else class="ani-unigrid">
+      <div :class="{ [styles.img]: true, 'ani-skeleton-img': true }"></div>
+      <div Zclass="styles.details">
         <h1 class="mt0 mb2">
           <div class="ani-skeleton">This movie is loading</div>
         </h1>

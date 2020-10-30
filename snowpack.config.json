@@ -11,6 +11,6 @@
         "style": "compressed"
       }
     ],
-    "@snowpack/plugin-optimize"
+    ["@snowpack/plugin-optimize", { "preloadCSS": true, "preloadModules": true }]
   ]
 }

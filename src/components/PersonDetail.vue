@@ -2,6 +2,7 @@
 import AnimationGrid from './AnimationGrid.vue';
 import FilmGrid from './FilmGrid.vue';
 import StudioLink from './StudioLink.vue';
+import styles from './PersonDetail.module.scss';
 
 function addToMeta(films, title, meta) {
   films.forEach((film) => {
@@ -16,6 +17,9 @@ function addToMeta(films, title, meta) {
 export default {
   props: {
     person: Object,
+  },
+  data() {
+    return { styles };
   },
   computed: {
     age() {
@@ -100,11 +104,11 @@ export default {
 <template>
   <div>
     <div v-if="person">
-      <div class="ani-persondetail ani-unigrid">
-        <div class="ani-persondetail-img">
+      <div class="ani-unigrid">
+        <div :class="styles.img">
           <img
             v-if="person.image"
-            class="ani-persondetail-photo"
+            :class="styles.photo"
             :src="person.image.url"
             :alt="person.image.title"
             width="400"
@@ -112,16 +116,16 @@ export default {
           <img
             v-if="!person.image && person.animated && person.animated.length"
             loading="lazy"
-            class="ani-persondetail-photo"
-            :src="person.animated[Math.floor(Math.random()*person.animated.length)].image.url"
+            :class="styles.photo"
+            :src="person.animated[Math.floor(Math.random() * person.animated.length)].image.url"
           />
         </div>
-        <div class="ani-persondetail-details">
-          <h1
-            class="mt0 mb2"
-          >{{ formattedName }} {{ !person.alias && person.kanji ? `(${person.kanji})` : '' }}</h1>
+        <div :class="styles.details">
+          <h1 class="mt0 mb2">
+            {{ formattedName }} {{ !person.alias && person.kanji ? `(${person.kanji})` : '' }}
+          </h1>
           <p>{{ person.description }}</p>
-          <div class="ani-persondetail-meta">
+          <div>
             <div class="ani-meta">
               <div v-if="person.alias" class="ani-meta-key">Given Name</div>
               <div v-if="person.alias" class="ani-meta-val">
@@ -171,9 +175,9 @@ export default {
       </div>
     </div>
 
-    <div v-else class="ani-persondetail ani-unigrid">
-      <div class="ani-skeleton--img ani-persondetail-img" />
-      <div class="ani-persondetail-details">
+    <div v-else class="ani-unigrid">
+      <div :class="{ 'ani-skeleton--img': true, [styles.img]: true }" />
+      <div :class="styles.details">
         <h1 class="mt0 mb2">
           <div class="ani-skeleton">Winsor McCay</div>
         </h1>
