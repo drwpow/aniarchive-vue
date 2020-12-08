@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "vue": "^3.0.2",
-    "vue-router": "^4.0.0-rc.5"
+    "vue-router": "^4.0.1"
   },
   "devDependencies": {
     "@snowpack/plugin-optimize": "^0.3.0-alpha.0",
